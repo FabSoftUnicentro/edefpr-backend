@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
-use App\Http\Resources\Assisted as AssistedResource;
+use App\Models\Permission;
+use App\Http\Resources\Permission as PermissionResource;
 
-class AssistedList extends Controller
+class PermissionList extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -15,8 +15,8 @@ class AssistedList extends Controller
      */
     public function __invoke()
     {
-        $assisteds = Assisted::paginate($this->itemsPerPage);
+        $permissions = Permission::paginate($this->itemsPerPage);
 
-        return AssistedResource::collection($assisteds);
+        return PermissionResource::collection($permissions);
     }
 }
