@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
-use App\Http\Resources\Assisted as AssistedResource;
+use App\Models\Permission;
+use App\Http\Resources\Permission as PermissionResource;
 
-class AssistedDestroy extends Controller
+class PermissionDestroy extends Controller
 {
     /**
-     * @param Assisted $assisted
-     * @return AssistedResource
+     * @param Permission $permission
+     * @return PermissionResource
+     * @throws \Exception
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Permission $permission)
     {
-        $assisted->delete();
+        $permission->delete();
 
-        return new AssistedResource($assisted);
+        return new PermissionResource($permission);
     }
 }
