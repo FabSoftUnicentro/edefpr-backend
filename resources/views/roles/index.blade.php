@@ -23,7 +23,6 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">Nome</th>
                         <th class="text-center">Descrição</th>
                         <th class="text-center">Ação</th>
                     </tr>
@@ -32,7 +31,6 @@
                     @foreach ($roles as $role)
                         <tr class="text-center">
                             <td>{{ $role->id }}</td>
-                            <td>{{ $role->name }}</td>
                             <td>{{ $role->description }}</td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('roles.show', $role->id) }}">
@@ -76,7 +74,7 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('roles.destroy', '_user') }}'.replace('_user', roleId),
+                            url: '{{ route('roles.destroy', '_role') }}'.replace('_role', roleId),
                             method: 'DELETE',
                             success: function (xhr) {
                                 swal("Sucesso!", "Nível de acesso deletado", "success");
