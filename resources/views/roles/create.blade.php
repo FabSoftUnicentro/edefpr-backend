@@ -17,9 +17,3 @@
         ])
     </div>
 @stop
-
-@section('js')
-    <script>
-        
-    </script>
-@endsection
