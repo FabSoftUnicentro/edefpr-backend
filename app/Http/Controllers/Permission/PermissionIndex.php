@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
-class AssistedIndex extends Controller
+class PermissionIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -18,10 +18,10 @@ class AssistedIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assisteds = Assisted::paginate($perPage);
+        $permissions = Permission::paginate($perPage);
 
-        return view('assisteds.index', [
-            'assisteds' => $assisteds
+        return view('permissions.index', [
+            'permissions' => $permissions
         ]);
     }
 }
