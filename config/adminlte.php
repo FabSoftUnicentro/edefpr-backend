@@ -177,7 +177,7 @@ return [
                 ],
                 [
                     'text' => 'Níveis de acesso',
-                    'url'  => '*',
+                    'route' => 'roles.index',
                     'active' => ['access-levels'],
                     'can' => 'update-role'
                 ],
