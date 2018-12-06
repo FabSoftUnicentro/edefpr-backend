@@ -25,7 +25,6 @@
                         <th class="text-center">#</th>
                         <th class="text-center">Descrição</th>
                         <th class="text-center">Ação</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +32,6 @@
                         <tr class="text-center">
                             <td>{{ $permission->id }}</td>
                             <td>{{ $permission->description }}</td>
-
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('permissions.show', $permission->id)  }}">
                                     Visualizar
@@ -83,7 +81,7 @@
                                 window.location.reload();
                             },
                             error: function (xhr) {
-                                swal("Falha!", "Permissão não pôde ser excluído", "error");
+                                swal("Falha!", "Permissão não pôde ser excluída", "error");
                             }
                         });
                         break;
