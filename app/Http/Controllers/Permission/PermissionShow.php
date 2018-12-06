@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Permission;
 
-class AssistedShow extends Controller
+class PermissionShow extends Controller
 {
     /**
-     * @param Assisted $assisted
+     * @param Permission $permission
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Permission $permission)
     {
-        return view('assisteds.show', [
-            'assisted' => $assisted
+        return view('permissions.show', [
+            'permission' => $permission
         ]);
     }
 }
