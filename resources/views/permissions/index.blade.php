@@ -1,20 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'Assistidos')
+@section('title', 'Permissão')
 
 @section('css')
 @endsection
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Assistidos</h1>
+    <h1>Permissões</h1>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.create') }}">Cadastrar assistido</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('permissions.create') }}">Cadastrar permissão</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -23,29 +23,25 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">Nome</th>
-                        <th class="text-center">CPF</th>
-                        <th class="text-center">RG</th>
-                        <th class="text-center">Email</th>
+                        <th class="text-center">Descrição</th>
                         <th class="text-center">Ação</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($assisteds as $assisted)
+                    @foreach ($permissions as $permission)
                         <tr class="text-center">
-                            <td>{{ $assisted->id }}</td>
-                            <td>{{ $assisted->name }}</td>
-                            <td>{{ $assisted->cpf }}</td>
-                            <td>{{ $assisted->rg }}</td>
-                            <td>{{ $assisted->email }}</td>
+                            <td>{{ $permission->id }}</td>
+                            <td>{{ $permission->description }}</td>
+
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.show', $assisted->id) }}">
+                                <a class="btn btn-xs btn-primary" href="{{ route('permissions.show', $permission->id)  }}">
                                     Visualizar
                                 </a>
-                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.edit', $assisted->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('permissions.edit', $permission->id) }}">
                                     Editar
                                 </a>
-                                <a class="btn btn-xs btn-danger assisted-destroy" data-id="{{ $assisted->id }}">
+                                <a class="btn btn-xs btn-danger permission-destroy" data-id="{{ $permission->id }}">
                                     Excluir
                                 </a>
                             </td>
@@ -56,7 +52,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix text-center">
-            {{ $assisteds->links() }}
+            {{ $permissions->links() }}
         </div>
     </div>
 @stop
@@ -64,10 +60,10 @@
 @section('js')
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('.assisted-destroy').on('click', function () {
-            var assistedId = $(this).data('id');
+        $('.permission-destroy').on('click', function () {
+            var permissionId = $(this).data('id');
 
-            swal("Confirma a exclusão do assistido?", {
+            swal("Confirma a exclusão do permissão?", {
                 buttons: {
                     cancel: "Cancelar",
                     catch: {
@@ -80,14 +76,14 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('assisteds.destroy', '_user') }}'.replace('_user', assistedId),
+                            url: '{{ route('permissions.destroy', '_permission') }}'.replace('_permission', permissionId),
                             method: 'DELETE',
                             success: function (xhr) {
-                                swal("Sucesso!", "Assistido deletado", "success");
+                                swal("Sucesso!", "Permissão deletada", "success");
                                 window.location.reload();
                             },
                             error: function (xhr) {
-                                swal("Falha!", "Assistido não pôde ser excluído", "error");
+                                swal("Falha!", "Permissão não pôde ser excluído", "error");
                             }
                         });
                         break;
