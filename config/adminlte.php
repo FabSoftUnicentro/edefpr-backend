@@ -132,7 +132,7 @@ return [
                 ],
                 [
                     'text' => 'Tipo de Atendimento',
-                    'url'  => '*',
+                    'route'  => 'attendmentTypes.index',
                     'active' => ['attendment-types']
                 ]
             ]
