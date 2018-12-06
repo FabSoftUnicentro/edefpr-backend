@@ -15,9 +15,3 @@
         'form' => $form
     ])
 @stop
-
-@section('js')
-    <script>
-        
-    </script>
-@endsection
