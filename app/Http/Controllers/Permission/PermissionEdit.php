@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Permission;
 
-use App\Forms\Assisted\AssistedForm;
+use App\Forms\Permission\PermissionForm;
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Permission;
 
-class AssistedEdit extends Controller
+class PermissionEdit extends Controller
 {
     /**
-     * @param Assisted $assisted
+     * @param Permission $permission
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Permission $permission)
     {
-        $form = $this->formBuilder->create(AssistedForm::class, [
-            'url' => route('assisteds.update', $assisted->id),
+        $form = $this->formBuilder->create(PermissionForm::class, [
+            'url' => route('permissions.update', $permission->id),
             'method' => 'PUT',
-            'model' => $assisted
+            'model' => $permission
         ]);
 
-        return view('assisteds.edit', [
+        return view('permissions.edit', [
             'form' => $form
         ]);
     }
