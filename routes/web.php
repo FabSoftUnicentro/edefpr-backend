@@ -88,3 +88,26 @@ $this->get('/internal-server-error', function () {
 })->name('500');
 
 Auth::routes();
+
+// AttendmentType routes
+$this->group(['middleware' => ['auth'], 'namespace' => 'AttendmentType', 'prefix' => 'attendment-type'],
+     function() {
+        $this->group([], function () {
+            $this->get('/create', 'AttendmentTypeCreate')->name('attendmentTypes.create');
+            $this->post('/', 'AttendmentTypeStore')->name('attendmentTypes.store');
+        });
+    
+        $this->group([], function () {
+            $this->get('/{attendmentType}/edit', 'AttendmentTypeEdit')->name('attendmentTypes.edit');
+            $this->put('/{attendmentType}', 'AttendmentTypeUpdate')->name('attendmentTypes.update');
+        });
+    
+        $this->group([], function () {
+            $this->get('/list', 'AttendmentTypeIndex')->name('attendmentTypes.index');
+            $this->get('/{attendmentType}', 'AttendmentTypeShow')->name('attendmentTypes.show');
+        });
+    
+        $this->group([], function () {
+            $this->delete('/{attendmentType}', 'AttendmentTypeDestroy')->name('attendmentTypes.destroy');
+        });
+});
