@@ -17,7 +17,7 @@
                 <a class="btn btn-xs btn-primary" href="{{ route('attendmentTypes.create') }}">Cadastrar tipo de atendimento</a>
             </div>
         </div>
-        
+
         <div class="box-body">
             <table class="table table-bordered table-condensed">
                 <thead>
