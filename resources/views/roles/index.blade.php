@@ -14,6 +14,7 @@
     <div class="box">
         <div class="box-header with-border">
             <div class="pull-right">
+                <a class="btn btn-xs btn-primary" href="{{ route('roles.assign') }}">Atribuir Papeis</a>
                 <a class="btn btn-xs btn-primary" href="{{ route('roles.create') }}">Cadastrar Nível de Acesso</a>
             </div>
         </div>
