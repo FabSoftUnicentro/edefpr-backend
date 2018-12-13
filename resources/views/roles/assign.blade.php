@@ -6,7 +6,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Nível de Acesso {{ $role->name }}</h1>
+    <h1>Nível de Acesso</h1>
 @stop
 
 @section('content')
@@ -16,10 +16,6 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="col-md-6">
-                <h2>Informações</h2>
-
-                <p> Nome: {{ $role->name }} </p>
-                <p> Descrição: {{ $role->description }} </p>
             </div>
         </div>
     </div>
