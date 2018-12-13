@@ -15,6 +15,8 @@ class UserShow extends Controller
      */
     public function __invoke(User $user)
     {
-        return new UserResource($user);
+        return view('users.show', [
+            'user' => $user
+        ]);
     }
 }
