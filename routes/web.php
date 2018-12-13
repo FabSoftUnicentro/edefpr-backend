@@ -50,7 +50,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'User', 'prefix' => 'user
     });
 });
 
-// User routes
+// Assisted routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'Assisted', 'prefix' => 'assisteds'],
     function() {
     
@@ -74,6 +74,30 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Assisted', 'prefix' => '
     });
 });
 
+// Role routes
+$this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'roles'],
+    function() {
+    
+    $this->group(['middleware' => ['permission:register-role']], function () {
+        $this->get('/create', 'RoleCreate')->name('roles.create');
+        $this->post('/', 'RoleStore')->name('roles.store');
+    });
+
+    $this->group(['middleware' => ['permission:update-role']], function () {   
+        $this->get('/{role}/edit', 'RoleEdit')->name('roles.edit');
+        $this->put('/{role}', 'RoleUpdate')->name('roles.update');
+    });
+
+    $this->group(['middleware' => ['permission:read-role']], function () {
+        $this->get('/list', 'RoleIndex')->name('roles.index');
+        $this->get('/{role}', 'RoleShow')->name('roles.show');
+    });
+
+    $this->group(['middleware' => ['permission:delete-role']], function () {
+        $this->delete('/{role}', 'RoleDestroy')->name('roles.destroy');
+    });
+});
+
 // Postcode routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'Postcode', 'prefix' => 'postcode'], function() {
     $this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
@@ -86,6 +110,28 @@ $this->get('/page-not-found', function () {
 $this->get('/internal-server-error', function () {
     return view('error.500');
 })->name('500');
+
+// Permission Routes
+$this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' => 'permission'], function() {
+    $this->group(['middleware' => ['permission:register-permission']], function () {
+        $this->get('/create', 'PermissionCreate')->name('permissions.create');
+        $this->post('/', 'PermissionStore')->name('permissions.store');
+    });
+
+    $this->group(['middleware' => ['permission:update-permission']], function () {
+        $this->get('/{permission}/edit', 'PermissionEdit')->name('permissions.edit');
+        $this->put('/{permission}', 'PermissionUpdate')->name('permissions.update');
+    });
+
+    $this->group(['middleware' => ['permission:list-permission']], function() {
+        $this->get('/list', 'PermissionIndex')->name('permissions.index');
+        $this->get('/{permission}', 'PermissionShow')->name('permissions.show');
+    });
+
+    $this->group(['middleware' => ['permission:delete-permission']], function () {
+        $this->delete('/{permission}', 'PermissionDestroy')->name('permissions.destroy');
+    });
+});
 
 Auth::routes();
 

@@ -171,13 +171,13 @@ return [
                 ],
                 [
                     'text' => 'Permissões',
-                    'url'  => '*',
+                    'route' => 'permissions.index',
                     'active' => ['permissions'],
-                    'can' => 'update-permission'
+                    'can' => 'list-permission'
                 ],
                 [
                     'text' => 'Níveis de acesso',
-                    'url'  => '*',
+                    'route' => 'roles.index',
                     'active' => ['access-levels'],
                     'can' => 'update-role'
                 ],
