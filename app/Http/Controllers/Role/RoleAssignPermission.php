@@ -1,23 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\User as UserResource;
-use App\Models\User;
+use App\Models\Role;
+use Illuminate\Http\Request;
 
-class UserAssignPermission extends Controller
+class RoleAssignPermission extends Controller
 {
     /**
-     * @param User $user
-     * @param $permission
-     * @return UserResource
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(User $user, $permission)
+    public function __invoke(Request $request)
     {
-        /** User $user */
-        $user->givePermissionTo($permission);
+        dd('sdasd');
+        $perPage = $request->query->get('perPage', 10);
 
-        return new UserResource($user);
+        $roles = Role::query($perPage);
+
+        return view('roles.assign', [
+            'roles' => $roles
+        ]);
     }
 }

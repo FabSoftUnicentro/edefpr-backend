@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\User as UserResource;
-use App\Models\User;
+use App\Http\Resources\Role as RoleResource;
+use App\Models\Role;
 
-class UserUnassignPermission extends Controller
+class RoleUnassignPermission extends Controller
 {
     /**
-     * @param User $user
+     * @param Role $role
      * @param $permission
-     * @return UserResource
+     * @return RoleResource
      */
-    public function __invoke(User $user, $permission)
+    public function __invoke(Role $role, $permission)
     {
-        /** User $user */
-        $user->revokePermissionTo($permission);
+        /** Role $role */
+        $role->revokePermissionTo($permission);
 
-        return new UserResource($user);
+        return new RoleResource($role);
     }
 }
