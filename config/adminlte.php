@@ -124,6 +124,7 @@ return [
         [
             'text' => 'Atendimento',
             'icon' => 'address-book',
+            'can' => 'list-attendmentType',
             'submenu' => [
                 [
                     'text' => 'Atendimentos',
