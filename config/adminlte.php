@@ -124,6 +124,7 @@ return [
         [
             'text' => 'Atendimento',
             'icon' => 'address-book',
+            'can' => 'list-attendmentType',
             'submenu' => [
                 [
                     'text' => 'Atendimentos',
@@ -132,7 +133,7 @@ return [
                 ],
                 [
                     'text' => 'Tipo de Atendimento',
-                    'url'  => '*',
+                    'route'  => 'attendmentTypes.index',
                     'active' => ['attendment-types']
                 ]
             ]
