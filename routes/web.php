@@ -96,6 +96,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'role
     $this->group(['middleware' => ['permission:delete-role']], function () {
         $this->delete('/{role}', 'RoleDestroy')->name('roles.destroy');
     });
+
+    $this->group(['middleware' => ['permission:assign-role-permission']], function () {
+        $this->get('/assign', 'RoleAssignPermission')->name('roles.assign');
+    });
 });
 
 // Postcode routes
