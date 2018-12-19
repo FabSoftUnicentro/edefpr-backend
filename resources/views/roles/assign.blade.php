@@ -16,6 +16,12 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="col-md-6">
+                <select>
+                <option></option>
+                    @foreach($roles as $role)
+                        <option value="{{ $role->name }}"> {{ $role->description }} </option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>
