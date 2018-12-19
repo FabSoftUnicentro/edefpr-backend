@@ -14,11 +14,7 @@ class RoleAssignPermission extends Controller
      */
     public function __invoke(Request $request)
     {
-        dd('sdasd');
-        $perPage = $request->query->get('perPage', 10);
-
-        $roles = Role::query($perPage);
-
+        $roles = Role::paginate();
         return view('roles.assign', [
             'roles' => $roles
         ]);
