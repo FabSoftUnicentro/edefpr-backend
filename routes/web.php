@@ -77,6 +77,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Assisted', 'prefix' => '
 // Role routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'roles'],
     function() {
+
+    $this->group(['middleware' => ['permission:assign-role-permission']], function () {
+        $this->get('/assign', 'RoleAssignPermission')->name('roles.assign');
+    });
     
     $this->group(['middleware' => ['permission:register-role']], function () {
         $this->get('/create', 'RoleCreate')->name('roles.create');
@@ -95,10 +99,6 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'role
 
     $this->group(['middleware' => ['permission:delete-role']], function () {
         $this->delete('/{role}', 'RoleDestroy')->name('roles.destroy');
-    });
-
-    $this->group(['middleware' => ['permission:assign-role-permission']], function () {
-        $this->get('/assign', 'RoleAssignPermission')->name('roles.assign');
     });
 });
 
