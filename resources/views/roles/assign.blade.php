@@ -16,10 +16,10 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="col-md-6">
-                <select>
+                <select onChange="selectRole()" id="selectOpt">
                 <option></option>
                     @foreach($roles as $role)
-                        <option value="{{ $role->name }}"> {{ $role->description }} </option>
+                        <option value="{{ $role->id }}"> {{ $role->description }} </option>
                     @endforeach
                 </select>
             </div>
@@ -28,4 +28,11 @@
 @stop
 
 @section('js')
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function selectRole() {
+            var selectedRole = document.getElementById("selectOpt");
+            alert(selectedRole.options[selectedRole.selectedIndex].value);
+        }
+    </script>
 @endsection
