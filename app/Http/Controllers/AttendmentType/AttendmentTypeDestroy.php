@@ -9,7 +9,7 @@ use App\Http\Resources\AttendmentType as AttendmentTypeResource;
 class AttendmentTypeDestroy extends Controller
 {
     /**
-     * @param AttendmentType $assisted
+     * @param AttendmentType $AttendmentType
      * @return AttendmentTypeResource
      */
     public function __invoke(AttendmentType $attendmentType)
