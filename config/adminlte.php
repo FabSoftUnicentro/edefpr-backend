@@ -128,7 +128,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Atendimentos',
-                    'url'  => '*',
+                    'route'  => 'attendments.index',
                     'active' => ['attendments']
                 ],
                 [
