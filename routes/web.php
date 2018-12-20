@@ -78,6 +78,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Assisted', 'prefix' => '
 $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'roles'],
     function() {
 
+    $this->get('/{role}/permissions', 'RoleAllPermissions')->name('roles.permissions');
+
     $this->group(['middleware' => ['permission:assign-role-permission']], function () {
         $this->get('/assign', 'RoleAssignPermission')->name('roles.assign');
     });
@@ -102,11 +104,6 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'role
     });
 });
 
-// Postcode routes
-$this->group(['middleware' => ['auth'], 'namespace' => 'Postcode', 'prefix' => 'postcode'], function() {
-    $this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
-});
-
 $this->get('/page-not-found', function () {
     return view('error.404');
 })->name('404');
@@ -128,6 +125,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' =>
     });
 
     $this->group(['middleware' => ['permission:list-permission']], function() {
+        $this->get('/', 'PermissionWithoutPaginate')->name('permissions.list');
         $this->get('/list', 'PermissionIndex')->name('permissions.index');
         $this->get('/{permission}', 'PermissionShow')->name('permissions.show');
     });
@@ -160,4 +158,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'AttendmentType', 'prefix
         $this->group(['middleware' => ['permission:delete-attendmentType']], function () {
             $this->delete('/{attendmentType}', 'AttendmentTypeDestroy')->name('attendmentTypes.destroy');
         });
+});
+
+// Postcode routes
+$this->group(['middleware' => ['auth'], 'namespace' => 'Postcode', 'prefix' => 'postcode'], function() {
+    $this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
 });
