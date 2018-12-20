@@ -14,9 +14,10 @@ class RoleAssignPermission extends Controller
      */
     public function __invoke(Request $request)
     {
-        $roles = Role::paginate();
+        $roles = Role::all();
+        
         return view('roles.assign', [
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 }
