@@ -34,4 +34,12 @@ class Contact extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Get the assisted that owns the contact.
+     */
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class, 'assisted_id');
+    }
 }
