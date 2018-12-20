@@ -8,7 +8,7 @@ use App\Models\AttendmentType;
 class AttendmentTypeShow extends Controller
 {
     /**
-     * @param Assisted $attendmentType
+     * @param AttendmentType $attendmentType
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function __invoke(AttendmentType $attendmentType)
