@@ -35,4 +35,14 @@ class Attendment extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class, 'assisted_id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(AttendmentType::class, 'type_id');
+    }
 }
