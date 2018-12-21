@@ -27,7 +27,7 @@ class AttendmentStore extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha ao cadastrar novo atendimento!' . $e->getMessage());
+                ->with('alert-danger', 'Falha ao cadastrar novo atendimento!');
         }
     }
 }
