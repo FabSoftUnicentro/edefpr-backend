@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
                     break;
                 case 403:
                     return redirect()->route('404');
-                    break;    
+                    break;
                 case 500:
                     return redirect()->route('500');
                     break;
