@@ -11,6 +11,7 @@ class RoleDestroy extends Controller
     /**
      * @param Role $role
      * @return RoleResource
+     * @throws \Exception
      */
     public function __invoke(Role $role)
     {
