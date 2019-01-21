@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
-class RoleAssignPermission extends Controller
+class RolePermission extends Controller
 {
     /**
      * @param Request $request
