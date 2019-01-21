@@ -81,7 +81,12 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'role
     $this->get('/{role}/permissions', 'RoleAllPermissions')->name('roles.permissions');
 
     $this->group(['middleware' => ['permission:assign-role-permission']], function () {
-        $this->get('/assign', 'RoleAssignPermission')->name('roles.assign');
+        $this->get('/assign', 'RolePermission')->name('roles.assign');
+        $this->put('/{role}/assign-permission/{permission}', 'RoleAssignPermission')->name('roles.assign.permission');
+    });
+
+    $this->group(['middleware' => ['permission:unassign-role-permission']], function () {
+        $this->put('/{role}/unassign-permission/{permission}', 'RoleUnassignPermission')->name('roles.unassign.permission');;
     });
     
     $this->group(['middleware' => ['permission:register-role']], function () {
