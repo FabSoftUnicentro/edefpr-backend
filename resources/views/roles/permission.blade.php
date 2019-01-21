@@ -16,6 +16,7 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="col-md-12">
+                <p>Selecione o papel para atribuição/desatribuição de permissão<p/>
                 <select id="selectOpt">
                 <option></option>
                     @foreach($roles as $role)
@@ -33,10 +34,18 @@
 @section('js')
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('#selectOpt').on('change', function () {
+        $('#selectOpt').click(function() {
             var selectedRole = $('#selectOpt');
             var permissionDiv = $('#permissions');
             var roleId = selectedRole.val();
+
+            $("#chkPassport").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#dvPassport").show();
+                } else {
+                    $("#dvPassport").hide();
+                }
+            });
 
             $.ajax ({
                 method: 'GET',
@@ -44,9 +53,11 @@
                 success: function(data) {
                     $.each(data, function(i, val) {
                         if (val.chosen) {
-                            permissionDiv.append('<input type="checkbox" checked onclick="fogoNaBabilonia()">' + val.name + '</br>');
+                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
+                                'onclick="check_uncheck_checkbox(id)" checked>'+val.name+'<br/>');
                         } else {
-                            permissionDiv.append('<input type="checkbox" onclick="fogoNaBabilonia()"/>' + val.name + '</br>');
+                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
+                                'onclick="check_uncheck_checkbox(id)"/>'+val.name+'<br/>');
                         }
                     });
                 },
@@ -56,8 +67,22 @@
             });
         });
 
-        function fogoNaBabilonia () {
-            alert("DJ CLEITON RASTA AO SOM DO CABEÇA DE GELO OLHA PEDRA")
+        function check_uncheck_checkbox(permissionId) {
+            var selectedRole = $('#selectOpt');
+            var roleId = selectedRole.val();
+
+            if(document.getElementById(permissionId).checked) {
+                $.ajax({
+                    method: 'PUT',
+                    url: '{{ route('roles.assign.permission', ['_role', '_permissionId']) }}'.replace('_role',  roleId).replace('_permissionId', permissionId),
+                });
+            }
+            else {
+                $.ajax({
+                    method: 'PUT',
+                    url: '{{ route('roles.unassign.permission', ['_role', '_permissionId']) }}'.replace('_role',  roleId).replace('_permissionId', permissionId),
+                });
+            }
         }
     </script>
 @endsection

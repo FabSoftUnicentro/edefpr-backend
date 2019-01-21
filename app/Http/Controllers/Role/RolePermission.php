@@ -16,7 +16,7 @@ class RolePermission extends Controller
     {
         $roles = Role::all();
         
-        return view('roles.assign', [
+        return view('roles.permission', [
             'roles' => $roles,
         ]);
     }
