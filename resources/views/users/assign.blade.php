@@ -1,37 +1,83 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar novo funcionário')
+@section('title', 'Visualizar nível de Acesso')
 
 @section('css')
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.proto.min.js">
 @endsection
 
 @section('content_header')
-    @include('helpers.flash-message')
-    <h1>Cadastrar novo funcionário</h1>
+    <h1>Nível de Acesso</h1>
 @stop
 
 @section('content')
-    @include('users._form', [
-        'form' => $form
-    ])
+    <div class="box">
+        <div class="box-header with-border">
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="col-md-12">
+                <p>Selecione o funcionário para atribuição/desatribuição de permissão<p/>
+                <select id="selectOpt">
+                    <option></option>
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}"> {{ $user->name }} </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-12 permissions" id="permissions">
+
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('js')
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('#postcode').change(function () {
-            $.ajax({
-                url: '{{ route('postcode.search', '_postcode') }}'.replace('_postcode', $('#postcode').val()),
-                success: function (xhr) {
-                    console.log(xhr);
-                    $('#uf').val(xhr.data.uf);
-                    $('#city').val(xhr.data.city);
-                    $('#neighborhood').val(xhr.data.neighborhood);
-                    $('#street').val(xhr.data.street);
-                    $('#number').focus();
+        $('#selectOpt').click(function() {
+            var selectedUser = $('#selectOpt');
+            var permissionDiv = $('#permissions');
+            var UserId = selectedUser.val();
+            $("#chkPassport").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#dvPassport").show();
+                } else {
+                    $("#dvPassport").hide();
                 }
             });
-        })
+            $.ajax ({
+                method: 'GET',
+                url: '{{ route('users.permissions', '_user') }}'.replace('_user', UserId),
+                success: function(data) {
+                    $.each(data, function(i, val) {
+                        if (val.chosen) {
+                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
+                                'onclick="check_uncheck_checkbox(id)" checked>'+val.description+'<br/>');
+                        } else {
+                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
+                                'onclick="check_uncheck_checkbox(id)"/>'+val.description+'<br/>');
+                        }
+                    });
+                },
+                error: function(data) {
+                }
+            });
+        });
+        function check_uncheck_checkbox(permissionId) {
+            var selectedUser = $('#selectOpt');
+            var userId = selectedUser.val();
+            if(document.getElementById(permissionId).checked) {
+                $.ajax({
+                    method: 'PUT',
+                    url: '{{ route('users.assign.permission', ['_user', '_permissionId']) }}'.replace('_user',  userId).replace('_permissionId', permissionId),
+                });
+            }
+            else {
+                $.ajax({
+                    method: 'PUT',
+                    url: '{{ route('users.unassign.permission', ['_user', '_permissionId']) }}'.replace('_user',  userId).replace('_permissionId', permissionId),
+                });
+            }
+        }
     </script>
 @endsection
