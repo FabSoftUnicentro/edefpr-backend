@@ -66,7 +66,7 @@
         function check_uncheck_checkbox(permissionId) {
             var selectedUser = $('#selectOpt');
             var userId = selectedUser.val();
-            if(document.getElementById(permissionId).checked) {
+            if (document.getElementById(permissionId).checked) {
                 $.ajax({
                     method: 'PUT',
                     url: '{{ route('users.assign.permission', ['_user', '_permissionId']) }}'.replace('_user',  userId).replace('_permissionId', permissionId),
