@@ -23,12 +23,13 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'User', 'prefix' => 'user
         $this->post('/', 'UserStore')->name('users.store');
     });
 
-    $this->get('/{user}/permissions', 'UserAllPermissions')->name('users.permissions');
 
     $this->group(['middleware' => ['permission:assign-user-permission']], function () {
-        $this->get('/assign', 'UserPermission')->name('users.assign');
+        $this->get('/{user}/permissions', 'UserAllPermissions')->name('users.permissions');
+        $this->get('/assign', 'UserPermission')->name('users.change.permissions');
         $this->put('/{user}/assign-permission/{permission}', 'UserAssignPermission')->name('users.assign.permission');
     });
+
     $this->group(['middleware' => ['permission:unassign-user-permission']], function () {
         $this->put('/{user}/unassign-permission/{permission}', 'UserUnassignPermission')->name('users.unassign.permission');;
     });
