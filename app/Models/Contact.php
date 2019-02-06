@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Relative extends Model
+class Contact extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,19 +12,17 @@ class Relative extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'cpf',
-        'birth_date',
-        'birthplace',
-        'rg',
-        'rg_issuer',
-        'gender',
-        'marital_status',
-        'profession',
-        'note',
         'assisted_id',
-        'addresses'
+        'name',
+        'phone',
+        'email',
+        'uf',
+        'city',
+        'number',
+        'street',
+        'postcode',
+        'complement',
+        'neighborhood'
     ];
 
     /**
@@ -36,4 +34,12 @@ class Relative extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Get the assisted that owns the contact.
+     */
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class, 'assisted_id');
+    }
 }
