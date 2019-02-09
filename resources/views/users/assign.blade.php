@@ -23,9 +23,7 @@
                         <option value="{{ $user->id }}"> {{ $user->name }} </option>
                     @endforeach
                 </select>
-            </div>
-            <div class="col-md-12 permissions" id="permissions">
-
+                <div class="col-md-12" id="permissions"/>
             </div>
         </div>
     </div>
@@ -34,50 +32,25 @@
 @section('js')
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('#selectOpt').click(function() {
-            var selectedUser = $('#selectOpt');
-            var permissionDiv = $('#permissions');
-            var UserId = selectedUser.val();
-            $("#chkPassport").click(function () {
-                if ($(this).is(":checked")) {
-                    $("#dvPassport").show();
-                } else {
-                    $("#dvPassport").hide();
-                }
-            });
-            $.ajax ({
-                method: 'GET',
-                url: '{{ route('users.permissions', '_user') }}'.replace('_user', UserId),
-                success: function(data) {
-                    $.each(data, function(i, val) {
-                        if (val.chosen) {
-                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
-                                'onclick="check_uncheck_checkbox(id)" checked>'+val.description+'<br/>');
-                        } else {
-                            permissionDiv.append('<input id="'+val.id+'" type="checkbox" ' +
-                                'onclick="check_uncheck_checkbox(id)"/>'+val.description+'<br/>');
-                        }
-                    });
-                },
-                error: function(data) {
-                }
-            });
-        });
-        function check_uncheck_checkbox(permissionId) {
+        $('#selectOpt').on('change', function() {
             var selectedUser = $('#selectOpt');
             var userId = selectedUser.val();
-            if (document.getElementById(permissionId).checked) {
+
+            if (userId) {
                 $.ajax({
-                    method: 'PUT',
-                    url: '{{ route('users.assign.permission', ['_user', '_permissionId']) }}'.replace('_user',  userId).replace('_permissionId', permissionId),
+                    method: 'GET',
+                    url: '{{ route('users.permissions', '_user') }}'.replace('_user', userId),
+                    success: function (data) {
+                        $("#permissions").html(data);
+                    },
+                    error: function (data) {
+
+                    }
                 });
+            } else {
+                $('#permissions').html('');
             }
-            else {
-                $.ajax({
-                    method: 'PUT',
-                    url: '{{ route('users.unassign.permission', ['_user', '_permissionId']) }}'.replace('_user',  userId).replace('_permissionId', permissionId),
-                });
-            }
-        }
+
+        });
     </script>
 @endsection
