@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
 use App\Models\Permission;
 use App\Models\Role;
 
@@ -11,7 +10,7 @@ class RoleAllPermissions extends Controller
 {
     /**
      * @param Role $role
-     * @return mixed
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function __invoke(Role $role)
     {
@@ -21,11 +20,14 @@ class RoleAllPermissions extends Controller
         foreach ($permissions as $permission) {
             $result[] = [
                 'id' => $permission->id,
-                'name' => $permission->name,
+                'description' => $permission->description,
                 'chosen' => $role->hasPermissionTo($permission->id)
             ];
         }
 
-        return JsonResponse::create($result);
+        return view('roles.permission', [
+            'permissions' => $result,
+            'role' => $role
+        ]);
     }
 }
