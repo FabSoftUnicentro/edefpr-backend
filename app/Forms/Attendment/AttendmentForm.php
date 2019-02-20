@@ -15,12 +15,18 @@ class AttendmentForm extends Form
             ->add('assisted_id', 'entity', [
                 'label' => 'Assistido',
                 'class' => Assisted::class,
-                'property' => 'name'
+                'property' => 'name',
+                'rules' => 'required',
+                'empty_value' => 'Selecione um assistido',
+                'empty_data' => null
             ])
             ->add('type_id', 'entity', [
                 'label' => 'Tipo do Atendimento',
                 'class' => AttendmentType::class,
-                'property' => 'name'
+                'property' => 'name',
+                'rules' => 'required',
+                'empty_value' => 'Selecione um assistido',
+                'empty_data' => null
             ])
             ->add('description', Field::TEXTAREA, [
                 'label' => 'Descrição',
