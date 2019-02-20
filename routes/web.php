@@ -128,7 +128,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' =>
     });
 
     $this->group(['middleware' => ['permission:list-permission']], function() {
-        $this->get('/', 'PermissionWithoutPaginate')->name('permissions.list');
+        $this->get('/', 'PermissionWithoutPagination')->name('permissions.list');
         $this->get('/list', 'PermissionIndex')->name('permissions.index');
         $this->get('/{permission}', 'PermissionShow')->name('permissions.show');
     });

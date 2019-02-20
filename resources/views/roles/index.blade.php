@@ -43,7 +43,6 @@
                                 </a>
                                 <a class="btn btn-xs btn-danger role-destroy" data-id="{{ $role->id }}">
                                     Excluir
-                                    
                                 </a>
                             </td>
                         </tr>

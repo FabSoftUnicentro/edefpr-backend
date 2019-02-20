@@ -4,12 +4,12 @@
     @foreach($permissions as $permission)
         @if ($permission['chosen'])
             <div class="col-md-4">
-                <input id="permission-{{ $permission['id'] }}" type="checkbox" onclick="check_uncheck_checkbox({{ $permission['id'] }})" checked />
+                <input id="permission-{{ $permission['id'] }}" type="checkbox" onclick="checkUncheckCheckbox({{ $permission['id'] }})" checked />
                 {{ $permission['description'] }}
             </div>
         @else
             <div class="col-md-4">
-                <input id="permission-{{ $permission['id'] }}" type="checkbox" onclick="check_uncheck_checkbox({{ $permission['id'] }})" />
+                <input id="permission-{{ $permission['id'] }}" type="checkbox" onclick="checkUncheckCheckbox({{ $permission['id'] }})" />
                 {{ $permission['description'] }}
             </div>
         @endif
@@ -18,7 +18,7 @@
 
 <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"/>
 <script>
-    function check_uncheck_checkbox(permissionId) {
+    function checkUncheckCheckbox(permissionId) {
         if (!$('input[type=checkbox]').prop('checked')) {
             $.ajax({
                 method: 'PUT',

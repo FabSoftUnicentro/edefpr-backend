@@ -44,13 +44,12 @@
                         $("#permissions").html(data);
                     },
                     error: function (data) {
-
+                        $('#permissions').html('');
                     }
                 });
             } else {
                 $('#permissions').html('');
             }
-
         });
     </script>
 @endsection

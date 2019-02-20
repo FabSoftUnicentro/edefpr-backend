@@ -7,7 +7,7 @@ use App\Models\Permission;
 use App\Http\Resources\Permissions as ResourcePermission;
 use Illuminate\Http\Request;
 
-class PermissionWithoutPaginate extends Controller
+class PermissionWithoutPagination extends Controller
 {
     /**
      * @param Request $request
