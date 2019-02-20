@@ -180,7 +180,7 @@ return [
                     'text' => 'Níveis de acesso',
                     'route' => 'roles.index',
                     'active' => ['access-levels'],
-                    'can' => 'update-role'
+                    'can' => 'read-role'
                 ],
                 [
                     'text' => 'Relatórios',

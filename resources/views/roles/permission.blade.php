@@ -1,17 +1,6 @@
 <div class="row">
-    <p>Permissões específicas do cargo</p>
-    @foreach($rolePermissions as $rolePermission)
-        <div class="col-md-4">
-            <input type="checkbox" checked disabled />
-            {{ $rolePermission['description'] }}
-        </div>
-    @endforeach
     <br/>
-</div>
-
-<div class="row">
-    <br/>
-    <p>Permissões específicas do funcionário</p>
+    <p>Permissões do cargo</p>
     @foreach($permissions as $permission)
         @if ($permission['chosen'])
             <div class="col-md-4">
@@ -27,19 +16,19 @@
     @endforeach
 </div>
 
-<script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"/>
 <script>
     function checkUncheckCheckbox(permissionId) {
         if (!$('input[type=checkbox]').prop('checked')) {
             $.ajax({
                 method: 'PUT',
-                url: '{{ route('users.unassign.permission', ['_user', '_permissionId']) }}'.replace('_user',  {{ $user->id }}).replace('_permissionId', permissionId),
+                url: '{{ route('roles.unassign.permission', ['_role', '_permissionId']) }}'.replace('_role',  {{ $role->id }}).replace('_permissionId', permissionId),
             });
         }
         else {
             $.ajax({
                 method: 'PUT',
-                url: '{{ route('users.assign.permission', ['_user', '_permissionId']) }}'.replace('_user',  {{ $user->id }}).replace('_permissionId', permissionId),
+                url: '{{ route('roles.assign.permission', ['_role', '_permissionId']) }}'.replace('_role',  {{ $role->id }}).replace('_permissionId', permissionId),
             });
         }
     }

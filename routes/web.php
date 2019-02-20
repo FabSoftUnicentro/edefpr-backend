@@ -23,7 +23,6 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'User', 'prefix' => 'user
         $this->post('/', 'UserStore')->name('users.store');
     });
 
-
     $this->group(['middleware' => ['permission:assign-user-permission']], function () {
         $this->get('/{user}/permissions', 'UserAllPermissions')->name('users.permissions');
         $this->get('/assign', 'UserPermission')->name('users.change.permissions');
@@ -85,6 +84,16 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Assisted', 'prefix' => '
 // Role routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'roles'],
     function() {
+
+    $this->group(['middleware' => ['permission:assign-role-permission']], function () {
+        $this->get('/{role}/permissions', 'RoleAllPermissions')->name('roles.permissions');
+        $this->get('/assign', 'RolePermission')->name('roles.change.permissions');
+        $this->put('/{role}/assign-permission/{permission}', 'RoleAssignPermission')->name('roles.assign.permission');
+    });
+
+    $this->group(['middleware' => ['permission:unassign-role-permission']], function () {
+        $this->put('/{role}/unassign-permission/{permission}', 'RoleUnassignPermission')->name('roles.unassign.permission');;
+    });
     
     $this->group(['middleware' => ['permission:register-role']], function () {
         $this->get('/create', 'RoleCreate')->name('roles.create');
@@ -106,19 +115,6 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Role', 'prefix' => 'role
     });
 });
 
-// Postcode routes
-$this->group(['middleware' => ['auth'], 'namespace' => 'Postcode', 'prefix' => 'postcode'], function() {
-    $this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
-});
-
-$this->get('/page-not-found', function () {
-    return view('error.404');
-})->name('404');
-
-$this->get('/internal-server-error', function () {
-    return view('error.500');
-})->name('500');
-
 // Permission Routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' => 'permission'], function() {
     $this->group(['middleware' => ['permission:register-permission']], function () {
@@ -132,6 +128,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' =>
     });
 
     $this->group(['middleware' => ['permission:list-permission']], function() {
+        $this->get('/', 'PermissionWithoutPagination')->name('permissions.list');
         $this->get('/list', 'PermissionIndex')->name('permissions.index');
         $this->get('/{permission}', 'PermissionShow')->name('permissions.show');
     });
@@ -140,8 +137,6 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' =>
         $this->delete('/{permission}', 'PermissionDestroy')->name('permissions.destroy');
     });
 });
-
-Auth::routes();
 
 // AttendmentType routes
 $this->group(['middleware' => ['auth'], 'namespace' => 'AttendmentType', 'prefix' => 'attendment-type'],
@@ -187,3 +182,18 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Attendment', 'prefix' =>
             $this->delete('/{attendment}', 'AttendmentDestroy')->name('attendments.destroy');
         });
 });
+
+// Postcode routes
+$this->group(['middleware' => ['auth'], 'namespace' => 'Postcode', 'prefix' => 'postcode'], function() {
+    $this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
+});
+
+Auth::routes();
+
+$this->get('/page-not-found', function () {
+    return view('error.404');
+})->name('404');
+
+$this->get('/internal-server-error', function () {
+    return view('error.500');
+})->name('500');

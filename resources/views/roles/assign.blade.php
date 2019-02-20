@@ -19,8 +19,8 @@
                 <p>Selecione o funcionário para atribuição/desatribuição de permissão<p/>
                 <select id="selectOpt">
                     <option></option>
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}"> {{ $user->name }} </option>
+                    @foreach($roles as $role)
+                        <option value="{{ $role->id }}"> {{ $role->description }} </option>
                     @endforeach
                 </select>
                 <div class="col-md-12" id="permissions"/>
@@ -33,23 +33,24 @@
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $('#selectOpt').on('change', function() {
-            var selectedUser = $('#selectOpt');
-            var userId = selectedUser.val();
+            var selectedRole = $('#selectOpt');
+            var roleId = selectedRole.val();
 
-            if (userId) {
+            if (roleId) {
                 $.ajax({
                     method: 'GET',
-                    url: '{{ route('users.permissions', '_user') }}'.replace('_user', userId),
+                    url: '{{ route('roles.permissions', '_role') }}'.replace('_role', roleId),
                     success: function (data) {
                         $("#permissions").html(data);
                     },
                     error: function (data) {
-                        $('#permissions').html('');
+
                     }
                 });
             } else {
                 $('#permissions').html('');
             }
+
         });
     </script>
 @endsection
