@@ -203,7 +203,6 @@ Route::prefix('counter-part')->group(function () {
     });
 });
 
-// Relative routes
 Route::prefix('relative')->group(function () {
     Route::get('/', 'Api\Relative\RelativeList')->middleware('auth:api');
     Route::get('/{relative}', 'Api\Relative\RelativeShow')->middleware('auth:api');
