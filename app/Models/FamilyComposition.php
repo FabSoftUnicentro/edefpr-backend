@@ -21,7 +21,7 @@ class FamilyComposition extends Model
         'kinship',
         'work',
         'income',
-        'assited_id',
+        'assisted_id',
     ];
 
     /**
