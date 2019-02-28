@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Assisted;
+use App\Models\FamilyComposition;
 
-class AssistedTableSeeder extends Seeder
+class FamilyCompositionTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AssistedTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Assisted::class, 10)->create();
+        factory(FamilyComposition::class, 10)->create();
     }
 }
