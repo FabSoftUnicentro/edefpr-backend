@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Role;
 
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
 use App\Http\Resources\Role as RoleResource;
+use Spatie\Permission\Models\Role;
 
 class RoleUnassignPermission extends Controller
 {

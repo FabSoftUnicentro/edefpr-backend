@@ -1,11 +1,11 @@
 <?php
 
-use Faker\Generator as Faker;
-use Illuminate\Support\Facades\DB as DB;
+use App\Models\Assisted;
 use App\Models\Attendment;
 use App\Models\AttendmentType;
 use App\Models\User;
-use App\Models\Assisted;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\DB as DB;
 
 /*
 |--------------------------------------------------------------------------

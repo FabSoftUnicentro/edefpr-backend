@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\City;
 
+use App\Http\Resources\City as CityResource;
 use App\Models\City;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\City as CityResource;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {

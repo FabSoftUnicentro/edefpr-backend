@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Permission;
 
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
 use App\Http\Requests\Permission\StoreRequest;
 use App\Http\Resources\Permission as PermissionResource;
+use Spatie\Permission\Models\Permission;
 
 class PermissionStore extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Assisted;
 
+use App\Http\Resources\Assisted as AssistedResource;
 use App\Models\Assisted;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\Assisted as AssistedResource;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {

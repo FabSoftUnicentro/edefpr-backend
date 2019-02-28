@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\AttendmentType;
 
 use App\Http\Controllers\Controller;
-use App\Models\AttendmentType;
 use App\Http\Resources\AttendmentType as AttendmentTypeResource;
+use App\Models\AttendmentType;
 
 class AttendmentTypeList extends Controller
 {

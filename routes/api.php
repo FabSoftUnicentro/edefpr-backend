@@ -204,17 +204,17 @@ Route::prefix('counter-part')->group(function () {
 });
 
 // Relative routes
-Route::prefix('relative')->group(function () {
-    Route::get('/', 'Api\Relative\RelativeList')->middleware('auth:api');
-    Route::get('/{relative}', 'Api\Relative\RelativeShow')->middleware('auth:api');
-
-    Route::group(['middleware' => ['permission:register-relative']], function () {
-        Route::post('/', 'Api\Relative\RelativeStore')->middleware('auth:api');
-    });
-    Route::group(['middleware' => ['permission:update-relative']], function () {
-        Route::put('/{relative}', 'Api\Relative\RelativeUpdate')->middleware('auth:api');
-    });
-    Route::group(['middleware' => ['permission:delete-relative']], function () {
-        Route::delete('/{relative}', 'Api\Relative\RelativeDestroy')->middleware('auth:api');
-    });
-});
+//Route::prefix('relative')->group(function () {
+//    Route::get('/', 'Api\Relative\RelativeList')->middleware('auth:api');
+//    Route::get('/{relative}', 'Api\Relative\RelativeShow')->middleware('auth:api');
+//
+//    Route::group(['middleware' => ['permission:register-relative']], function () {
+//        Route::post('/', 'Api\Relative\RelativeStore')->middleware('auth:api');
+//    });
+//    Route::group(['middleware' => ['permission:update-relative']], function () {
+//        Route::put('/{relative}', 'Api\Relative\RelativeUpdate')->middleware('auth:api');
+//    });
+//    Route::group(['middleware' => ['permission:delete-relative']], function () {
+//        Route::delete('/{relative}', 'Api\Relative\RelativeDestroy')->middleware('auth:api');
+//    });
+//});

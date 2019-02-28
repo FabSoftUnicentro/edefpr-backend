@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Assisted;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
 use App\Http\Resources\Assisted as AssistedResource;
+use App\Models\Assisted;
 
 class AssistedShow extends Controller
 {

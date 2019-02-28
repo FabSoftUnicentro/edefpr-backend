@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Http\Resources\User as UserResource;
+use App\Models\User;
 
 class UserList extends Controller
 {

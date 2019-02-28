@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Models\CounterPart;
+use Illuminate\Database\Seeder;
 
 class CounterPartTableSeeder extends Seeder
 {

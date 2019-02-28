@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\CounterPart;
 
 use App\Http\Controllers\Controller;
-use App\Models\CounterPart;
 use App\Http\Resources\CounterPart as CounterPartResource;
+use App\Models\CounterPart;
 
 class CounterPartList extends Controller
 {

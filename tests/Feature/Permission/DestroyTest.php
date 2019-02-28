@@ -3,9 +3,9 @@
 namespace Tests\Feature\Permission;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Permission;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DestroyTest extends TestCase
 {
