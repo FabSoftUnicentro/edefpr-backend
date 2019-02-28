@@ -3,6 +3,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
 use App\Models\FamilyComposition;
+use App\Models\Assisted;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,10 @@ $factory->define(FamilyComposition::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'birth_date' => $faker->date(),
-        'situation' => 'teste',
+        'situation' => 'test',
         'kinship' => 'grandmother',
-        'work' => 'batateiro',
+        'work' => 'test',
         'income' => $faker->randomFloat(),
-        'assited_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
+        'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
     ];
 });
