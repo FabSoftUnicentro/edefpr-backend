@@ -33,4 +33,3 @@ class UpdateRequest extends BaseRequest
         ];
     }
 }
-

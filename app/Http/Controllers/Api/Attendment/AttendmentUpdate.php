@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Attendment;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Attendment\UpdateRequest;
-use App\models\Attendment;
 use App\Http\Resources\Attendment as AttendmentResource;
+use App\models\Attendment;
 
 class AttendmentUpdate extends Controller
 {

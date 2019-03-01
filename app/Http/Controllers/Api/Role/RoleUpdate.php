@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Role;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\UpdateRequest;
-use Spatie\Permission\Models\Role;
 use App\Http\Resources\Role as RoleResource;
+use Spatie\Permission\Models\Role;
 
 class RoleUpdate extends Controller
 {

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\AttendmentType;
 
-use App\Models\AttendmentType;
-use App\Http\Resources\AttendmentType as AttendmentTypeResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AttendmentType as AttendmentTypeResource;
+use App\Models\AttendmentType;
 
 class AttendmentTypeShow extends Controller
 {

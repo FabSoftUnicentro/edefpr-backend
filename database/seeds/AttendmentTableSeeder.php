@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Models\Attendment;
+use Illuminate\Database\Seeder;
 
 class AttendmentTableSeeder extends Seeder
 {

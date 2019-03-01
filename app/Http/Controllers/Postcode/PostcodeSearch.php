@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Postcode;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
-use GuzzleHttp\Client;
-use App\Models\Postcode;
-use Illuminate\Http\Response;
 use App\Http\Resources\Postcode as PostcodeResource;
+use App\Models\Postcode;
+use GuzzleHttp\Client;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class PostcodeSearch extends Controller
 {

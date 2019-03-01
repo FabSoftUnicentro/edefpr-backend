@@ -4,8 +4,8 @@ namespace Tests\Feature\AttendmentType;
 
 use App\Models\AttendmentType;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UpdateTest extends TestCase
 {

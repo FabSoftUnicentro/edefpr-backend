@@ -173,19 +173,19 @@ return [
                 [
                     'text' => 'Permissões',
                     'route' => 'permissions.index',
-                    'active' => ['permissions'],
+                    'active' => ['permissions', 'permissions/*'],
                     'can' => 'list-permission'
                 ],
                 [
                     'text' => 'Níveis de acesso',
                     'route' => 'roles.index',
-                    'active' => ['access-levels'],
+                    'active' => ['roles', 'roles/*'],
                     'can' => 'read-role'
                 ],
                 [
                     'text' => 'Relatórios',
                     'url'  => '*',
-                    'active' => ['reports']
+                    'active' => ['reports', 'reports/*']
                 ],
             ],
         ]

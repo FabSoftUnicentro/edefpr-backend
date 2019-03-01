@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Permission;
 
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
 use App\Http\Requests\Permission\UpdateRequest;
 use App\Http\Resources\Permission as PermissionResource;
+use Spatie\Permission\Models\Permission;
 
 class PermissionUpdate extends Controller
 {

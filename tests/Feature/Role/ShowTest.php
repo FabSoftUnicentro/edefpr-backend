@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Role;
 
+use App\Http\Resources\Role as RoleResource;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\Role as RoleResource;
 
 class ShowTest extends TestCase
 {

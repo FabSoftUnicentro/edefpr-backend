@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Relative;
 
+use App\Http\Resources\Relative as RelativeResource;
 use App\Models\Relative;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\Relative as RelativeResource;
+use Tests\TestCase;
 
 class ShowTest extends TestCase
 {

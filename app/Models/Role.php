@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Exceptions\RoleAlreadyExists;
 use Spatie\Permission\Guard;
 use Spatie\Permission\Models\Role as BaseRole;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
 
 class Role extends BaseRole
 {
