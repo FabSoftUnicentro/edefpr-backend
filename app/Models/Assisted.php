@@ -41,15 +41,6 @@ class Assisted extends Model
      * @var array
      */
     protected $dates = [
-        'deleted_at'
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
         'created_at',
         'updated_at',
         'deleted_at'

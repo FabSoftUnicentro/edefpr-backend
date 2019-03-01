@@ -122,7 +122,7 @@ $this->group(
 );
 
 // Permission Routes
-$this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' => 'permission'], function () {
+$this->group(['middleware' => ['auth'], 'namespace' => 'Permission', 'prefix' => 'permissions'], function () {
     $this->group(['middleware' => ['permission:register-permission']], function () {
         $this->get('/create', 'PermissionCreate')->name('permissions.create');
         $this->post('/', 'PermissionStore')->name('permissions.store');
