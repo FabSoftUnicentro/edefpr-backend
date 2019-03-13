@@ -17,16 +17,13 @@ use App\Models\CounterPart;
 $factory->define(CounterPart::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'birth_date' => $faker->date(),
         'rg' => $faker->unique()->text(11),
-        'rg_issuer' => 'SSP',
-        'gender' => 'M',
+        'rg_issuer' => 'SSP', // Pode ser removido no futuro
         'profession' => 'Teste',
         'note' => null,
-        'document_type' => 'cpf',
-        'document_number' => $faker->numberBetween(999999999),
-        'fantasy_name' => null,
+        'remuneration' => 0.00,
+        'phone_number' => $faker->numberBetween(99999999999),
+        'cpf' => $faker->numberBetween(999999999),
         'uf' => 'PR',
         'city' => 1,
         'number' => '123',
