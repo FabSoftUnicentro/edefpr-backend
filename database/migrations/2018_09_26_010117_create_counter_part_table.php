@@ -19,7 +19,7 @@ class CreateCounterPartTable extends Migration
             $table->string('rg')->nullable();
             $table->string('rg_issuer')->nullable();
             $table->string('phone_number')->nullable();
-            $table->integer('remuneration')->nullable();
+            $table->decimal('remuneration', 10, 2)->nullable();
             $table->string('profession')->nullable();
             $table->text('note')->nullable();
             $table->string('cpf')->nullable();
