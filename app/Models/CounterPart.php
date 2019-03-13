@@ -13,18 +13,20 @@ class CounterPart extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'birth_date',
         'rg',
         'rg_issuer',
-        'gender',
-        'marital_status',
+        'phone_number',
+        'remuneration',
         'profession',
         'note',
-        'addresses',
-        'document_type',
-        'document_number',
-        'fantasy_name'
+        'cpf',
+        'uf',
+        'city',
+        'number',
+        'street',
+        'postcode',
+        'complement',
+        'neighborhood',
     ];
 
     /**
