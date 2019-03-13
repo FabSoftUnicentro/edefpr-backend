@@ -50,6 +50,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapRoleRoutes();
 
         $this->mapUserRoutes();
+
+        $this->mapCounterPartRoutes();
     }
 
     /**
@@ -135,5 +137,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\User')
             ->group(base_path('routes/web/user.php'));
+    }
+
+    protected function mapCounterPartRoutes()
+    {
+        Route::prefix('counter-parts')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\CounterPart')
+            ->group(base_path('routes/web/counter_part.php'));
     }
 }
