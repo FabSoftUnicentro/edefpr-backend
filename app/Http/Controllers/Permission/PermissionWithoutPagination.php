@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
-use App\Http\Resources\Permissions as ResourcePermission;
 use Illuminate\Http\Request;
 
 class PermissionWithoutPagination extends Controller

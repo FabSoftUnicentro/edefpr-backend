@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Role;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Role as RoleResource;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use App\Http\Resources\Role as RoleResource;
 
 class RoleList extends Controller
 {

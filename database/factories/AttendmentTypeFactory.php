@@ -1,7 +1,7 @@
 <?php
 
-use Faker\Generator as Faker;
 use App\Models\AttendmentType;
+use Faker\Generator as Faker;
 
 /*
 |--------------------------------------------------------------------------

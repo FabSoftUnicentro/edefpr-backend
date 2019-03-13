@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Attendment;
 
+use App\Http\Resources\Attendment as AttendmentResource;
 use App\Models\Attendment;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\Attendment as AttendmentResource;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Attendment;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Attendment\StoreRequest;
-use App\Models\Attendment;
 use App\Http\Resources\Attendment as AttendmentResource;
+use App\Models\Attendment;
 
 class AttendmentStore extends Controller
 {

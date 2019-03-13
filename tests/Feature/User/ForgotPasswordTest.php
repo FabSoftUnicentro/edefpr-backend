@@ -3,9 +3,8 @@
 namespace Tests\Feature\User;
 
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\User as UserResource;
+use Tests\TestCase;
 
 class ForgotPasswordTest extends TestCase
 {

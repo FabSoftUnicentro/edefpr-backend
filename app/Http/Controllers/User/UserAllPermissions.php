@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
 use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 
 class UserAllPermissions extends Controller
@@ -22,7 +22,7 @@ class UserAllPermissions extends Controller
 
         foreach ($permissions as $permission) {
             foreach ($roles as $role) {
-                if(Role::findByName($role)->hasPermissionTo($permission->id)) {
+                if (Role::findByName($role)->hasPermissionTo($permission->id)) {
                     $rolePermissions[] = [
                         'description' => $permission->description
                     ];

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\AttendmentType;
 
-use App\Http\Resources\AttendmentType as AttendmentTypeResource;
-use App\Http\Requests\AttendmentType\StoreRequest;
-use App\Models\AttendmentType;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AttendmentType\StoreRequest;
+use App\Http\Resources\AttendmentType as AttendmentTypeResource;
+use App\Models\AttendmentType;
 
 class AttendmentTypeStore extends Controller
 {

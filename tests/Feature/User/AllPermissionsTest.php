@@ -3,8 +3,8 @@
 namespace Tests\Feature\User;
 
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class AllPermissionsTest extends TestCase
 {

@@ -3,10 +3,9 @@
 namespace Tests\Feature\City;
 
 use App\Models\City;
-use App\Models\State;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UpdateTest extends TestCase
 {

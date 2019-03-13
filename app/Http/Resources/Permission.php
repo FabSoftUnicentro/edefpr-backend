@@ -28,7 +28,8 @@ class Permission extends JsonResource
      * @param \Illuminate\Http\Request $request
      * @return array
      */
-    public function with($request) {
+    public function with($request)
+    {
         return [
             'version' => '1.0.0'
         ];

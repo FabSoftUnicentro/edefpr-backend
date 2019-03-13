@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Assisted;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Assisted\UpdateRequest;
-use App\Models\Assisted;
 use App\Http\Resources\Assisted as AssistedResource;
+use App\Models\Assisted;
 
 class AssistedUpdate extends Controller
 {

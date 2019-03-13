@@ -1,8 +1,8 @@
 <?php
 
-use Faker\Generator as Faker;
-use App\Models\User;
 use App\Models\City;
+use App\Models\User;
+use Faker\Generator as Faker;
 
 /*
 |--------------------------------------------------------------------------

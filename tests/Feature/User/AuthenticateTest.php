@@ -2,9 +2,9 @@
 
 namespace Tests\Feature\User;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AuthenticateTest extends TestCase
 {

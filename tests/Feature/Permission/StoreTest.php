@@ -3,9 +3,9 @@
 namespace Tests\Feature\Permission;
 
 use App\Models\User;
-use Tests\TestCase;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Spatie\Permission\Models\Permission;
+use Tests\TestCase;
 
 class StoreTest extends TestCase
 {

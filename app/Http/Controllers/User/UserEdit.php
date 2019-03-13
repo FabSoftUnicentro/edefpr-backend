@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Forms\User\UserForm;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Kris\LaravelFormBuilder\Form;
 
 class UserEdit extends Controller
 {

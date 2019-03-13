@@ -1,9 +1,7 @@
 <?php
 
-use Faker\Generator as Faker;
-use Illuminate\Support\Facades\DB as DB;
 use App\Models\Assisted;
-use App\Models\City;
+use Faker\Generator as Faker;
 
 /*
 |--------------------------------------------------------------------------
