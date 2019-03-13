@@ -16,10 +16,11 @@ class CounterPartForm extends Form
             ])
             ->add('rg', Field::TEXT, [
                 'label' => 'RG',
-                'rules' => 'numeric'
+                'rules' => 'required|numeric'
             ])
             ->add('rg_issuer', Field::TEXT, [
-                'label' => 'Órgão Emissor'
+                'label' => 'Órgão Emissor',
+                'rules' => 'required'
             ])
             ->add('phone_number', Field::TEXT, [
                 'label' => 'Número de telefone',
