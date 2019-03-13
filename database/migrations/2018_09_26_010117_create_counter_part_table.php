@@ -16,16 +16,13 @@ class CreateCounterPartTable extends Migration
         Schema::create('counterpart', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->date('birth_date');
             $table->string('rg')->nullable();
             $table->string('rg_issuer')->nullable();
-            $table->enum('gender', ['M', 'F', 'O']);
+            $table->string('phone_number')->nullable();
+            $table->integer('remuneration')->nullable();
             $table->string('profession')->nullable();
             $table->text('note')->nullable();
-            $table->text('document_type');
-            $table->integer('document_number');
-            $table->text('fantasy_name')->nullable();
+            $table->string('cpf')->nullable();
             $table->string('uf', 2);
             $table->string('city');
             $table->string('number');
