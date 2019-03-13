@@ -139,6 +139,10 @@ return [
             ]
         ],
         [
+            'text' => 'Parte contraria (mudar de lugar)', // Mudar de lugar quando for implementado processos
+            'route' => 'counterParts.index'
+        ],
+        [
             'text' => 'Processos',
             'url'  => '*',
             'icon' => 'file',
