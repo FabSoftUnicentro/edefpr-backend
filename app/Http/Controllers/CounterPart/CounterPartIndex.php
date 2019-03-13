@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: SUdoW
- * Date: 20/02/2019
- * Time: 20:45
- */
 
 namespace App\Http\Controllers\CounterPart;
 
@@ -24,10 +18,10 @@ class CounterPartIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $counterPart = CounterPart::paginate($perPage);
+        $counterParts = CounterPart::paginate($perPage);
 
         return view('counterParts.index', [
-            'counterParts' => $counterPart
+            'counterParts' => $counterParts
         ]);
     }
 }
