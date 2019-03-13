@@ -53,7 +53,6 @@
 
     <div class="col-md-6">
         <div class="box box-primary">
-
             <div class="box header with-border">
                 <h3 class="box-title">Endereço</h3>
             </div>
@@ -93,7 +92,6 @@
                     {!! form_label($form->city) !!}
                     {!! form_widget($form->city) !!}
                 </div>
-
             </div>
         </div>
     </div>
