@@ -1,21 +1,21 @@
 <?php
 
 // Assisted routes
-$this->group(['middleware' => ['permission:register-assisted']], function () {
-    $this->get('/create', 'AssistedCreate')->name('assisteds.create');
-    $this->post('/', 'AssistedStore')->name('assisteds.store');
+Route::group(['middleware' => ['permission:register-assisted']], function () {
+    Route::get('/create', 'AssistedCreate')->name('assisteds.create');
+    Route::post('/', 'AssistedStore')->name('assisteds.store');
 });
 
-$this->group(['middleware' => ['permission:update-assisted']], function () {
-    $this->get('/{assisted}/edit', 'AssistedEdit')->name('assisteds.edit');
-    $this->put('/{assisted}', 'AssistedUpdate')->name('assisteds.update');
+Route::group(['middleware' => ['permission:update-assisted']], function () {
+    Route::get('/{assisted}/edit', 'AssistedEdit')->name('assisteds.edit');
+    Route::put('/{assisted}', 'AssistedUpdate')->name('assisteds.update');
 });
 
-$this->group(['middleware' => ['permission:read-assisted']], function () {
-    $this->get('/list', 'AssistedIndex')->name('assisteds.index');
-    $this->get('/{assisted}', 'AssistedShow')->name('assisteds.show');
+Route::group(['middleware' => ['permission:read-assisted']], function () {
+    Route::get('/list', 'AssistedIndex')->name('assisteds.index');
+    Route::get('/{assisted}', 'AssistedShow')->name('assisteds.show');
 });
 
-$this->group(['middleware' => ['permission:delete-assisted']], function () {
-    $this->delete('/{assisted}', 'AssistedDestroy')->name('assisteds.destroy');
+Route::group(['middleware' => ['permission:delete-assisted']], function () {
+    Route::delete('/{assisted}', 'AssistedDestroy')->name('assisteds.destroy');
 });

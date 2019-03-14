@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'eDefPR',
+    'title' => 'Login',
 
     'title_prefix' => 'eDefPR - ',
 
