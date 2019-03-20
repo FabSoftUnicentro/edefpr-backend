@@ -17,8 +17,11 @@ class CreateFamilyCompositionTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->date('birth_date');
-            $table->string('situation');
-            $table->enum('kinship', ['daughter','son','cousin','sister','brother','mother','father','grandmother','grandfather','uncle','aunt','wife','husband','grandson','granddaughter','nephew','niece','stepfather','stepmother']);
+            $table->enum('situation', ['general', 'elderly', 'child', 'deficient', 'ex-prisoner']);
+            $table->enum('kinship', ['daughter', 'son', 'cousin', 'sister', 'brother', 'mother', 'father',
+                                'grandmother', 'grandfather','uncle', 'aunt', 'wife', 'husband', 'grandson',
+                                'granddaughter', 'nephew', 'niece', 'stepfather', 'stepmother', 'stepbrother',
+                                'stepsister']);
             $table->string('work');
             $table->double('income');
             $table->integer('assisted_id')->unsigned();
