@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\CounterPart;
 
+use App\Http\Resources\CounterPart as CounterPartResource;
 use App\Models\CounterPart;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\CounterPart as CounterPartResource;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {

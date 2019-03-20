@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\State;
 
+use App\Http\Resources\State as StateResource;
 use App\Models\State;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Resources\State as StateResource;
+use Tests\TestCase;
 
 class ShowTest extends TestCase
 {

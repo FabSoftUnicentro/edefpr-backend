@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Permission;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission;
 use App\Http\Resources\Permission as PermissionResource;
+use App\Models\Permission;
 
 class PermissionList extends Controller
 {

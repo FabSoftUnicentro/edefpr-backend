@@ -4,8 +4,8 @@ namespace Tests\Feature\CounterPart;
 
 use App\Models\CounterPart;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class DestroyTest extends TestCase
 {

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Role;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Role as RoleResource;
 use App\Models\Permission;
 use App\Models\Role;
-use App\Http\Resources\Role as RoleResource;
 
 class RoleUnassignPermission extends Controller
 {

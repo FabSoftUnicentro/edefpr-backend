@@ -4,8 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\User as UserResource;
-use App\Models\User;
 use App\Models\Permission;
+use App\Models\User;
 
 class UserAssignPermission extends Controller
 {

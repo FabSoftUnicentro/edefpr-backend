@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Postcode;
 
-use App\Models\Postcode;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Resources\Postcode as PostcodeResource;
+use App\Models\Postcode;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PostcodeSearchTest extends TestCase
 {

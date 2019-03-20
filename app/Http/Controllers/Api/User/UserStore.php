@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreRequest;
-use App\Models\User;
 use App\Http\Resources\User as UserResource;
+use App\Models\User;
 
 class UserStore extends Controller
 {

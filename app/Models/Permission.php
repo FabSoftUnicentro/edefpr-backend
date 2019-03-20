@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Exceptions\PermissionAlreadyExists;
 use Spatie\Permission\Guard;
 use Spatie\Permission\Models\Permission as BasePermission;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
 
 class Permission extends BasePermission
 {

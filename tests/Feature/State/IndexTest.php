@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\State;
 
-use App\Models\User;
-use App\Models\State;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Resources\State as StateResource;
+use App\Models\State;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class IndexTest extends TestCase
 {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\City;
 
-use App\Http\Requests\City\StoreRequest;
-use App\Models\City;
 use \App\Http\Resources\City as CityResource;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\City\StoreRequest;
+use App\Models\City;
 
 class CityStore extends Controller
 {

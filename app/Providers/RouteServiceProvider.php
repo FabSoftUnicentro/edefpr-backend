@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,8 +23,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -38,6 +36,20 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+
+        $this->mapAssistedRoutes();
+
+        $this->mapAttendmentRoutes();
+
+        $this->mapAttendmentTypeRoutes();
+
+        $this->mapPermissionRoutes();
+
+        $this->mapPostcodeRoutes();
+
+        $this->mapRoleRoutes();
+
+        $this->mapUserRoutes();
     }
 
     /**
@@ -51,7 +63,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
              ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+             ->group(base_path('routes/web/web.php'));
     }
 
     /**
@@ -66,6 +78,62 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->namespace)
-            ->group(base_path('routes/api.php'));
+            ->group(base_path('routes/api/api.php'));
+    }
+
+    protected function mapAssistedRoutes()
+    {
+        Route::prefix('assisteds')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Assisted')
+            ->group(base_path('routes/web/assisted.php'));
+    }
+
+    protected function mapAttendmentRoutes()
+    {
+        Route::prefix('attendments')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Attendment')
+            ->group(base_path('routes/web/attendment.php'));
+    }
+
+    protected function mapAttendmentTypeRoutes()
+    {
+        Route::prefix('attendment-type')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\AttendmentType')
+            ->group(base_path('routes/web/attendment_type.php'));
+    }
+
+    protected function mapPermissionRoutes()
+    {
+        Route::prefix('permissions')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Permission')
+            ->group(base_path('routes/web/permission.php'));
+    }
+
+    protected function mapPostcodeRoutes()
+    {
+        Route::prefix('postcode')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Postcode')
+            ->group(base_path('routes/web/postcode.php'));
+    }
+
+    protected function mapRoleRoutes()
+    {
+        Route::prefix('roles')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Role')
+            ->group(base_path('routes/web/role.php'));
+    }
+
+    protected function mapUserRoutes()
+    {
+        Route::prefix('users')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\User')
+            ->group(base_path('routes/web/user.php'));
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\AttendmentType;
 
-use App\Models\AttendmentType;
-use App\Http\Resources\Attendment as AttendmentResource;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Attendment as AttendmentResource;
+use App\Models\AttendmentType;
 
 class AttendmentTypeDestroy extends Controller
 {

@@ -3,9 +3,8 @@
 namespace Tests\Feature\User;
 
 use App\Models\User;
-use Laravel\Passport\Passport;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class InfoUpdateTest extends TestCase
 {

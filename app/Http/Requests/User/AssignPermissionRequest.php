@@ -28,4 +28,3 @@ class AssignPermissionRequest extends BaseRequest
         ];
     }
 }
-

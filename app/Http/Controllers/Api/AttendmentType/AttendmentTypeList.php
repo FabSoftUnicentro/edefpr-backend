@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\AttendmentType;
 
-use App\Models\AttendmentType;
-use App\Http\Resources\AttendmentType as AttendmentTypeResource;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AttendmentType as AttendmentTypeResource;
+use App\Models\AttendmentType;
+use Illuminate\Http\Request;
 
 class AttendmentTypeList extends Controller
 {

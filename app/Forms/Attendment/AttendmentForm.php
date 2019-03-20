@@ -3,9 +3,9 @@
 namespace App\Forms\Attendment;
 
 use App\Forms\Field;
-use Kris\LaravelFormBuilder\Form;
 use App\Models\Assisted;
 use App\Models\AttendmentType;
+use Kris\LaravelFormBuilder\Form;
 
 class AttendmentForm extends Form
 {
