@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Assisted;
+use App\Models\Witness;
 use Illuminate\Database\Seeder;
 
-class AssistedTableSeeder extends Seeder
+class WitnessesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AssistedTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Assisted::class, 10)->create();
+        factory(Witness::class, 10)->create();
     }
 }
