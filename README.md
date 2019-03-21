@@ -1,6 +1,12 @@
 # e-DefPR
 Software para Controle de Processos - Defensoria Pública do Paraná
 
+## Patrocinador
+
+<a href="https://www.bugsnag.com/">
+  <img src="https://raw.githubusercontent.com/C3DSU/edefpr-backend/master/public/img/sponsors/bugsnag_logo_navy.svg" width="100">
+</a>
+
 ## Sumário
 
   1. [Guia Geral](#guia-geral)
