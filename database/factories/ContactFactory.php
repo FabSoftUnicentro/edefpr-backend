@@ -23,7 +23,7 @@ $factory->define(Contact::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
         'uf' => 'PR',
-        'city' => 1,
+        'city' => 'Guarapuava',
         'number' => '123',
         'street' => 'Teste',
         'postcode' => '85015310',
