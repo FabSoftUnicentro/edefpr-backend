@@ -28,7 +28,7 @@ $factory->define(CounterPart::class, function (Faker $faker) {
         'document_number' => $faker->numberBetween(999999999),
         'fantasy_name' => null,
         'uf' => 'PR',
-        'city' => 1,
+        'city' => 'Guarapuava',
         'number' => '123',
         'street' => 'Teste',
         'postcode' => '85015310',

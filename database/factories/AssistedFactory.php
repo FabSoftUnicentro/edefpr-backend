@@ -27,7 +27,7 @@ $factory->define(Assisted::class, function (Faker $faker) {
         'profession' => 'Teste',
         'note' => null,
         'uf' => 'PR',
-        'city' => 1,
+        'city' => 'Guarapuava',
         'number' => '123',
         'street' => 'Teste',
         'postcode' => '85015310',
