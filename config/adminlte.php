@@ -128,6 +128,11 @@ return [
                     'text' => 'Composição Familiar',
                     'route'  => 'familyMembers.index',
                     'active' => ['familyMembers']
+                ],
+                [
+                    'text' => 'Testemunhas',
+                    'route'  => 'witnesses.index',
+                    'active' => ['witnesses']
                 ]
             ]
         ],
