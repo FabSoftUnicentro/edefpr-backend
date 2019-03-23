@@ -14,7 +14,7 @@
     <div class="box box-primary ">
         <div class="box-header with-border ">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create') }}">Cadastrar composição familiar</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create') }}">Cadastrar membro familiar</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -34,7 +34,7 @@
                         <tr class="text-center">
                             <td>{{ $familyMember->id }}</td>
                             <td>{{ $familyMember->name }}</td>
-                            <td>{{ dd($familyMember->assisted()) }}</td>
+                            <td>{{ $familyMember->assisted->name }}</td>
                             <td>{{ __('translations.legal_situation.'.$familyMember->legal_situation) }}</td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.show', $familyMember->id) }}">

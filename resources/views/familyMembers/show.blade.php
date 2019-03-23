@@ -6,7 +6,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Familia do Assistido {{ $familyMember->assisted_name }}</h1>
+    <h1>Familia do Assistido {{ $familyMember->assisted->name }}</h1>
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@
                 <h3>Informações Pessoais</h3>
 
                     <p> <b>Nome:</b> {{ $familyMember->name }} </p>
-                    <p> <b>Assitido:</b> {{ $familyMember->assisted_name }} </p>
+                    <p> <b>Assitido:</b> {{ $familyMember->assisted->name }} </p>
                     <p> <b>Situação Legal:</b> {{ __('translations.legal_situation.'.$familyMember->legal_situation) }} </p>
                     <p> <b>Grau de Parentesco:</b> {{ __('translations.kinship.'.$familyMember->kinship) }}</p>
                     <p> <b>Data de Nascimento:</b> {{ date('d/m/Y', strtotime($familyMember->birth_date)) }} </p>
@@ -29,6 +29,3 @@
         </div>
     </div>
 @stop
-
-@section('js')
-@endsection
