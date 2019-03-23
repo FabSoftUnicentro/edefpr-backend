@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
 use App\Models\FamilyMember;
@@ -18,10 +18,10 @@ class FamilyMemberIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $familyCompositions = FamilyMember::paginate($perPage);
+        $familyMembers = FamilyMember::with(['assisted'])->paginate($perPage);
 
-        return view('familyCompositions.index', [
-            'familyCompositions' => $familyCompositions
+        return view('familyMembers.index', [
+            'familyMembers' => $familyMembers
         ]);
     }
 }
