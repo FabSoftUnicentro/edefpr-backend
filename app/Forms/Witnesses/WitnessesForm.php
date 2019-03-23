@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Forms\Assisted;
+namespace App\Forms\Witnesses;
 
 use App\Forms\Field;
 use Kris\LaravelFormBuilder\Form;
 
-class AssistedForm extends Form
+class WitnessesForm extends Form
 {
     public function buildForm()
     {
@@ -14,47 +14,16 @@ class AssistedForm extends Form
                 'label' => 'Nome',
                 'rules' => 'required|string'
             ])
-            ->add('email', Field::EMAIL, [
-                'label' => 'Email',
-                'rules' => 'required|email|unique:assisteds'
-            ])
             ->add('cpf', Field::TEXT, [
                 'label' => 'CPF',
-                'rules' => 'required|unique:users'
-            ])
-            ->add('profession', Field::TEXT, [
-                'label' => 'Profissão',
-                'rules' => 'required|string'
-            ])
-            ->add('birth_date', Field::DATE, [
-                'label' => 'Data de Nascimento',
-                'rules' => 'required'
+                'rules' => 'unique:witnesses'
             ])
             ->add('rg', Field::TEXT, [
                 'label' => 'Documento de Identidade',
-                'rules' => 'required|string'
+                'rules' => 'string'
             ])
             ->add('rg_issuer', Field::TEXT, [
                 'label' => 'Emissor do Documento de Identidade',
-                'rules' => 'required|string'
-            ])
-            ->add('gender', Field::SELECT, [
-                'label' => 'Gênero',
-                'choices' => [
-                    'M' => 'Masculino',
-                    'F' => 'Feminino',
-                    'O' => 'Outro',
-                    'I' => 'Indefinido'
-                ],
-                'empty_value' => 'Selecione um gênero',
-                'rules' => 'required'
-            ])
-            ->add('marital_status', Field::TEXT, [
-                'label' => 'Estado Civil',
-                'rules' => 'required|string'
-            ])
-            ->add('note', Field::TEXTAREA, [
-                'label' => 'Observações',
                 'rules' => 'string'
             ])
             ->add('postcode', Field::TEXT, [
