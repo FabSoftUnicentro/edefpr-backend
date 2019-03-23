@@ -1,20 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'Assistidos')
+@section('title', 'Composição familiar')
 
 @section('css')
 @endsection
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Assistidos</h1>
+    <h1>Composição Familiar</h1>
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-header with-border">
+    <div class="box box-primary ">
+        <div class="box-header with-border ">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.create') }}">Cadastrar assistido</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('familyCompositions.create') }}">Cadastrar composição familiar</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -24,28 +24,26 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Nome</th>
-                        <th class="text-center">CPF</th>
-                        <th class="text-center">RG</th>
-                        <th class="text-center">Email</th>
+                        <th class="text-center">Assistido</th>
+                        <th class="text-center">Situação Legal</th>
                         <th class="text-center">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($assisteds as $assisted)
+                    @foreach ($familyCompositions as $familyComposition)
                         <tr class="text-center">
-                            <td>{{ $assisted->id }}</td>
-                            <td>{{ $assisted->name }}</td>
-                            <td>{{ $assisted->cpf }}</td>
-                            <td>{{ $assisted->rg }}</td>
-                            <td>{{ $assisted->email }}</td>
+                            <td>{{ $familyComposition->id }}</td>
+                            <td>{{ $familyComposition->name }}</td>
+                            <td>{{ $familyComposition->assisted_name }}</td>
+                            <td>{{ __('translations.legal_situation.'.$familyComposition->legal_situation) }}</td>
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.show', $assisted->id) }}">
+                                <a class="btn btn-xs btn-primary" href="{{ route('familyCompositions.show', $familyComposition->id) }}">
                                     Visualizar
                                 </a>
-                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.edit', $assisted->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('familyCompositions.edit', $familyComposition->id) }}">
                                     Editar
                                 </a>
-                                <a class="btn btn-xs btn-danger assisted-destroy" data-id="{{ $assisted->id }}">
+                                <a class="btn btn-xs btn-danger familyComposition-destroy" data-id="{{ $familyComposition->id }}">
                                     Excluir
                                 </a>
                             </td>
@@ -56,7 +54,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix text-center">
-            {{ $assisteds->links() }}
+            {{ $familyCompositions->links() }}
         </div>
     </div>
 @stop
@@ -64,10 +62,10 @@
 @section('js')
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('.assisted-destroy').on('click', function () {
-            var assistedId = $(this).data('id');
+        $('.familyComposition-destroy').on('click', function () {
+            var familyCompositionId = $(this).data('id');
 
-            swal("Confirma a exclusão do assistido?", {
+            swal("Confirma a exclusão da composição familiar?", {
                 buttons: {
                     cancel: "Cancelar",
                     catch: {
@@ -80,14 +78,14 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('assisteds.destroy', '_user') }}'.replace('_user', assistedId),
+                            url: '{{ route('familyCompositions.destroy', '_familyComposition') }}'.replace('_familyComposition', familyCompositionId),
                             method: 'DELETE',
                             success: function (xhr) {
-                                swal("Sucesso!", "Assistido deletado", "success");
+                                swal("Sucesso!", "Composição familiar deletada", "success");
                                 window.location.reload();
                             },
                             error: function (xhr) {
-                                swal("Falha!", "Assistido não pôde ser excluído", "error");
+                                swal("Falha!", "Composição familiar não pôde ser excluída", "error");
                             }
                         });
                         break;
