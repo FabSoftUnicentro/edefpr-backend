@@ -4,9 +4,9 @@ namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FamilyComposition as FamilyCompositionResource;
-use App\Models\FamilyComposition;
+use App\Models\FamilyMember;
 
-class FamilyCompositionList extends Controller
+class FamilyMemberList extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -15,7 +15,7 @@ class FamilyCompositionList extends Controller
      */
     public function __invoke()
     {
-        $familyCompositions = FamilyComposition::paginate($this->itemsPerPage);
+        $familyCompositions = FamilyMember::paginate($this->itemsPerPage);
 
         return FamilyCompositionResource::collection($familyCompositions);
     }

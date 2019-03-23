@@ -21,7 +21,7 @@ class FamilyComposition extends Model
         'kinship',
         'work',
         'income',
-        'assisted_id',
+        'assisted_id'
     ];
 
     /**
@@ -43,4 +43,12 @@ class FamilyComposition extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * Get the assisted one that has the familiar composition.
+     */
+    public function assisted()
+    {
+        return $this->hasOne(Assisted::class, 'assisted_id');
+    }
 }

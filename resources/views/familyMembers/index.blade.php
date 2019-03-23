@@ -14,7 +14,7 @@
     <div class="box box-primary ">
         <div class="box-header with-border ">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('familyCompositions.create') }}">Cadastrar composição familiar</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create') }}">Cadastrar composição familiar</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -30,20 +30,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($familyCompositions as $familyComposition)
+                    @foreach ($familyMembers as $familyMember)
                         <tr class="text-center">
-                            <td>{{ $familyComposition->id }}</td>
-                            <td>{{ $familyComposition->name }}</td>
-                            <td>{{ $familyComposition->assisted_name }}</td>
-                            <td>{{ __('translations.legal_situation.'.$familyComposition->legal_situation) }}</td>
+                            <td>{{ $familyMember->id }}</td>
+                            <td>{{ $familyMember->name }}</td>
+                            <td>{{ dd($familyMember->assisted()) }}</td>
+                            <td>{{ __('translations.legal_situation.'.$familyMember->legal_situation) }}</td>
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('familyCompositions.show', $familyComposition->id) }}">
+                                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.show', $familyMember->id) }}">
                                     Visualizar
                                 </a>
-                                <a class="btn btn-xs btn-warning" href="{{ route('familyCompositions.edit', $familyComposition->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('familyMembers.edit', $familyMember->id) }}">
                                     Editar
                                 </a>
-                                <a class="btn btn-xs btn-danger familyComposition-destroy" data-id="{{ $familyComposition->id }}">
+                                <a class="btn btn-xs btn-danger familyComposition-destroy" data-id="{{ $familyMember->id }}">
                                     Excluir
                                 </a>
                             </td>
@@ -54,7 +54,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix text-center">
-            {{ $familyCompositions->links() }}
+            {{ $familyMembers->links() }}
         </div>
     </div>
 @stop
@@ -63,7 +63,7 @@
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $('.familyComposition-destroy').on('click', function () {
-            var familyCompositionId = $(this).data('id');
+            var familyMemberId = $(this).data('id');
 
             swal("Confirma a exclusão da composição familiar?", {
                 buttons: {
@@ -78,7 +78,7 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('familyCompositions.destroy', '_familyComposition') }}'.replace('_familyComposition', familyCompositionId),
+                            url: '{{ route('familyMembers.destroy', '_familyMember') }}'.replace('_familyMember', familyMemberId ),
                             method: 'DELETE',
                             success: function (xhr) {
                                 swal("Sucesso!", "Composição familiar deletada", "success");

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
-use App\Models\FamilyComposition;
+use App\Models\FamilyMember;
 use Illuminate\Http\Request;
 
-class FamilyCompositionIndex extends Controller
+class FamilyMemberIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -19,11 +18,7 @@ class FamilyCompositionIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $familyCompositions = FamilyComposition::paginate($perPage);
-
-        foreach($familyCompositions as $familyComposition) {
-            $familyComposition->assisted_name = Assisted::findOrFail($familyComposition->assisted_id)->name;
-        }
+        $familyCompositions = FamilyMember::paginate($perPage);
 
         return view('familyCompositions.index', [
             'familyCompositions' => $familyCompositions

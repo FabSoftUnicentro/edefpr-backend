@@ -4,15 +4,15 @@ namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
-use App\Models\FamilyComposition;
+use App\Models\FamilyMember;
 
-class FamilyCompositionShow extends Controller
+class FamilyMemberShow extends Controller
 {
     /**
-     * @param FamilyComposition $familyComposition
+     * @param FamilyMember $familyComposition
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(FamilyComposition $familyComposition)
+    public function __invoke(FamilyMember $familyComposition)
     {
         $familyComposition->assisted_name = Assisted::findOrFail($familyComposition->assisted_id)->name;
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFamilyCompositionTable extends Migration
+class CreateFamilyMemberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateFamilyCompositionTable extends Migration
      */
     public function up()
     {
-        Schema::create('family_compositions', function (Blueprint $table) {
+        Schema::create('family_members', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->date('birth_date');
             $table->enum('legal_situation', ['general', 'elderly', 'child', 'disabled-person', 'ex-prisoner']);
             $table->enum('kinship', [
-                'daughter', 'son', 'cousin', 'sister', 'brother', 'mother', 'father', 'grandmother', 'grandfather','uncle', 'aunt', 'wife', 'husband', 'grandson',
-                'granddaughter', 'nephew', 'niece', 'stepfather', 'stepmother', 'stepbrother', 'stepsister'
+                'daughter', 'son', 'cousin', 'sister', 'brother', 'mother', 'father', 'grandmother', 'grandfather', 'uncle', 'aunt',
+                'wife', 'husband', 'grandson', 'granddaughter', 'nephew', 'niece', 'stepfather', 'stepmother', 'stepbrother', 'stepsister'
             ]);
             $table->string('work');
             $table->double('income');
@@ -38,6 +38,6 @@ class CreateFamilyCompositionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('family_compositions');
+        Schema::dropIfExists('family_members');
     }
 }

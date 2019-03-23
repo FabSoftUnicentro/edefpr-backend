@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FamilyComposition;
 use App\Forms\FamilyComposition\FamilyCompositionForm;
 use App\Http\Controllers\Controller;
 
-class FamilyCompositionCreate extends Controller
+class FamilyMemberCreate extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
