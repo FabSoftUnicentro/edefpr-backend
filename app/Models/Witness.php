@@ -19,6 +19,7 @@ class Witness extends Model
         'cpf',
         'rg',
         'rg_issuer',
+        'assisted_id',
         'uf',
         'city',
         'number',
@@ -29,12 +30,30 @@ class Witness extends Model
     ];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
+
+    /**
+     * Get the assisted one that has the witness.
+     */
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class);
+    }
 }
