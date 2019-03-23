@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
-use App\Forms\FamilyComposition\FamilyCompositionForm;
+use App\Forms\FamilyMember\FamilyMemberForm;
 use App\Http\Controllers\Controller;
 
 class FamilyMemberCreate extends Controller
@@ -12,12 +12,12 @@ class FamilyMemberCreate extends Controller
      */
     public function __invoke()
     {
-        $form = $this->formBuilder->create(FamilyCompositionForm::class, [
-            'url' => route('familyCompositions.store'),
+        $form = $this->formBuilder->create(FamilyMemberForm::class, [
+            'url' => route('familyMembers.store'),
             'method' => 'POST'
         ]);
 
-        return view('familyCompositions.create', [
+        return view('familyMembers.create', [
             'form' => $form
         ]);
     }

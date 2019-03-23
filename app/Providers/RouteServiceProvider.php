@@ -51,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapUserRoutes();
 
-        $this->mapFamilyCompositionRoutes();
+        $this->mapFamilyMembersRoutes();
     }
 
     /**
@@ -139,11 +139,11 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/web/user.php'));
     }
 
-    protected function mapFamilyCompositionRoutes()
+    protected function mapFamilyMembersRoutes()
     {
-        Route::prefix('familyCompositions')
+        Route::prefix('familyMembers')
             ->middleware(['web', 'auth'])
-            ->namespace($this->namespace . '\FamilyComposition')
-            ->group(base_path('routes/web/family_composition.php'));
+            ->namespace($this->namespace . '\FamilyMember')
+            ->group(base_path('routes/web/family_members.php'));
     }
 }

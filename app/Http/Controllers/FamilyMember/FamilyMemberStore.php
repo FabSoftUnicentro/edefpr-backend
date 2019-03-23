@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
 use App\Models\FamilyMember;
@@ -14,18 +14,18 @@ class FamilyMemberStore extends Controller
      */
     public function __invoke(Request $request)
     {
-        $familyComposition = new FamilyMember($request->all());
+        $familyMember = new FamilyMember($request->all());
 
         try {
-            $familyComposition->save();
+            $familyMember->save();
 
             return redirect()
-                ->route('familyCompositions.index')
-                ->with('alert-success', 'Composição familiar cadastrada com sucesso!');
+                ->route('familyMembers.index')
+                ->with('alert-success', 'Membro familiar cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro da composição familiar!' . $e->getMessage());
+                ->with('alert-danger', 'Falha no cadastro do membro familiar!' . $e->getMessage());
         }
     }
 }

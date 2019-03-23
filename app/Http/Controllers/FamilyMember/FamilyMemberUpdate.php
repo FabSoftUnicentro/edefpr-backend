@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
 use App\Models\FamilyMember;
@@ -10,23 +10,23 @@ class FamilyMemberUpdate extends Controller
 {
     /**
      * @param Request $request
-     * @param FamilyMember $familyComposition
+     * @param FamilyMember $familyMember
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(Request $request, FamilyMember $familyComposition)
+    public function __invoke(Request $request, FamilyMember $familyMember)
     {
-        $familyComposition->update($request->all());
+        $familyMember->update($request->all());
 
         try {
-            $familyComposition->save();
+            $familyMember->save();
 
             return redirect()
-                ->route('familyCompositions.index')
-                ->with('alert-success', 'Composição familiar atualizada com sucesso!');
+                ->route('familyMembers.index')
+                ->with('alert-success', 'Membro familiar atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha na atualização da Composição familiar!');
+                ->with('alert-danger', 'Falha na atualização do membro familiar!');
         }
     }
 }

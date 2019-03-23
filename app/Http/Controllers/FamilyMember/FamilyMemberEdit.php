@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
-use App\Forms\FamilyComposition\FamilyCompositionForm;
+use App\Forms\FamilyMember\FamilyMemberForm;
 use App\Http\Controllers\Controller;
 use App\Models\FamilyMember;
 
 class FamilyMemberEdit extends Controller
 {
     /**
-     * @param FamilyMember $familyComposition
+     * @param FamilyMember $familyMember
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(FamilyMember $familyComposition)
+    public function __invoke(FamilyMember $familyMember)
     {
-        $form = $this->formBuilder->create(FamilyCompositionForm::class, [
-            'url' => route('familyCompositions.update', $familyComposition->id),
+        $form = $this->formBuilder->create(FamilyMemberForm::class, [
+            'url' => route('familyMembers.update', $familyMember->id),
             'method' => 'PUT',
-            'model' => $familyComposition
+            'model' => $familyMember
         ]);
 
-        return view('familyCompositions.edit', [
+        return view('familyMembers.edit', [
             'form' => $form
         ]);
     }

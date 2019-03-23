@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\familyComposition as FamilyCompositionResource;
+use App\Http\Resources\FamilyMember as FamilyMemberResource;
 use App\Models\FamilyMember;
 
 class FamilyMemberDestroy extends Controller
 {
     /**
      * @param FamilyMember $familyComposition
-     * @return familyCompositionResource
+     * @return FamilyMemberResource
      * @throws \Exception
      */
     public function __invoke(FamilyMember $familyComposition)
     {
         $familyComposition->delete();
 
-        return new FamilyCompositionResource($familyComposition);
+        return new FamilyMemberResource($familyComposition);
     }
 }

@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
 use App\Models\FamilyMember;
 
 class FamilyMemberShow extends Controller
 {
     /**
-     * @param FamilyMember $familyComposition
+     * @param FamilyMember $familyMember
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(FamilyMember $familyComposition)
+    public function __invoke(FamilyMember $familyMember)
     {
-        $familyComposition->assisted_name = Assisted::findOrFail($familyComposition->assisted_id)->name;
-
-        return view('familyCompositions.show', [
-            'familyComposition' => $familyComposition
+        return view('familyMembers.show', [
+            'familyMember' => $familyMember
         ]);
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\FamilyComposition;
+namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FamilyComposition as FamilyCompositionResource;
+use App\Http\Resources\FamilyMember as FamilyMemberResource;
 use App\Models\FamilyMember;
 
 class FamilyMemberList extends Controller
@@ -17,6 +17,6 @@ class FamilyMemberList extends Controller
     {
         $familyCompositions = FamilyMember::paginate($this->itemsPerPage);
 
-        return FamilyCompositionResource::collection($familyCompositions);
+        return FamilyMemberResource::collection($familyCompositions);
     }
 }

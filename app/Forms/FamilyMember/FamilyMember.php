@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Forms\FamilyComposition;
+namespace App\Forms\FamilyMember;
 
 use App\Forms\Field;
 use App\Models\Assisted;
 use Kris\LaravelFormBuilder\Form;
 
-class FamilyCompositionForm extends Form
+class FamilyMemberForm extends Form
 {
     public function buildForm()
     {
@@ -33,7 +33,7 @@ class FamilyCompositionForm extends Form
                     'general' => 'Geral',
                     'elderly' => 'Pessoa Idosa',
                     'child' => 'Criança/Adolescente',
-                    'disabled-person' => 'Pessoa com deficiência',
+                    'disabled-person' => 'Pessoa com necessidades especiais',
                     'ex-prisoner' => 'Egresso Sistema Prisional'
                 ],
                 'empty_value' => 'Selecione a situação legal da pessoa',
