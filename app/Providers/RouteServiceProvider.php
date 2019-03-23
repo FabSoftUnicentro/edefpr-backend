@@ -50,6 +50,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapRoleRoutes();
 
         $this->mapUserRoutes();
+
+        $this->mapFamilyMembersRoutes();
     }
 
     /**
@@ -135,5 +137,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\User')
             ->group(base_path('routes/web/user.php'));
+    }
+
+    protected function mapFamilyMembersRoutes()
+    {
+        Route::prefix('familyMembers')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\FamilyMember')
+            ->group(base_path('routes/web/family_members.php'));
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FamilyComposition extends Model
+class FamilyMember extends Model
 {
     use SoftDeletes;
 
@@ -17,11 +17,11 @@ class FamilyComposition extends Model
     protected $fillable = [
         'name',
         'birth_date',
-        'situation',
+        'legal_situation',
         'kinship',
         'work',
         'income',
-        'assisted_id',
+        'assisted_id'
     ];
 
     /**
@@ -43,4 +43,12 @@ class FamilyComposition extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * Get the assisted one that has the familiar member.
+     */
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class);
+    }
 }

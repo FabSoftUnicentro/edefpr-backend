@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\FamilyComposition;
+use App\Models\FamilyMember;
 
-class FamilyCompositionTableSeeder extends Seeder
+class FamilyMemberTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class FamilyCompositionTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(FamilyComposition::class, 10)->create();
+        factory(FamilyMember::class, 10)->create();
     }
 }

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
-use App\Models\FamilyComposition;
+use App\Models\FamilyMember;
 use App\Models\Assisted;
 
 /*
@@ -16,11 +16,11 @@ use App\Models\Assisted;
 |
 */
 
-$factory->define(FamilyComposition::class, function (Faker $faker) {
+$factory->define(FamilyMember::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'birth_date' => $faker->date(),
-        'situation' => 'general',
+        'legal_situation' => 'general',
         'kinship' => 'grandmother',
         'work' => 'test',
         'income' => $faker->randomFloat(),
