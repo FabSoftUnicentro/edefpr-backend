@@ -28,7 +28,7 @@ return [
         'general' => 'Geral',
         'elderly' => 'Idoso',
         'child' => 'Criança/Adolescente',
-        'disabled-person' => 'Pessoa com deficiência',
+        'disabled-person' => 'Pessoa com necessidades especiais',
         'ex-prisoner' => 'Egresso Sistema Prisional'
     ],
     'gender' => [
