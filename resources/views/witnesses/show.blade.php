@@ -6,44 +6,40 @@
 @endsection
 
 @section('content_header')
-    <h1>Assistido {{ $assisted->name }}</h1>
+    <h1>Testemunha do Assistido {{ $witness->assisted->name }}</h1>
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-header with-border">
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            <div class="col-md-6">
-                <h2>Informações Pessoais</h2>
-
-                <p> Nome: {{ $assisted->name }} </p>
-                <p> CPF: {{ $assisted->cpf }} </p>
-                <p> Email: {{ $assisted->email }} </p>
-                <p> Profissao: {{ $assisted->profession }} </p>
-                <p> Data de Nascimento: {{ date('d/m/Y', strtotime($assisted->birth_date)) }} </p>
-                <p> RG: {{ $assisted->rg }} </p>
-                <p> Emissor do RG: {{ $assisted->rg_issuer }} </p>
-                <p> Genero: {{ $assisted->gender }} </p>
-                <p> Estado Civil: {{ $assisted->marital_status }} </p>
-                <p> Observacoes: {{ $assisted->note }} </p>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="pull-right">
+                    <a class="btn btn-xs btn-primary" href="{{ route('witnesses.edit', $witness->id) }}">Editar testemunha</a>
+                </div>
             </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="col-md-6">
+                    <h3>Informações Pessoais</h3>
 
-            <div class="col-md-6">
-                <h2>Endereco</h2>
-                
-                <p> CEP: {{ $assisted->postcode }} </p>
-                <p> Rua: {{ $assisted->street }} </p>
-                <p> Numero: {{ $assisted->number }} </p>
-                <p> Bairro: {{ $assisted->neighborhood }} </p>
-                <p> UF: {{ $assisted->uf }} </p>
-                <p> Cidade: {{ $assisted->city }} </p>
-                <p> Complemento: {{ $assisted->complement }} </p>
+                    <p> <b>Nome:</b> {{ $witness->name }} </p>
+                    <p> <b>CPF:</b> {{ $witness->cpf }} </p>
+                    <p> <b>RG:</b> {{ $witness->rg }} </p>
+                    <p> <b>Emissor do RG:</b> {{ $witness->rg_issuer }} </p>
+                </div>
+
+                <div class="col-md-6">
+                    <h3>Endereço</h3>
+
+                    <p> <b>CEP:</b> {{ $witness->postcode }} </p>
+                    <p> <b>Rua:</b> {{ $witness->street }} </p>
+                    <p> <b>Numero:</b> {{ $witness->number }} </p>
+                    <p> <b>Bairro:</b> {{ $witness->neighborhood }} </p>
+                    <p> <b>UF:</b> {{ $witness->uf }} </p>
+                    <p> <b>Cidade:</b> {{ $witness->city }} </p>
+                    <p> <b>Complemento:</b> {{ $witness->complement }} </p>
+                </div>
             </div>
         </div>
     </div>
 @stop
-
-@section('js')
-@endsection

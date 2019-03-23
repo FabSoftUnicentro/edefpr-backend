@@ -1,8 +1,8 @@
 {!! form_start($form) !!}
 
-<div class="row">
+<div class="row col-md-offset-1">
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="box box-primary">
 
             <div class="box-header with-border">
@@ -21,21 +21,6 @@
                 </div>
 
                 <div class="form-group">
-                    {!! form_label($form->email) !!}
-                    {!! form_widget($form->email) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->profession) !!}
-                    {!! form_widget($form->profession) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->birth_date) !!}
-                    {!! form_widget($form->birth_date) !!}
-                </div>
-
-                <div class="form-group">
                     {!! form_label($form->rg) !!}
                     {!! form_widget($form->rg) !!}
                 </div>
@@ -44,26 +29,11 @@
                     {!! form_label($form->rg_issuer) !!}
                     {!! form_widget($form->rg_issuer) !!}
                 </div>
-
-                <div class="form-group">
-                    {!! form_label($form->gender) !!}
-                    {!! form_widget($form->gender) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->marital_status) !!}
-                    {!! form_widget($form->marital_status) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->note) !!}
-                    {!! form_widget($form->note) !!}
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="box box-primary">
 
             <div class="box-header with-border">
@@ -108,9 +78,9 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="box-footer">
-    {!! form_widget($form->submit) !!}
+    <div class="col-md-10">
+        {!! form_widget($form->submit) !!}
+    </div>
 </div>
 {!! form_end($form) !!}

@@ -1,17 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar assistido')
+@section('title', 'Editar Testemunha')
 
 @section('css')
 @endsection
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Editar assistido</h1>
+    <h1>Editar testemunha</h1>
 @stop
 
 @section('content')
-    @include('assisteds._form', [
+    @include('witnesses._form', [
         'form' => $form
     ])
 @stop
