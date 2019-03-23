@@ -9,14 +9,14 @@ use App\Models\FamilyMember;
 class FamilyMemberDestroy extends Controller
 {
     /**
-     * @param FamilyMember $familyComposition
+     * @param FamilyMember $familyMember
      * @return FamilyMemberResource
      * @throws \Exception
      */
-    public function __invoke(FamilyMember $familyComposition)
+    public function __invoke(FamilyMember $familyMember)
     {
-        $familyComposition->delete();
+        $familyMember->delete();
 
-        return new FamilyMemberResource($familyComposition);
+        return new FamilyMemberResource($familyMember);
     }
 }
