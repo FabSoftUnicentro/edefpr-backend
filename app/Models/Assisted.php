@@ -53,4 +53,12 @@ class Assisted extends Model
     {
         return $this->hasMany(FamilyMember::class);
     }
+
+    /**
+     * Get all of the witnesses for the assisted.
+     */
+    public function witnesses()
+    {
+        return $this->hasMany(Witness::class);
+    }
 }
