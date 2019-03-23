@@ -2,20 +2,20 @@
 
 // Family Composition routes
 Route::group(['middleware' => ['permission:register-assisted']], function () {
-    Route::get('/create', 'FamilyMemberCreate')->name('familyCompositions.create');
-    Route::post('/', 'FamilyMemberStore')->name('familyCompositions.store');
+    Route::get('/create', 'FamilyMemberCreate')->name('familyMembers.create');
+    Route::post('/', 'FamilyMemberStore')->name('familyMembers.store');
 });
 
 Route::group(['middleware' => ['permission:update-assisted']], function () {
-    Route::get('/{familyComposition}/edit', 'FamilyMemberEdit')->name('familyCompositions.edit');
-    Route::put('/{familyComposition}', 'FamilyMemberUpdate')->name('familyCompositions.update');
+    Route::get('/{familyMember}/edit', 'FamilyMemberEdit')->name('familyMembers.edit');
+    Route::put('/{familyMember}', 'FamilyMemberUpdate')->name('familyMembers.update');
 });
 
 Route::group(['middleware' => ['permission:read-assisted']], function () {
-    Route::get('/list', 'FamilyMemberIndex')->name('familyCompositions.index');
-    Route::get('/{familyComposition}', 'FamilyMemberShow')->name('familyCompositions.show');
+    Route::get('/list', 'FamilyMemberIndex')->name('familyMembers.index');
+    Route::get('/{familyMember}', 'FamilyMemberShow')->name('familyMembers.show');
 });
 
 Route::group(['middleware' => ['permission:delete-assisted']], function () {
-    Route::delete('/{familyComposition}', 'FamilyMemberDestroy')->name('familyCompositions.destroy');
+    Route::delete('/{familyMember}', 'FamilyMemberDestroy')->name('familyMembers.destroy');
 });
