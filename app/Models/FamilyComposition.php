@@ -17,7 +17,7 @@ class FamilyComposition extends Model
     protected $fillable = [
         'name',
         'birth_date',
-        'situation',
+        'legal_situation',
         'kinship',
         'work',
         'income',
