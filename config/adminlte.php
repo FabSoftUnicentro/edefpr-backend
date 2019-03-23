@@ -126,8 +126,8 @@ return [
                 ],
                 [
                     'text' => 'Composição Familiar',
-                    'route'  => 'familyCompositions.index',
-                    'active' => ['familyCompositions']
+                    'route'  => 'familyMembers.index',
+                    'active' => ['familyMembers']
                 ]
             ]
         ],
