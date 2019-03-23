@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Witness;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Witness;
 use Illuminate\Http\Request;
 
-class AssistedIndex extends Controller
+class WitnessIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -18,10 +18,10 @@ class AssistedIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assisteds = Assisted::paginate($perPage);
+        $witnesses = Witness::with(['assisted'])->paginate($perPage);
 
-        return view('assisteds.index', [
-            'assisteds' => $assisteds
+        return view('witnesses.index', [
+            'witnesses' => $witnesses
         ]);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Witness;
 
-use App\Forms\Assisted\WitnessesForm;
+use App\Forms\Witnesses\WitnessesForm;
 use App\Http\Controllers\Controller;
 
-class AssistedCreate extends Controller
+class WitnessCreate extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -13,11 +13,11 @@ class AssistedCreate extends Controller
     public function __invoke()
     {
         $form = $this->formBuilder->create(WitnessesForm::class, [
-            'url' => route('assisteds.store'),
+            'url' => route('witnesses.store'),
             'method' => 'POST'
         ]);
 
-        return view('assisteds.create', [
+        return view('witnesses.create', [
             'form' => $form
         ]);
     }

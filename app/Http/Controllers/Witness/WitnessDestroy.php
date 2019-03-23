@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Witness;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Assisted as AssistedResource;
-use App\Models\Assisted;
+use App\Http\Resources\Witness as WitnessResource;
+use App\Models\Witness;
 
-class AssistedDestroy extends Controller
+class WitnessDestroy extends Controller
 {
     /**
-     * @param Assisted $assisted
-     * @return AssistedResource
+     * @param Witness $witness
+     * @return WitnessResource
+     * @throws \Exception
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Witness $witness)
     {
-        $assisted->delete();
+        $witness->delete();
 
-        return new AssistedResource($assisted);
+        return new WitnessResource($witness);
     }
 }
