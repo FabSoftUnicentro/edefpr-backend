@@ -47,12 +47,10 @@ class Assisted extends Model
     ];
 
     /**
-     * Generate json for the addresses attribute
-     *
-     * @param $value
+     * Get all of the family members for the assisted.
      */
-    public function setAddressesAttribute($value)
+    public function familyMembers()
     {
-        $this->attributes['addresses'] = json_encode($value);
+        return $this->hasMany(FamilyMember::class);
     }
 }
