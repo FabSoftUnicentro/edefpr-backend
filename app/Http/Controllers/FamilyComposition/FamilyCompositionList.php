@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Assisted as AssistedResource;
-use App\Models\Assisted;
+use App\Http\Resources\FamilyComposition as FamilyCompositionResource;
+use App\Models\FamilyComposition;
 
-class AssistedList extends Controller
+class FamilyCompositionList extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -15,8 +15,8 @@ class AssistedList extends Controller
      */
     public function __invoke()
     {
-        $assisteds = Assisted::paginate($this->itemsPerPage);
+        $familyCompositions = FamilyComposition::paginate($this->itemsPerPage);
 
-        return AssistedResource::collection($assisteds);
+        return FamilyCompositionResource::collection($familyCompositions);
     }
 }

@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
-use App\Forms\Assisted\AssistedForm;
+use App\Forms\FamilyComposition\FamilyCompositionForm;
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\FamilyComposition;
 
-class AssistedEdit extends Controller
+class FamilyCompositionEdit extends Controller
 {
     /**
-     * @param Assisted $assisted
+     * @param FamilyComposition $familyComposition
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(FamilyComposition $familyComposition)
     {
-        $form = $this->formBuilder->create(AssistedForm::class, [
-            'url' => route('assisteds.update', $assisted->id),
+        $form = $this->formBuilder->create(FamilyCompositionForm::class, [
+            'url' => route('familyCompositions.update', $familyComposition->id),
             'method' => 'PUT',
-            'model' => $assisted
+            'model' => $familyComposition
         ]);
 
-        return view('assisteds.edit', [
+        return view('familyCompositions.edit', [
             'form' => $form
         ]);
     }

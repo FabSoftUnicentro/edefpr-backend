@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
-use App\Forms\Assisted\AssistedForm;
+use App\Forms\FamilyComposition\FamilyCompositionForm;
 use App\Http\Controllers\Controller;
 
-class AssistedCreate extends Controller
+class FamilyCompositionCreate extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function __invoke()
     {
-        $form = $this->formBuilder->create(AssistedForm::class, [
-            'url' => route('assisteds.store'),
+        $form = $this->formBuilder->create(FamilyCompositionForm::class, [
+            'url' => route('familyCompositions.store'),
             'method' => 'POST'
         ]);
 
-        return view('assisteds.create', [
+        return view('familyCompositions.create', [
             'form' => $form
         ]);
     }

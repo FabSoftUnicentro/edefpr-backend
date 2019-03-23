@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\FamilyComposition;
 use Illuminate\Http\Request;
 
-class AssistedStore extends Controller
+class FamilyCompositionStore extends Controller
 {
     /**
      * @param Request $request
@@ -14,18 +14,18 @@ class AssistedStore extends Controller
      */
     public function __invoke(Request $request)
     {
-        $assisted = new Assisted($request->all());
+        $familyComposition = new FamilyComposition($request->all());
 
         try {
-            $assisted->save();
+            $familyComposition->save();
 
             return redirect()
-                ->route('assisteds.index')
-                ->with('alert-success', 'Assistido cadastrado com sucesso!');
+                ->route('familyCompositions.index')
+                ->with('alert-success', 'Composição familiar cadastrada com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro do assistido!' . $e->getMessage());
+                ->with('alert-danger', 'Falha no cadastro da composição familiar!' . $e->getMessage());
         }
     }
 }

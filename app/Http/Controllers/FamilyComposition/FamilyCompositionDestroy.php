@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Assisted as AssistedResource;
-use App\Models\Assisted;
+use App\Http\Resources\familyComposition as familyCompositionResource;
+use App\Models\FamilyComposition;
 
-class AssistedDestroy extends Controller
+class FamilyCompositionDestroy extends Controller
 {
     /**
-     * @param Assisted $assisted
-     * @return AssistedResource
+     * @param FamilyComposition $familyComposition
+     * @return familyCompositionResource
+     * @throws \Exception
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(FamilyComposition $familyComposition)
     {
-        $assisted->delete();
+        $familyComposition->delete();
 
-        return new AssistedResource($assisted);
+        return new familyCompositionResource($familyComposition);
     }
 }

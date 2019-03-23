@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\FamilyComposition;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
+use App\Models\FamilyComposition;
 use Illuminate\Http\Request;
 
-class AssistedIndex extends Controller
+class FamilyCompositionIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -18,10 +19,14 @@ class AssistedIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assisteds = Assisted::paginate($perPage);
+        $familyCompositions = FamilyComposition::paginate($perPage);
 
-        return view('assisteds.index', [
-            'assisteds' => $assisteds
+        foreach($familyCompositions as $familyComposition) {
+            $familyComposition->assisted_name = Assisted::findOrFail($familyComposition->assisted_id)->name;
+        }
+
+        return view('familyCompositions.index', [
+            'familyCompositions' => $familyCompositions
         ]);
     }
 }
