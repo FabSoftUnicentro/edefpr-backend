@@ -1,8 +1,8 @@
 {!! form_start($form) !!}
 
-<div class="row">
+<div class="row col-md-offset-1">
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="box box-primary">
 
             <div class="box-header with-border">
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="box box-primary">
 
             <div class="box-header with-border">
@@ -108,9 +108,9 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="box-footer">
-    {!! form_widget($form->submit) !!}
+    <div class="col-md-10">
+        {!! form_widget($form->submit) !!}
+    </div>
 </div>
 {!! form_end($form) !!}
