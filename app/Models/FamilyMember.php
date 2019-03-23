@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FamilyComposition extends Model
+class FamilyMember extends Model
 {
     use SoftDeletes;
 
@@ -45,10 +45,10 @@ class FamilyComposition extends Model
     ];
 
     /**
-     * Get the assisted one that has the familiar composition.
+     * Get the assisted one that has the familiar member.
      */
     public function assisted()
     {
-        return $this->hasOne(Assisted::class, 'assisted_id');
+        return $this->belongsTo(Assisted::class);
     }
 }
