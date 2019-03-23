@@ -9,6 +9,7 @@
         "Waavi/Sanitizer": "^1.0",
         "barryvdh/laravel-cors": "^0.11.0",
         "benjamincrozat/laravel-dropbox-driver": "^2.0",
+        "bugsnag/bugsnag-laravel": "^2.0",
         "fideloper/proxy": "^4.0",
         "freshbitsweb/laravel-log-enhancer": "^1.0",
         "fzaninotto/faker": "^1.4",
