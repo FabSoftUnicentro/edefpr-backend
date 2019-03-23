@@ -20,7 +20,7 @@ $factory->define(FamilyComposition::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'birth_date' => $faker->date(),
-        'situation' => 'general',
+        'legal_situation' => 'general',
         'kinship' => 'grandmother',
         'work' => 'test',
         'income' => $faker->randomFloat(),
