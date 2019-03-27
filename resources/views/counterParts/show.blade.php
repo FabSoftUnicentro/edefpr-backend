@@ -11,25 +11,21 @@
 
 @section('content')
     <div class="box">
-        <div class="box-header with-border">
-        </div>
-        <!-- /.box-header -->
         <div class="box-body">
             <div class="col-md-6">
                 <h2>Informações Pessoais</h2>
                 <p>Nome : {{ $counterPart->name }}</p>
                 <p>RG : {{ $counterPart->rg }}</p>
                 <p>Emissor do RG : {{ $counterPart->rg_issuer }}</p>
+                <p>CPF/CNPF : {{ $counterPart->document_number }}</p>
                 <p>Número de telefone : {{ $counterPart->phone_number }}</p>
-                <p>Remuneração : {{ $counterPart->remuneration }}</p>
+                <p>Remuneração : R$ {{ $counterPart->remuneration }}</p>
                 <p>Prefissão : {{ $counterPart->profession }}</p>
                 <p>Dados do trabalho : {{ $counterPart->note }}</p>
-
             </div>
 
             <div class="col-md-6">
                 <h2>Endereço</h2>
-                <p>CPF : {{ $counterPart->cpf }}</p>
                 <p>UF : {{ $counterPart->uf }}</p>
                 <p>Cidade : {{ $counterPart->city }}</p>
                 <p>Rua : {{ $counterPart->street }}</p>
