@@ -24,8 +24,13 @@
                 </div>
 
                 <div class="form-group">
-                    {!! form_label($form->cpf) !!}
-                    {!! form_widget($form->cpf) !!}
+                    {!! form_label($form->document_type) !!}
+                    {!! form_widget($form->document_type) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! form_label($form->document_number) !!}
+                    {!! form_widget($form->document_number) !!}
                 </div>
 
                 <div class="form-group">
