@@ -1,4 +1,4 @@
 <?php
 
 // Postcode routes
-$this->get('/{postcode}', 'PostcodeSearch')->name('postcode.search');
+Route::get('/{postcode}', 'PostcodeSearch')->name('postcode.search');

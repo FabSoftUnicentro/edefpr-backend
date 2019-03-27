@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Assisted extends Model
+class Witness extends Model
 {
     use SoftDeletes;
 
@@ -16,15 +16,9 @@ class Assisted extends Model
      */
     protected $fillable = [
         'name',
-        'email',
         'cpf',
-        'birth_date',
-        'birthplace',
         'rg',
         'rg_issuer',
-        'gender',
-        'marital_status',
-        'note',
         'uf',
         'city',
         'number',
@@ -32,25 +26,15 @@ class Assisted extends Model
         'postcode',
         'complement',
         'neighborhood',
-        'profession',
     ];
 
     /**
-     * The attributes that should be mutated to dates.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at'
+    protected $hidden = [
+        'password',
+        'remember_token',
     ];
-
-    /**
-     * Get all of the family members for the assisted.
-     */
-    public function familyMembers()
-    {
-        return $this->hasMany(FamilyMember::class);
-    }
 }

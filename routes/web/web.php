@@ -11,14 +11,14 @@
 |
 */
 
-$this->get('/', 'Dashboard\DashboardIndex')->name('dashboard');
+Route::get('/', 'Dashboard\DashboardIndex')->name('dashboard');
 
 Auth::routes();
 
-$this->get('/page-not-found', function () {
+Route::get('/page-not-found', function () {
     return view('error.404');
 })->name('404');
 
-$this->get('/internal-server-error', function () {
+Route::get('/internal-server-error', function () {
     return view('error.500');
 })->name('500');

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Assisted extends Model
+class FamilyMember extends Model
 {
     use SoftDeletes;
 
@@ -16,23 +16,12 @@ class Assisted extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'cpf',
         'birth_date',
-        'birthplace',
-        'rg',
-        'rg_issuer',
-        'gender',
-        'marital_status',
-        'note',
-        'uf',
-        'city',
-        'number',
-        'street',
-        'postcode',
-        'complement',
-        'neighborhood',
-        'profession',
+        'legal_situation',
+        'kinship',
+        'work',
+        'income',
+        'assisted_id'
     ];
 
     /**
@@ -41,16 +30,25 @@ class Assisted extends Model
      * @var array
      */
     protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
         'created_at',
         'updated_at',
         'deleted_at'
     ];
 
     /**
-     * Get all of the family members for the assisted.
+     * Get the assisted one that has the familiar member.
      */
-    public function familyMembers()
+    public function assisted()
     {
-        return $this->hasMany(FamilyMember::class);
+        return $this->belongsTo(Assisted::class);
     }
 }
