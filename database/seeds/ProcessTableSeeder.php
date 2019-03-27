@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Assisted;
+use App\Models\Process;
 use Illuminate\Database\Seeder;
 
-class AssistedTableSeeder extends Seeder
+class ProcessTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AssistedTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Assisted::class, 10)->create();
+        factory(Process::class, 10)->create();
     }
 }
