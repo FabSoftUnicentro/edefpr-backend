@@ -19,10 +19,11 @@ class CreateCounterPartTable extends Migration
             $table->string('rg')->nullable();
             $table->string('rg_issuer')->nullable();
             $table->string('phone_number')->nullable();
-            $table->decimal('remuneration', 10, 2)->nullable();
+            $table->decimal('remuneration', 11, 2)->nullable();
             $table->string('profession')->nullable();
             $table->text('note')->nullable();
-            $table->string('cpf')->nullable();
+            $table->enum('document_type', ['CPF', 'CNPJ']);
+            $table->string('document_number');
             $table->string('uf', 2);
             $table->string('city');
             $table->string('number');
