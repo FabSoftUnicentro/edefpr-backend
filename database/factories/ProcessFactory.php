@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Witness;
+use App\Models\Process;
 use App\Models\Assisted;
+use App\Models\CounterPart;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB;
 
@@ -16,19 +17,10 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-$factory->define(Witness::class, function (Faker $faker) {
+$factory->define(Process::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'cpf' => (string) $faker->numberBetween(999999999),
-        'rg' => $faker->unique()->text(11),
-        'rg_issuer' => 'SSP',
+        'description' => $faker->text,
         'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create(),
-        'uf' => 'PR',
-        'city' => 'Guarapuava',
-        'number' => '123',
-        'street' => 'Teste',
-        'postcode' => '85015310',
-        'complement' => '',
-        'neighborhood' => 'Batel',
+        'counter_part_id' => DB::table('counterpart')->exists() ? DB::table('counterpart')->inRandomOrder()->first()->id : factory(CounterPart::class)->create(),
     ];
 });
