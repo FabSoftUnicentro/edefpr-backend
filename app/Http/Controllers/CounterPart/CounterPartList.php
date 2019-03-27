@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\CounterPart;
 
-use App\Models\CounterPart;
-use App\Http\Resources\CounterPart as CounterPartListResource;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CounterPart as CounterPartListResource;
+use App\Models\CounterPart;
+use Illuminate\Http\Request;
 
 class CounterPartList extends Controller
 {
@@ -18,13 +18,7 @@ class CounterPartList extends Controller
      */
     public function __invoke(Request $request)
     {
-        $paginate = intval($request->get('paginate', 1));
-
-        if ($paginate === 1) {
-            $counterPartList = CounterPart::orderBy('name', 'asc')->paginate($this->itemsPerPage);
-        } else {
-            $counterPartList = CounterPart::orderBy('name', 'asc')->get();
-        }
+        $counterPartList = CounterPart::paginate($this->itemsPerPage);
 
         return CounterPartListResource::collection($counterPartList);
     }
