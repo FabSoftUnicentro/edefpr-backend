@@ -3,6 +3,8 @@
 namespace App\Forms\CounterPart;
 
 use App\Forms\Field;
+use App\Utils\Brazil;
+use App\Utils\Document;
 use Kris\LaravelFormBuilder\Form;
 
 class CounterPartForm extends Form
@@ -16,7 +18,7 @@ class CounterPartForm extends Form
             ])
             ->add('rg', Field::TEXT, [
                 'label' => 'RG',
-                'rules' => 'required|numeric'
+                'rules' => 'required'
             ])
             ->add('rg_issuer', Field::TEXT, [
                 'label' => 'Órgão Emissor',
@@ -28,7 +30,7 @@ class CounterPartForm extends Form
             ])
             ->add('remuneration', Field::TEXT, [
                 'label' => 'Remuneração',
-                'rules' => 'required|numeric'
+                'rules' => 'required'
             ])
             ->add('profession', Field::TEXT, [
                 'label' => 'Profissão',
@@ -38,9 +40,14 @@ class CounterPartForm extends Form
                 'label' => 'Dados do trabalho',
                 'rules' => 'string'
             ])
-            ->add('cpf', Field::TEXT, [
-                'label' => 'CPF',
-                'rules' => 'required|numeric'
+            ->add('document_type', Field::SELECT, [
+                'label' => 'Tipo de documento',
+                'choices' => Document::getDocumentTypes(),
+                'rules' => 'required'
+            ])
+            ->add('document_number', Field::TEXT, [
+                'label' => 'Número documento',
+                'rules' => 'required'
             ])
             ->add('postcode', Field::TEXT, [
                 'label' => 'CEP',
@@ -62,13 +69,18 @@ class CounterPartForm extends Form
                 'label' => 'Complemento',
                 'rules' => 'string'
             ])
-            ->add('uf', Field::TEXT, [
+            ->add('uf', Field::SELECT, [
                 'label' => 'UF',
-                'rules' => 'required|string'
+                'choices' => Brazil::states(),
+                'empty_value' => 'Selecione um estado',
+                'empty_data' => null
             ])
-            ->add('city', Field::TEXT, [
+            ->add('city', Field::SELECT, [
                 'label' => 'Cidade',
-                'rules' => 'required|string'
+                'rules' => 'required|string',
+                'choices' => $this->uf->getValue() ? Brazil::cities($this->uf->getValue()) : [],
+                'empty_value' => 'Selecione uma cidade',
+                'empty_data' => null
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
                 'label' => 'Salvar'
