@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Utils\Number;
 use Illuminate\Database\Eloquent\Model;
 
 class CounterPart extends Model
@@ -41,4 +42,12 @@ class CounterPart extends Model
     ];
 
     protected $table = 'counterpart';
+
+    /**
+     * @param $value
+     */
+    public function setRemunerationAttribute($value)
+    {
+        $this->attributes['remuneration'] = Number::unmask($value);
+    }
 }
