@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'eDefPR',
+    'title' => 'Login',
 
     'title_prefix' => 'eDefPR - ',
 
@@ -116,10 +116,20 @@ return [
         ],
         [
             'text' => 'Assistidos',
-            'route'  => 'assisteds.index',
             'icon' => 'users',
             'can' => 'read-assisted',
-            'active' => ['assisteds']
+            'submenu' => [
+                [
+                    'text' => 'Assistidos',
+                    'route'  => 'assisteds.index',
+                    'active' => ['assisteds'],
+                ],
+                [
+                    'text' => 'Composição Familiar',
+                    'route'  => 'familyMembers.index',
+                    'active' => ['familyMembers']
+                ]
+            ]
         ],
         [
             'text' => 'Atendimento',

@@ -29,7 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'marital_status' => 'Solteiro',
         'note' => null,
         'uf' => 'PR',
-        'city' => 1,
+        'city' => 'Guarapuava',
         'number' => '123',
         'street' => 'Teste',
         'postcode' => '85015310',

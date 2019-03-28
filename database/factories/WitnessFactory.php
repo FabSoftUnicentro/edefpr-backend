@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Assisted;
+use App\Models\Witness;
 use Faker\Generator as Faker;
 
 /*
@@ -14,18 +14,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Assisted::class, function (Faker $faker) {
+$factory->define(Witness::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'cpf' => $faker->numberBetween(999999999),
-        'birth_date' => $faker->date(),
+        'cpf' => (string) $faker->numberBetween(999999999),
         'rg' => $faker->unique()->text(11),
         'rg_issuer' => 'SSP',
-        'gender' => 'M',
-        'marital_status' => 'Solteiro',
-        'profession' => 'Teste',
-        'note' => null,
         'uf' => 'PR',
         'city' => 'Guarapuava',
         'number' => '123',
