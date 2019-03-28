@@ -23,7 +23,7 @@ class CreateCounterPartTable extends Migration
             $table->string('profession')->nullable();
             $table->text('note')->nullable();
             $table->enum('document_type', ['CPF', 'CNPJ']);
-            $table->string('document_number');
+            $table->string('document_number', 18)->unique();
             $table->string('uf', 2);
             $table->string('city');
             $table->string('number');
