@@ -17,33 +17,7 @@ class CounterPartStore extends Controller
      */
     public function __invoke(Request $request)
     {
-        if ($request['document_type'] === (Document::TYPE_CPF)) {
-            if (!Document::isCpf($request['document_number'])) {
-                return redirect()
-                    ->back()
-                    ->with('alert-danger', 'Falha ao cadastrar, CPF incorreto!');
-            }
-        } elseif ($request['document_type'] === (Document::TYPE_CNPJ)) {
-            if (!Document::isCnpj($request['document_number'])) {
-                return redirect()
-                    ->back()
-                    ->with('alert-danger', 'Falha ao cadastrar, CNPJ incorreto!');
-            }
-        } else {
-            return redirect()
-                ->back()
-                ->with('alert-danger', 'Falha ao cadastrar, verifique o tipo do documento indentificador!');
-        }
-
-        $params = $request->all();
-
-        $remuneration = $params['remuneration'];
-        $remuneration = str_replace('.', '', $remuneration);
-        $remuneration = str_replace(',', '.', $remuneration);
-
-        $params['remuneration'] = floatval($remuneration);
-
-        $counterPart = new CounterPart($params);
+        $counterPart = new CounterPart($request->all());
 
         try {
             $counterPart->save();
