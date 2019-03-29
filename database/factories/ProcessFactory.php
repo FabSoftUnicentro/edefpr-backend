@@ -2,8 +2,9 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
-use App\Models\FamilyMember;
+use App\Models\Process;
 use App\Models\Assisted;
+use App\Models\CounterPart;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,10 @@ use App\Models\Assisted;
 |
 */
 
-$factory->define(FamilyMember::class, function (Faker $faker) {
+$factory->define(Process::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'birth_date' => $faker->date(),
-        'legal_situation' => 'general',
-        'kinship' => 'grandmother',
-        'work' => 'test',
-        'income' => $faker->randomFloat(),
-        'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
+        'description' => $faker->text,
+        'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create(),
+        'counter_part_id' => DB::table('counterpart')->exists() ? DB::table('counterpart')->inRandomOrder()->first()->id : factory(CounterPart::class)->create()
     ];
 });
