@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\FamilyMember;
+use App\Models\Process;
 
-class FamilyMemberTableSeeder extends Seeder
+class ProcessTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class FamilyMemberTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(FamilyMember::class, 10)->create();
+        factory(Process::class, 10)->create();
     }
 }
