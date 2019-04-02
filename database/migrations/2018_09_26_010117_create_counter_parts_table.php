@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCounterPartTable extends Migration
+class CreateCounterPartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateCounterPartTable extends Migration
      */
     public function up()
     {
-        Schema::create('counterpart', function (Blueprint $table) {
+        Schema::create('counter_parts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->date('birth_date');
             $table->string('rg')->nullable();
             $table->string('rg_issuer')->nullable();
-            $table->enum('gender', ['M', 'F', 'O']);
+            $table->string('phone_number')->nullable();
+            $table->decimal('remuneration', 11, 2)->nullable();
             $table->string('profession')->nullable();
             $table->text('note')->nullable();
-            $table->text('document_type');
-            $table->integer('document_number');
-            $table->text('fantasy_name')->nullable();
+            $table->enum('document_type', ['CPF', 'CNPJ']);
+            $table->string('document_number', 18)->unique();
             $table->string('uf', 2);
             $table->string('city');
             $table->string('number');
@@ -44,6 +42,6 @@ class CreateCounterPartTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('counterpart');
+        Schema::dropIfExists('counter_parts');
     }
 }

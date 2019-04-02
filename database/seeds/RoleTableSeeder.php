@@ -89,6 +89,7 @@ class RoleTableSeeder extends Seeder
             'register-counterPart',
             'update-counterPart',
             'delete-counterPart',
+            'list-counterPart',
             'register-relative',
             'update-relative',
             'delete-relative'
@@ -170,6 +171,7 @@ class RoleTableSeeder extends Seeder
             'Registrar Parte Contrária',
             'Atualizar Parte Contrária',
             'Excluir Parte Contrária',
+            'Visualizar parte contrária',
             'Registrar Parente',
             'Atualizar Parente',
             'Excluir Parente'
@@ -219,6 +221,7 @@ class RoleTableSeeder extends Seeder
             'register-counterPart',
             'update-counterPart',
             'delete-counterPart',
+            'list-counterPart',
             'register-relative',
             'update-relative',
             'delete-relative'
@@ -253,6 +256,7 @@ class RoleTableSeeder extends Seeder
             'register-counterPart',
             'update-counterPart',
             'delete-counterPart',
+            'list-counterPart',
             'register-relative',
             'update-relative',
             'delete-relative'
@@ -397,6 +401,7 @@ class RoleTableSeeder extends Seeder
             'register-counterPart',
             'update-counterPart',
             'delete-counterPart',
+            'list-counterPart',
             'register-relative',
             'update-relative',
             'delete-relative'

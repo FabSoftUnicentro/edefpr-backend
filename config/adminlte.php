@@ -150,9 +150,15 @@ return [
         ],
         [
             'text' => 'Processos',
-            'url'  => '*',
             'icon' => 'file',
-            'active' => ['proccesses']
+            'can' => 'register-counterPart',
+            'submenu' => [
+                [
+                    'text' => 'Parte contraria',
+                    'route' => 'counterParts.index',
+                    'active' => ['counterParts']
+                ]
+            ]
         ],
         [
             'text' => 'Triagens',
