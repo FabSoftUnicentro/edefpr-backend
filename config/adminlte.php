@@ -149,14 +149,16 @@ return [
             ]
         ],
         [
-            'text' => 'Parte contraria (mudar de lugar)', // Mudar de lugar quando for implementado processos
-            'route' => 'counterParts.index'
-        ],
-        [
             'text' => 'Processos',
-            'url'  => '*',
             'icon' => 'file',
-            'active' => ['proccesses']
+            'can' => 'register-counterPart',
+            'submenu' => [
+                [
+                    'text' => 'Parte contraria',
+                    'route' => 'counterParts.index',
+                    'active' => ['counterParts']
+                ]
+            ]
         ],
         [
             'text' => 'Triagens',
