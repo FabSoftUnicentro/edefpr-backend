@@ -41,7 +41,7 @@ class CounterPart extends Model
         'updated_at'
     ];
 
-    protected $table = 'counterpart';
+    protected $table = 'counter_parts';
 
     /**
      * @param $value
