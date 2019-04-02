@@ -11,7 +11,7 @@ Route::group(['middleware' => ['permission:update-counterPart']], function () {
     Route::put('/{counterPart}', 'CounterPartUpdate')->name('counterParts.update');
 });
 
-Route::group(['middleware' => ['permission:register-counterPart']], function () {
+Route::group(['middleware' => ['permission:list-counterPart']], function () {
     Route::get('/list', 'CounterPartIndex')->name('counterParts.index');
     Route::get('/{counterPart}', 'CounterPartShow')->name('counterParts.show');
 });
