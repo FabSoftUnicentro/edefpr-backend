@@ -24,11 +24,11 @@ class CounterPartStore extends Controller
 
             return redirect()
                 ->route('counterParts.index')
-                ->with('alert-success', 'Atendimento cadastrado com sucesso!');
+                ->with('alert-success', 'Parte contrária cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha ao cadastrar novo atendimento!');
+                ->with('alert-danger', 'Falha ao cadastrar parte contrária!');
         }
     }
 }
