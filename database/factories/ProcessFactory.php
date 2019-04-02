@@ -21,6 +21,6 @@ $factory->define(Process::class, function (Faker $faker) {
     return [
         'description' => $faker->text,
         'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create(),
-        'counter_part_id' => DB::table('counterpart')->exists() ? DB::table('counterpart')->inRandomOrder()->first()->id : factory(CounterPart::class)->create()
+        'counter_part_id' => DB::table('counter_parts')->exists() ? DB::table('counter_parts')->inRandomOrder()->first()->id : factory(CounterPart::class)->create()
     ];
 });

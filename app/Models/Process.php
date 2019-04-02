@@ -39,20 +39,4 @@ class Process extends Model
         'updated_at',
         'deleted_at'
     ];
-
-    /**
-     * Get the assisted one that has the familiar member.
-     */
-    public function assisted()
-    {
-        return $this->belongsTo(Assisted::class);
-    }
-
-    /**
-     * Get the assisted one that has the familiar member.
-     */
-    public function counterPart()
-    {
-        return $this->belongsTo(CounterPart::class);
-    }
 }

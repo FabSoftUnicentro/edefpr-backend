@@ -19,7 +19,7 @@ class CreateProcessesTable extends Migration
             $table->integer('assisted_id')->unsigned();
             $table->foreign('assisted_id')->references('id')->on('assisteds');
             $table->integer('counter_part_id')->unsigned();
-            $table->foreign('counter_part_id')->references('id')->on('counterpart');
+            $table->foreign('counter_part_id')->references('id')->on('counter_parts');
             $table->softDeletes();
             $table->timestamps();
         });
