@@ -19,7 +19,6 @@ class Witness extends Model
         'cpf',
         'rg',
         'rg_issuer',
-        'assisted_id',
         'uf',
         'city',
         'number',
@@ -50,10 +49,10 @@ class Witness extends Model
     ];
 
     /**
-     * Get the assisted one that has the witness.
+     * The processes that belong to the witness.
      */
-    public function assisted()
+    public function processes()
     {
-        return $this->belongsTo(Assisted::class);
+        return $this->belongsToMany(Process::Class);
     }
 }
