@@ -22,7 +22,6 @@ $factory->define(Witness::class, function (Faker $faker) {
         'cpf' => (string) $faker->numberBetween(999999999),
         'rg' => $faker->unique()->text(11),
         'rg_issuer' => 'SSP',
-        'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create(),
         'uf' => 'PR',
         'city' => 'Guarapuava',
         'number' => '123',
