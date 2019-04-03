@@ -29,11 +29,6 @@
                     {!! form_label($form->rg_issuer) !!}
                     {!! form_widget($form->rg_issuer) !!}
                 </div>
-
-                <div class="form-group">
-                    {!! form_label($form->process_id) !!}
-                    {!! form_widget($form->process_id) !!}
-                </div>
             </div>
         </div>
     </div>
