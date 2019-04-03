@@ -55,10 +55,10 @@ class Assisted extends Model
     }
 
     /**
-     * Get all of the witnesses for the assisted.
+     * Get all of the processes for the assisted.
      */
-    public function witnesses()
+    public function process()
     {
-        return $this->hasMany(Witness::class);
+        return $this->belongsTo(Process::class);
     }
 }
