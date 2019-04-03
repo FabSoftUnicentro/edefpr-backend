@@ -32,4 +32,23 @@
             });
         })
     </script>
+
+    <script>
+        $("#uf").change(function (e) {
+            const uf = $("#uf")[0].value;
+            $.ajax({
+                url: '{{ route('utils.get_cities', '_uf') }}'.replace('_uf', uf),
+                method: 'POST',
+                success: function (xhr) {
+                    $("#city").empty();
+                    $.each(xhr.cities, function(key, value) {
+                        $("#city").append($('<option></option>').attr('value', value).text(key));
+                    });
+                },
+                error: function (xhr) {
+
+                }
+            })
+        })
+    </script>
 @endsection
