@@ -6,7 +6,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Testemunha do Assistido {{ $witness->assisted->name }}</h1>
+    <h1>Testemunha {{ $witness->name }}</h1>
 @stop
 
 @section('content')
