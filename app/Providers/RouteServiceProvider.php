@@ -51,9 +51,13 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapUserRoutes();
 
+        $this->mapCounterPartRoutes();
+      
         $this->mapFamilyMembersRoutes();
 
         $this->mapWitnessesRoutes();
+        
+        $this->mapUtils();
     }
 
     /**
@@ -141,6 +145,14 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/web/user.php'));
     }
 
+    protected function mapCounterPartRoutes()
+    {
+        Route::prefix('counter-parts')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\CounterPart')
+            ->group(base_path('routes/web/counter_part.php'));
+    }
+      
     protected function mapFamilyMembersRoutes()
     {
         Route::prefix('familyMembers')
@@ -155,5 +167,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Witness')
             ->group(base_path('routes/web/witnesses.php'));
+    }
+  
+    protected function mapUtils()
+    {
+        Route::prefix('utils')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Utils\City')
+            ->group(base_path('routes/web/utils.php'));
     }
 }

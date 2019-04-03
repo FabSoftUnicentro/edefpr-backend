@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
-        "Waavi/Sanitizer": "^1.0",
+        "waavi/Sanitizer": "^1.0",
         "barryvdh/laravel-cors": "^0.11.0",
         "benjamincrozat/laravel-dropbox-driver": "^2.0",
         "bugsnag/bugsnag-laravel": "^2.0",
