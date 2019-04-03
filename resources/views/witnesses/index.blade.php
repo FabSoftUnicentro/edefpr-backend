@@ -24,7 +24,6 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Nome</th>
-                        <th class="text-center">Assistido</th>
                         <th class="text-center">CPF</th>
                         <th class="text-center">Ação</th>
                     </tr>
@@ -34,7 +33,6 @@
                         <tr class="text-center">
                             <td>{{ $witness->id }}</td>
                             <td>{{ $witness->name }}</td>
-                            <td>{{ $witness->assisted->name }}</td>
                             <td>{{ $witness->cpf }}</td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('witnesses.show', $witness->id) }}">
