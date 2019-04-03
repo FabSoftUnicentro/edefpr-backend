@@ -155,7 +155,7 @@ class RouteServiceProvider extends ServiceProvider
       
     protected function mapFamilyMembersRoutes()
     {
-        Route::prefix('familyMembers')
+        Route::prefix('family-members')
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\FamilyMember')
             ->group(base_path('routes/web/family_members.php'));
