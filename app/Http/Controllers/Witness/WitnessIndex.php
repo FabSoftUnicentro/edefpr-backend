@@ -18,7 +18,7 @@ class WitnessIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $witnesses = Witness::with(['assisted'])->paginate($perPage);
+        $witnesses = Witness::paginate($perPage);
 
         return view('witnesses.index', [
             'witnesses' => $witnesses
