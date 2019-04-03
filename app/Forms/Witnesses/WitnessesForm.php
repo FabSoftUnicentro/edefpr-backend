@@ -3,6 +3,9 @@
 namespace App\Forms\Witnesses;
 
 use App\Forms\Field;
+use App\Models\Assisted;
+use App\Models\Process;
+use App\Utils\Brazil;
 use Kris\LaravelFormBuilder\Form;
 
 class WitnessesForm extends Form
@@ -46,13 +49,18 @@ class WitnessesForm extends Form
                 'label' => 'Complemento',
                 'rules' => 'string'
             ])
-            ->add('city', Field::TEXT, [
-                'label' => 'Cidade',
-                'rules' => 'required|string'
-            ])
-            ->add('uf', Field::TEXT, [
+            ->add('uf', Field::SELECT, [
                 'label' => 'UF',
-                'rules' => 'required|string'
+                'choices' => Brazil::states(),
+                'empty_value' => 'Selecione um estado',
+                'empty_data' => null
+            ])
+            ->add('city', Field::SELECT, [
+                'label' => 'Cidade',
+                'rules' => 'required|string',
+                'choices' => $this->uf->getValue() ? Brazil::cities($this->uf->getValue()) : [],
+                'empty_value' => 'Selecione uma cidade',
+                'empty_data' => null
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
                 'label' => 'Salvar'
