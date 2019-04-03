@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactTableSeeder::class);
         $this->call(FamilyMemberTableSeeder::class);
         $this->call(WitnessesTableSeeder::class);
+        $this->call(ProcessTableSeeder::class);
         DB::commit();
 
         Model::reguard();
