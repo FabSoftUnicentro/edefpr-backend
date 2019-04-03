@@ -122,17 +122,12 @@ return [
                 [
                     'text' => 'Assistidos',
                     'route'  => 'assisteds.index',
-                    'active' => ['assisteds'],
+                    'active' => ['assisteds','assisteds/*'],
                 ],
                 [
                     'text' => 'Composição Familiar',
                     'route'  => 'familyMembers.index',
-                    'active' => ['familyMembers']
-                ],
-                [
-                    'text' => 'Testemunhas',
-                    'route'  => 'witnesses.index',
-                    'active' => ['witnesses']
+                    'active' => ['familyMembers','familyMembers/*']
                 ]
             ]
         ],
@@ -144,12 +139,12 @@ return [
                 [
                     'text' => 'Atendimentos',
                     'route'  => 'attendments.index',
-                    'active' => ['attendments']
+                    'active' => ['attendments','attendments/*']
                 ],
                 [
                     'text' => 'Tipo de Atendimento',
                     'route'  => 'attendmentTypes.index',
-                    'active' => ['attendment-types']
+                    'active' => ['attendment-type','attendment-type/*']
                 ]
             ]
         ],
@@ -161,7 +156,12 @@ return [
                 [
                     'text' => 'Parte contraria',
                     'route' => 'counterParts.index',
-                    'active' => ['counterParts']
+                    'active' => ['counter-parts','counter-parts/*']
+                ],
+                [
+                    'text' => 'Testemunhas',
+                    'route'  => 'witnesses.index',
+                    'active' => ['witnesses','witnesses/*']
                 ]
             ]
         ],
