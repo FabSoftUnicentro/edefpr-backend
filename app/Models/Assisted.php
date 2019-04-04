@@ -53,4 +53,12 @@ class Assisted extends Model
     {
         return $this->hasMany(FamilyMember::class);
     }
+
+    /**
+     * Get all of the processes for the assisted.
+     */
+    public function process()
+    {
+        return $this->belongsTo(Process::class);
+    }
 }

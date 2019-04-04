@@ -26,6 +26,7 @@ class CreateWitnessesTable extends Migration
             $table->string('postcode');
             $table->string('complement')->nullable();
             $table->string('neighborhood')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

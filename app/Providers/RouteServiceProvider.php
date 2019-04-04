@@ -54,6 +54,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapCounterPartRoutes();
       
         $this->mapFamilyMembersRoutes();
+
+        $this->mapWitnessesRoutes();
         
         $this->mapUtils();
     }
@@ -153,13 +155,21 @@ class RouteServiceProvider extends ServiceProvider
       
     protected function mapFamilyMembersRoutes()
     {
-        Route::prefix('familyMembers')
+        Route::prefix('family-members')
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\FamilyMember')
             ->group(base_path('routes/web/family_members.php'));
     }
+
+    protected function mapWitnessesRoutes()
+    {
+        Route::prefix('witnesses')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Witness')
+            ->group(base_path('routes/web/witnesses.php'));
+    }
   
-  protected function mapUtils()
+    protected function mapUtils()
     {
         Route::prefix('utils')
             ->middleware(['web', 'auth'])

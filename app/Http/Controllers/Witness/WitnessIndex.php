@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Attendment;
+namespace App\Http\Controllers\Witness;
 
 use App\Http\Controllers\Controller;
-use App\Models\Attendment;
+use App\Models\Witness;
 use Illuminate\Http\Request;
 
-class AttendmentIndex extends Controller
+class WitnessIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -18,14 +18,10 @@ class AttendmentIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $result = Attendment::with([
-            'user',
-            'assisted',
-            'type'
-        ])->paginate($perPage);
+        $witnesses = Witness::paginate($perPage);
 
-        return view('attendments.index', [
-            'attendments' => $result
+        return view('witnesses.index', [
+            'witnesses' => $witnesses
         ]);
     }
 }

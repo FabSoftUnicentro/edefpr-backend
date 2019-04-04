@@ -21,21 +21,6 @@
                 </div>
 
                 <div class="form-group">
-                    {!! form_label($form->email) !!}
-                    {!! form_widget($form->email) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->profession) !!}
-                    {!! form_widget($form->profession) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->birth_date) !!}
-                    {!! form_widget($form->birth_date) !!}
-                </div>
-
-                <div class="form-group">
                     {!! form_label($form->rg) !!}
                     {!! form_widget($form->rg) !!}
                 </div>
@@ -43,21 +28,6 @@
                 <div class="form-group">
                     {!! form_label($form->rg_issuer) !!}
                     {!! form_widget($form->rg_issuer) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->gender) !!}
-                    {!! form_widget($form->gender) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->marital_status) !!}
-                    {!! form_widget($form->marital_status) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! form_label($form->note) !!}
-                    {!! form_widget($form->note) !!}
                 </div>
             </div>
         </div>

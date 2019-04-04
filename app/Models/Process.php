@@ -39,4 +39,28 @@ class Process extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * Get the assisted one that has the process.
+     */
+    public function assisted()
+    {
+        return $this->belongsTo(Assisted::class);
+    }
+
+    /**
+     * Get the counter part one that has the process.
+     */
+    public function counterPart()
+    {
+        return $this->belongsTo(CounterPart::class);
+    }
+
+    /**
+     * The witnesses that belong to the process.
+     */
+    public function witnesses()
+    {
+        return $this->belongsToMany(Witness::Class);
+    }
 }
