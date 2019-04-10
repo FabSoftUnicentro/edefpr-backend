@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    @include('processes._form', [
+    @include('processes._formWitness', [
         'form' => $form
     ])
 @stop
