@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Assisted extends JsonResource
+class Process extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,19 +16,11 @@ class Assisted extends JsonResource
     {
         // return parent::toArray($request);
         return [
-            'name' => $this->name,
-            'email' => $this->email,
-            'cpf' => $this->cpf,
-            'birth_date' => $this->birth_date,
-            'birthplace' => $this->birthplace,
-            'rg' => $this->rg,
-            'rg_issuer' => $this->rg_issuer,
-            'gender' => $this->gender,
-            'marital_status' => $this->marital_status,
-            'profession' => $this->profession,
-            //'counter_part' => $this->counter_part,
-            'note' => $this->note,
-            'addresses' => json_decode($this->addresses, true)
+            'title' => $this->title,
+            'description' => $this->description,
+            'user_id' => $this->user_id,
+            'assisted_id' => $this->assisted_id,
+            'counter_part_id' => $this->counter_part_id
         ];
     }
 
