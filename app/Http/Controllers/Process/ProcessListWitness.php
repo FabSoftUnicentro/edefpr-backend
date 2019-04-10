@@ -6,7 +6,7 @@ use App\Forms\Process\ProcessWitnessForm;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 
-class ProcessGetWitness extends Controller
+class ProcessListWitness extends Controller
 {
     /**
      * @param Process $process
