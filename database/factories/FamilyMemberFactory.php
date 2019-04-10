@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\Assisted;
+use App\Models\FamilyMember;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
-use App\Models\FamilyMember;
-use App\Models\Assisted;
 
 /*
 |--------------------------------------------------------------------------

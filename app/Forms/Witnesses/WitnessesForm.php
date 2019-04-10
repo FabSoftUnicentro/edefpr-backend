@@ -3,8 +3,6 @@
 namespace App\Forms\Witnesses;
 
 use App\Forms\Field;
-use App\Models\Assisted;
-use App\Models\Process;
 use App\Utils\Brazil;
 use Kris\LaravelFormBuilder\Form;
 
