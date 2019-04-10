@@ -3,7 +3,7 @@
 // Witness routes
 Route::group(['middleware' => ['permission:register-assisted']], function () {
     Route::get('/create', 'WitnessCreate')->name('witnesses.create');
-    Route::post('/', 'witnessStore')->name('witnesses.store');
+    Route::post('/', 'WitnessStore')->name('witnesses.store');
 });
 
 Route::group(['middleware' => ['permission:update-assisted']], function () {
