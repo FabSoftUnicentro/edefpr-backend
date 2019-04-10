@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Witness;
-use App\Models\Assisted;
 use Faker\Generator as Faker;
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------

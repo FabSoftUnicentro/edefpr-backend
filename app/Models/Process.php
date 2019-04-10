@@ -71,6 +71,6 @@ class Process extends Model
      */
     public function witnesses()
     {
-        return $this->belongsToMany(Witness::Class);
+        return $this->belongsToMany(Witness::class);
     }
 }
