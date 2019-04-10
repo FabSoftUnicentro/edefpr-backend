@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProcessWitness extends Migration
 {
@@ -18,7 +18,7 @@ class CreateProcessWitness extends Migration
             $table->integer('witness_id')->unsigned();
             $table->foreign('witness_id')->references('id')->on('witnesses');
             $table->integer('process_id')->unsigned();
-            $table->foreign('process_id')->references('id')->on('process');
+            $table->foreign('process_id')->references('id')->on('processes');
         });
     }
 

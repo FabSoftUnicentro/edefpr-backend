@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Models\Process;
+use Illuminate\Database\Seeder;
 
 class ProcessTableSeeder extends Seeder
 {
