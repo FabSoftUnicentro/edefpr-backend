@@ -4,27 +4,20 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\Models\Process;
-use Illuminate\Http\Request;
+use App\Http\Resources\Process as ProcessResource;
+use App\Models\Witness;
 
-class ProcessSetWitness extends Controller
+class ProcessUnsetWitness extends Controller
 {
     /**
-     * @param Request $request
      * @param Process $process
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Witness $witness
+     * @return ProcessResource
      */
-    public function __invoke(Request $request, Process $process)
+    public function __invoke(Process $process, Witness $witness)
     {
-        try {
-            $process->witnesses()->attach($request->witness_id);
+        $process->witnesses()->detach($witness);
 
-            return redirect()
-                ->route('processes.index')
-                ->with('alert-success', 'Testemunha adicionada ao processo com sucesso!');
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->with('alert-danger', 'Falha na adição da testemunha!');
-        }
+        return new ProcessResource($process);
     }
 }

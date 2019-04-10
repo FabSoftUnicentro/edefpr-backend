@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Process;
 use Illuminate\Http\Request;
 
-class ProcessUpdate extends Controller
+class ProcessSetWitness extends Controller
 {
     /**
      * @param Request $request
@@ -15,18 +15,16 @@ class ProcessUpdate extends Controller
      */
     public function __invoke(Request $request, Process $process)
     {
-        $process->update($request->all());
-
         try {
-            $process->save();
+            $process->witnesses()->attach($request->witness_id);
 
             return redirect()
-                ->route('processes.index')
-                ->with('alert-success', 'Processo atualizado com sucesso!');
+                ->route('processes.show', $process->id)
+                ->with('alert-success', 'Testemunha adicionada ao processo com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha na atualização do processo!');
+                ->with('alert-danger', 'Falha na adição da testemunha!');
         }
     }
 }
