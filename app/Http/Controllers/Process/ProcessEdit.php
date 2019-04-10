@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
-use App\Forms\Assisted\AssistedForm;
+use App\Forms\Process\ProcessForm;
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Process;
 
-class AssistedEdit extends Controller
+class ProcessEdit extends Controller
 {
     /**
-     * @param Assisted $assisted
+     * @param Process $process
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Process $process)
     {
-        $form = $this->formBuilder->create(AssistedForm::class, [
-            'url' => route('assisteds.update', $assisted->id),
+        $form = $this->formBuilder->create(ProcessForm::class, [
+            'url' => route('processes.update', $process->id),
             'method' => 'PUT',
-            'model' => $assisted
+            'model' => $process
         ]);
 
-        return view('assisteds.edit', [
+        return view('processes.edit', [
             'form' => $form
         ]);
     }

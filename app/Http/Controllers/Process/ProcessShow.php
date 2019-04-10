@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Process;
 
-class AssistedShow extends Controller
+class ProcessShow extends Controller
 {
     /**
      * @param Assisted $assisted
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Process $process)
     {
-        return view('assisteds.show', [
-            'assisted' => $assisted
+        return view('processes.show', [
+            'process' => $process
         ]);
     }
 }

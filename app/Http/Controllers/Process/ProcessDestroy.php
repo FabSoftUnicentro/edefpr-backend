@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Assisted as AssistedResource;
-use App\Models\Assisted;
+use App\Http\Resources\Process as ProcessResource;
+use App\Models\Process;
 
-class AssistedDestroy extends Controller
+class ProcessDestroy extends Controller
 {
     /**
-     * @param Assisted $assisted
-     * @return AssistedResource
+     * @param Process $process
+     * @return ProcessResource
+     * @throws \Exception
      */
-    public function __invoke(Assisted $assisted)
+    public function __invoke(Process $process)
     {
-        $assisted->delete();
+        $process->delete();
 
-        return new AssistedResource($assisted);
+        return new ProcessResource($process);
     }
 }

@@ -1,32 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Process;
 use Illuminate\Http\Request;
 
-class AssistedUpdate extends Controller
+class ProcessUpdate extends Controller
 {
     /**
      * @param Request $request
-     * @param Assisted $assisted
+     * @param Process $process
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(Request $request, Assisted $assisted)
+    public function __invoke(Request $request, Process $process)
     {
-        $assisted->update($request->all());
+        $process->update($request->all());
 
         try {
-            $assisted->save();
+            $process->save();
 
             return redirect()
-                ->route('assisteds.index')
-                ->with('alert-success', 'Assistido atualizado com sucesso!');
+                ->route('processes.index')
+                ->with('alert-success', 'Processo atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha na atualização do assistido!');
+                ->with('alert-danger', 'Falha na atualização do processo!');
         }
     }
 }

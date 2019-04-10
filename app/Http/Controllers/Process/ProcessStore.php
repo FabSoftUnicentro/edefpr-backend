@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Process;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AssistedStore extends Controller
+class ProcessStore extends Controller
 {
     /**
      * @param Request $request
@@ -14,18 +15,19 @@ class AssistedStore extends Controller
      */
     public function __invoke(Request $request)
     {
-        $assisted = new Assisted($request->all());
+        $process = new Process($request->all());
+        $process->user_id = Auth::user()->getAuthIdentifier();
 
         try {
-            $assisted->save();
+            $process->save();
 
             return redirect()
-                ->route('assisteds.index')
-                ->with('alert-success', 'Assistido cadastrado com sucesso!');
+                ->route('processes.index')
+                ->with('alert-success', 'Processo cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro do assistido!' . $e->getMessage());
+                ->with('alert-danger', 'Falha no cadastro do processo!' . $e->getMessage());
         }
     }
 }

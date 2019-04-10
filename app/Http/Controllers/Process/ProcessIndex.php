@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Models\Assisted;
+use App\Models\Process;
 use Illuminate\Http\Request;
 
-class AssistedIndex extends Controller
+class ProcessIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -18,10 +18,14 @@ class AssistedIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assisteds = Assisted::paginate($perPage);
+        $processes = Process::with([
+            'user',
+            'assisted',
+            'counterPart'
+        ])->paginate($perPage);
 
-        return view('assisteds.index', [
-            'assisteds' => $assisteds
+        return view('processes.index', [
+            'processes' => $processes
         ]);
     }
 }

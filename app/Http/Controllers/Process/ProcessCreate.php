@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Assisted;
+namespace App\Http\Controllers\Process;
 
-use App\Forms\Assisted\AssistedForm;
+use App\Forms\Process\ProcessForm;
 use App\Http\Controllers\Controller;
 
-class AssistedCreate extends Controller
+class ProcessCreate extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function __invoke()
     {
-        $form = $this->formBuilder->create(AssistedForm::class, [
-            'url' => route('assisteds.store'),
+        $form = $this->formBuilder->create(ProcessForm::class, [
+            'url' => route('processes.store'),
             'method' => 'POST'
         ]);
 
-        return view('assisteds.create', [
+        return view('processes.create', [
             'form' => $form
         ]);
     }
