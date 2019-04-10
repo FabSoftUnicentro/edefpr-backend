@@ -53,6 +53,6 @@ class Witness extends Model
      */
     public function processes()
     {
-        return $this->belongsToMany(Process::Class);
+        return $this->belongsToMany(Process::class);
     }
 }
