@@ -115,6 +115,28 @@ return [
             'active' => ['home']
         ],
         [
+            'text' => 'Processos',
+            'icon' => 'file',
+            'can' => 'open-process',
+            'submenu' => [
+                [
+                    'text' => 'Processos',
+                    'route' => 'processes.index',
+                    'active' => ['process','process/*']
+                ],
+                [
+                    'text' => 'Parte contraria',
+                    'route' => 'counterParts.index',
+                    'active' => ['counter-parts','counter-parts/*']
+                ],
+                [
+                    'text' => 'Testemunhas',
+                    'route'  => 'witnesses.index',
+                    'active' => ['witnesses','witnesses/*']
+                ]
+            ]
+        ],
+        [
             'text' => 'Assistidos',
             'icon' => 'users',
             'can' => 'read-assisted',
@@ -145,23 +167,6 @@ return [
                     'text' => 'Tipo de Atendimento',
                     'route'  => 'attendmentTypes.index',
                     'active' => ['attendment-type','attendment-type/*']
-                ]
-            ]
-        ],
-        [
-            'text' => 'Processos',
-            'icon' => 'file',
-            'can' => 'register-counterPart',
-            'submenu' => [
-                [
-                    'text' => 'Parte contraria',
-                    'route' => 'counterParts.index',
-                    'active' => ['counter-parts','counter-parts/*']
-                ],
-                [
-                    'text' => 'Testemunhas',
-                    'route'  => 'witnesses.index',
-                    'active' => ['witnesses','witnesses/*']
                 ]
             ]
         ],
