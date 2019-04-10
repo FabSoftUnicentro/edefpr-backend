@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Process;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProcessStore extends Controller
 {
@@ -16,7 +15,7 @@ class ProcessStore extends Controller
     public function __invoke(Request $request)
     {
         $process = new Process($request->all());
-        $process->user_id = Auth::user()->getAuthIdentifier();
+        $process->user_id = $request->user()->getAuthIdentifier();
 
         try {
             $process->save();
