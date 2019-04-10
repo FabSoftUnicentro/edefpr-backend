@@ -10,7 +10,7 @@ Route::group(['middleware' => ['permission:update-process']], function () {
     Route::get('/{process}/edit', 'ProcessEdit')->name('processes.edit');
     Route::put('/{process}', 'ProcessUpdate')->name('processes.update');
 
-    Route::get('/{process}/witnesses', 'ProcessGetWitness')->name('processes.getWitness');
+    Route::get('/{process}/witnesses', 'ProcessListWitness')->name('processes.getWitness');
     Route::put('/{process}/set-witness', 'ProcessSetWitness')->name('processes.setWitness');
     Route::put('/{process}/unset-witness/{witness}', 'ProcessUnsetWitness')->name('processes.unsetWitness');
 });
