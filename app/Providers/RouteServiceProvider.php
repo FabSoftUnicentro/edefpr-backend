@@ -58,6 +58,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWitnessesRoutes();
         
         $this->mapUtils();
+
+        $this->mapProcessesRoutes();
     }
 
     /**
@@ -175,5 +177,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Utils\City')
             ->group(base_path('routes/web/utils.php'));
+    }
+
+    protected function mapProcessesRoutes()
+    {
+        Route::prefix('process')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Process')
+            ->group(base_path('routes/web/process.php'));
     }
 }
