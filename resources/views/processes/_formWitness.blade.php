@@ -1,5 +1,4 @@
 {!! form_start($form) !!}
-
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="box box-primary">
@@ -10,8 +9,8 @@
 
             <div class="box-body">
                 <div class="form-group">
-                    {!! form_label($form->witness_id) !!}
-                    {!! form_widget($form->witness_id) !!}
+                    {!! form_label($form->witnesses) !!}
+                    {!! form_widget($form->witnesses) !!}
                 </div>
             </div>
         </div>
