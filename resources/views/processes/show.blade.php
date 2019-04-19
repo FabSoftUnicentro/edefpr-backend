@@ -2,10 +2,8 @@
 
 @section('title', 'Visualizar Proceso')
 
-@section('css')
-@endsection
-
 @section('content_header')
+    @include('helpers.flash-message')
     <h1>Processo referente ao assistido <b>{{ $process->assisted->name }}</b></h1>
 @stop
 
@@ -37,7 +35,7 @@
                         <p>
                             <b>Nome:</b> {{ $witness->name }}
                             <a class="btn btn-xs btn-danger pull-right unset-witness" data-id="{{ $witness }}">
-                                Excluir
+                                Remover
                             </a>
                         </p>
                     @endforeach
