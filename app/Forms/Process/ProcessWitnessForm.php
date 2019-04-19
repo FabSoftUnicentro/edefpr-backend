@@ -11,11 +11,10 @@ class ProcessWitnessForm extends Form
     public function buildForm()
     {
         $this
-            ->add('witness_id', 'entity', [
+            ->add('witnesses', 'entity', [
                 'label' => 'Testemunha',
                 'class' => Witness::class,
                 'property' => 'name',
-                'empty_value' => 'Selecione uma testemunha',
                 'empty_data' => null
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
