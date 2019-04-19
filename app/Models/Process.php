@@ -9,6 +9,8 @@ class Process extends Model
 {
     use SoftDeletes;
 
+    const MAX_WITNESSES = 3;
+
     /**
      * The attributes that are mass assignable.
      *
