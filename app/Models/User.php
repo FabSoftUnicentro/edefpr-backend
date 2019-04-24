@@ -61,6 +61,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the processes for the user.
+     */
+    public function processes()
+    {
+        return $this->hasMany(Process::class);
+    }
+
+    /**
      * Get all of the attendments for the user.
      */
     public function attendments()
