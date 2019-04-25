@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header with-border">
             <div class="pull-right">
                 <a class="btn btn-xs btn-primary" href="{{ route('assisteds.create') }}">Cadastrar assistido</a>

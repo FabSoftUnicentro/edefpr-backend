@@ -18,7 +18,11 @@ class AttendmentIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $result = Attendment::paginate($perPage);
+        $result = Attendment::with([
+            'user',
+            'assisted',
+            'type'
+        ])->paginate($perPage);
 
         return view('attendments.index', [
             'attendments' => $result

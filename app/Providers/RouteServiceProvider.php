@@ -56,8 +56,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapFamilyMembersRoutes();
 
         $this->mapMyFilesRoutes();
+      
+        $this->mapWitnessesRoutes();
         
         $this->mapUtils();
+
+        $this->mapProcessesRoutes();
     }
 
     /**
@@ -155,7 +159,7 @@ class RouteServiceProvider extends ServiceProvider
       
     protected function mapFamilyMembersRoutes()
     {
-        Route::prefix('familyMembers')
+        Route::prefix('family-members')
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\FamilyMember')
             ->group(base_path('routes/web/family_members.php'));
@@ -168,12 +172,28 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace . '\MyFiles')
             ->group(base_path('routes/web/my_files.php'));
     }
+
+    protected function mapWitnessesRoutes()
+    {
+        Route::prefix('witnesses')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Witness')
+            ->group(base_path('routes/web/witnesses.php'));
+    }
   
-  protected function mapUtils()
+    protected function mapUtils()
     {
         Route::prefix('utils')
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Utils\City')
             ->group(base_path('routes/web/utils.php'));
+    }
+
+    protected function mapProcessesRoutes()
+    {
+        Route::prefix('process')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Process')
+            ->group(base_path('routes/web/process.php'));
     }
 }
