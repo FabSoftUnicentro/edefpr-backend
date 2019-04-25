@@ -14,7 +14,6 @@ class MyFilesForm extends Form
                 'label' => 'Arquivos',
                 'attr' => ['multiple' => true],
                 'rules' => 'required'
-
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
                 'label' => 'Enviar'
