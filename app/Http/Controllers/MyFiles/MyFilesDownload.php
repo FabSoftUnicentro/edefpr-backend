@@ -21,7 +21,7 @@ class MyFilesDownload extends Controller
             if ($fileIdsTotal === 1) {
                 $file = $request->user()->getMedia('myfiles')->find($fileIds)->first();
 
-                return  response()->download($file->getPath(), $file->file_name);
+                return response()->download($file->getPath(), $file->file_name);
             } else {
                 $files = $request->user()->getMedia('myfiles')->find($fileIds);
 
