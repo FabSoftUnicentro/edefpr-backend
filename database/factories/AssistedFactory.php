@@ -17,13 +17,16 @@ use Faker\Generator as Faker;
 $factory->define(Assisted::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'social_name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'cpf' => $faker->numberBetween(999999999),
         'birth_date' => $faker->date(),
         'rg' => $faker->unique()->text(11),
         'rg_issuer' => 'SSP',
-        'gender' => 'M',
-        'marital_status' => 'Solteiro',
+        'gender' => 'male',
+        'marital_status' => 'single',
+        'schooling' => 'not_literate',
+        'naturalness' => 'Brasileiro',
         'profession' => 'Teste',
         'note' => null,
         'uf' => 'PR',
