@@ -57,7 +57,7 @@ class AssistedForm extends Form
                 'empty_value' => 'Selecione um gênero',
                 'rules' => 'required'
             ])
-            ->add('schooling', Field::SELECT, [
+                ->add('schooling', Field::SELECT, [
                 'label' => 'Escolaridade',
                 'choices' => [
                     'not_literate' => 'Não alfabetizado',
