@@ -32,9 +32,34 @@ return [
         'ex-prisoner' => 'Egresso Sistema Prisional'
     ],
     'gender' => [
-        'M' => 'Masculino',
-        'F' => 'Feminino',
-        'O' => 'Outro',
-        'I' => 'Indefinido'
+        'male' => 'Masculino',
+        'female' => 'Feminino',
+        'others' => 'Outro',
+        'undefined' => 'Indefinido'
+    ],
+    'schooling' => [
+        'not_literate' => 'Não alfabetizado',
+        'incomplete_primary_education' => 'Ensino fundamental incompleto',
+        'complete_primary_education' => 'Ensino fundamental incompleto',
+        'in_primary_school' => 'Cursando ensino fundamental',
+        'complete_high_school' => 'Ensino médio completo',
+        'incomplete_high_school' => 'Ensino médio incompleto',
+        'in_high_school' => 'Cursando ensino médio',
+        'incomplete_technical_education' => 'Ensino técnico imcompleto',
+        'complete_technical_education' => 'Ensino técnico completo',
+        'in_technical_education' => 'Cursando ensino técnico',
+        'complete_higher_education' => 'Ensino superior completo',
+        'incomplete_higher_education' => 'Ensino superior incompleto',
+        'in_higher_education' => 'Cursando ensino superior',
+        'others' => 'Outros'
+    ],
+    'marital_status' => [
+        'single' => 'Solteiro',
+        'married' => 'Casado',
+        'divorced' => 'Divorciado',
+        'separated' => 'Separado',
+        'widow' => 'Viúvo',
+        'stable_union' => 'União estável',
+        'others' => 'Outros'
     ]
 ];
