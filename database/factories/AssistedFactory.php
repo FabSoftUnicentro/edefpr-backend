@@ -25,7 +25,7 @@ $factory->define(Assisted::class, function (Faker $faker) {
         'rg_issuer' => 'SSP',
         'gender' => 'male',
         'marital_status' => 'single',
-        'schooling' => 'not_literate',
+        'schooling' => 'illiterate',
         'naturalness' => 'Brasileiro',
         'profession' => 'Teste',
         'note' => null,

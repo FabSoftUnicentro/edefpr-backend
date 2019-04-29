@@ -23,15 +23,36 @@ class CreateAssistedTable extends Migration
             $table->string('rg');
             $table->string('rg_issuer');
             $table->string('naturalness');
-            $table->enum('gender', ['male', 'female', 'undefined', 'Others']);
+            $table->enum('gender', [
+                'male',
+                'female',
+                'undefined',
+                'Others'
+            ]);
             $table->enum('marital_status', [
-                'single', 'married', 'divorced', 'separated', 'widow', 'stable_union', 'others'
+                'single',
+                'married',
+                'divorced',
+                'separated',
+                'widow',
+                'stable_union',
+                'others'
             ]);
             $table->enum('schooling', [
-                'not_literate', 'incomplete_primary_education', 'complete_primary_education', 'in_primary_school',
-                'complete_high_school', 'incomplete_high_school', 'in_high_school', 'incomplete_technical_education',
-                'complete_technical_education', 'in_technical_education', 'complete_higher_education',
-                'incomplete_higher_education', 'in_higher_education', 'others'
+                'illiterate',
+                'incomplete_primary_education',
+                'complete_primary_education',
+                'in_primary_school',
+                'complete_high_school',
+                'incomplete_high_school',
+                'in_high_school',
+                'incomplete_technical_education',
+                'complete_technical_education',
+                'in_technical_education',
+                'complete_higher_education',
+                'incomplete_higher_education',
+                'in_higher_education',
+                'others'
             ]);
             $table->string('profession');
             $table->text('note')->nullable();
