@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CounterPartTableSeeder::class);
         $this->call(ContactTableSeeder::class);
         $this->call(FamilyMemberTableSeeder::class);
+        $this->call(FamilyIncomeTableSeeder::class);
         $this->call(WitnessesTableSeeder::class);
         $this->call(ProcessTableSeeder::class);
         DB::commit();
