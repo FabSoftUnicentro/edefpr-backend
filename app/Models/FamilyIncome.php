@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FamilyMember extends Model
+class FamilyIncome extends Model
 {
     use SoftDeletes;
 
@@ -15,12 +15,13 @@ class FamilyMember extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'birth_date',
-        'legal_situation',
-        'kinship',
-        'work',
-        'income',
+        'family_income',
+        'social_programs',
+        'social_security_contribution',
+        'income_tax',
+        'alimony',
+        'extraordinary_expenses',
+        'net_family_income',
         'assisted_id'
     ];
 
