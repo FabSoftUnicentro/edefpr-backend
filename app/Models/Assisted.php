@@ -61,4 +61,12 @@ class Assisted extends Model
     {
         return $this->belongsTo(Process::class);
     }
+
+    /**
+     * Get the family income for the assisted.
+     */
+    public function FamilyIncome()
+    {
+        return $this->hasMany(Process::class);
+    }
 }
