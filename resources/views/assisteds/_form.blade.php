@@ -16,6 +16,11 @@
                 </div>
 
                 <div class="form-group">
+                    {!! form_label($form->social_name) !!}
+                    {!! form_widget($form->social_name) !!}
+                </div>
+
+                <div class="form-group">
                     {!! form_label($form->cpf) !!}
                     {!! form_widget($form->cpf) !!}
                 </div>
@@ -28,6 +33,11 @@
                 <div class="form-group">
                     {!! form_label($form->profession) !!}
                     {!! form_widget($form->profession) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! form_label($form->naturalness) !!}
+                    {!! form_widget($form->naturalness) !!}
                 </div>
 
                 <div class="form-group">
@@ -53,6 +63,11 @@
                 <div class="form-group">
                     {!! form_label($form->marital_status) !!}
                     {!! form_widget($form->marital_status) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! form_label($form->schooling) !!}
+                    {!! form_widget($form->schooling) !!}
                 </div>
 
                 <div class="form-group">
