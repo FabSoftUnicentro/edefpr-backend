@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Assisted;
-use App\Models\FamilyMember;
+use App\Models\FamilyIncome;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
 
@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\DB as DB;
 |
 */
 
-$factory->define(FamilyMember::class, function (Faker $faker) {
+$factory->define(FamilyIncome::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'birth_date' => $faker->date(),
-        'legal_situation' => 'general',
-        'kinship' => 'grandmother',
-        'work' => 'test',
-        'income' => $faker->randomFloat(),
+        'family_income' => $faker->randomFloat(2),
+        'social_programs' => $faker->randomFloat(2),
+        'social_security_contribution' => $faker->randomFloat(2),
+        'income_tax' => $faker->randomFloat(2),
+        'alimony' => $faker->randomFloat(2),
+        'extraordinary_expenses' => $faker->randomFloat(2),
+        'net_family_income' => $faker->randomFloat(2),
         'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
     ];
 });
