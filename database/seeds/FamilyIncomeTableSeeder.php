@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\FamilyMember;
+use App\Models\FamilyIncome;
 use Illuminate\Database\Seeder;
 
-class FamilyMemberTableSeeder extends Seeder
+class FamilyIncomeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class FamilyMemberTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(FamilyMember::class, 10)->create();
+        factory(FamilyIncome::class, 10)->create();
     }
 }
