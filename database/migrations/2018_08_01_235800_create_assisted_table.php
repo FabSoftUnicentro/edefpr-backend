@@ -16,18 +16,44 @@ class CreateAssistedTable extends Migration
         Schema::create('assisteds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('social_name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('cpf', 11)->unique();
             $table->date('birth_date');
             $table->string('rg');
             $table->string('rg_issuer');
+            $table->string('naturalness');
             $table->enum('gender', [
                 'male',
                 'female',
                 'undefined',
                 'others'
             ]);
-            $table->string('marital_status');
+            $table->enum('marital_status', [
+                'single',
+                'married',
+                'divorced',
+                'separated',
+                'widow',
+                'stable_union',
+                'others'
+            ]);
+            $table->enum('schooling', [
+                'illiterate',
+                'incomplete_primary_education',
+                'complete_primary_education',
+                'in_primary_school',
+                'complete_high_school',
+                'incomplete_high_school',
+                'in_high_school',
+                'incomplete_technical_education',
+                'complete_technical_education',
+                'in_technical_education',
+                'complete_higher_education',
+                'incomplete_higher_education',
+                'in_higher_education',
+                'others'
+            ]);
             $table->string('profession');
             $table->text('note')->nullable();
             $table->string('uf', 2);

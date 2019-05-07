@@ -23,14 +23,17 @@
                     <h2>Informações Pessoais</h2>
 
                     <p> <b>Nome:</b> {{ $assisted->name }} </p>
+                    <p> <b>Nome Social:</b> {{ $assisted->social_name }} </p>
                     <p> <b>CPF:</b> {{ $assisted->cpf }} </p>
                     <p> <b>Email:</b> {{ $assisted->email }} </p>
                     <p> <b>Profissao:</b> {{ $assisted->profession }} </p>
+                    <p> <b>Naturalidade:</b> {{ $assisted->naturalness }} </p>
+                    <p> <b>Escolaridade:</b> {{ __('translations.schooling.'.$assisted->schooling) }} </p>
                     <p> <b>Data de Nascimento:</b> {{ date('d/m/Y', strtotime($assisted->birth_date)) }} </p>
                     <p> <b>RG:</b> {{ $assisted->rg }} </p>
                     <p> <b>Emissor do RG:</b> {{ $assisted->rg_issuer }} </p>
-                    <p> <b>Genero:</b> {{ $assisted->gender }} </p>
-                    <p> <b>Estado Civil:</b> {{ $assisted->marital_status }} </p>
+                    <p> <b>Genero:</b> {{ __('translations.gender.'.$assisted->gender) }} </p>
+                    <p> <b>Estado Civil:</b> {{ __('translations.marital_status.'.$assisted->marital_status) }} </p>
                     <p> <b>Observacoes:</b> {{ $assisted->note }} </p>
                 </div>
 

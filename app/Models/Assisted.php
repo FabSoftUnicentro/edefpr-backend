@@ -16,13 +16,15 @@ class Assisted extends Model
      */
     protected $fillable = [
         'name',
+        'social_name',
         'email',
         'cpf',
         'birth_date',
-        'birthplace',
         'rg',
         'rg_issuer',
         'gender',
+        'naturalness',
+        'schooling',
         'marital_status',
         'note',
         'uf',
