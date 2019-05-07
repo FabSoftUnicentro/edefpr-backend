@@ -22,7 +22,7 @@ $factory->define(Assisted::class, function (Faker $faker) {
         'birth_date' => $faker->date(),
         'rg' => $faker->unique()->text(11),
         'rg_issuer' => 'SSP',
-        'gender' => 'M',
+        'gender' => 'male',
         'marital_status' => 'Solteiro',
         'profession' => 'Teste',
         'note' => null,
