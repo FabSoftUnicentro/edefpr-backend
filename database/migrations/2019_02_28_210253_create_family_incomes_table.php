@@ -16,14 +16,15 @@ class CreateFamilyIncomesTable extends Migration
         Schema::create('family_incomes', function (Blueprint $table) {
             $table->increments('id');
             $table->double('family_income');
-            $table->double('social_programs');
-            $table->double('social_security_contribution');
-            $table->double('income_tax');
-            $table->double('alimony');
-            $table->double('extraordinary_expenses');
+            $table->double('social_programs')->nullable();
+            $table->double('social_security_contribution')->nullable();
+            $table->double('income_tax')->nullable();
+            $table->double('alimony')->nullable();
+            $table->double('extraordinary_expenses')->nullable();
             $table->double('net_family_income');
             $table->integer('assisted_id')->unsigned();
             $table->foreign('assisted_id')->references('id')->on('assisteds');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
