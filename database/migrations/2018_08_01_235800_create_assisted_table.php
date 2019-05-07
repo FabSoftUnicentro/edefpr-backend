@@ -21,10 +21,14 @@ class CreateAssistedTable extends Migration
             $table->date('birth_date');
             $table->string('rg');
             $table->string('rg_issuer');
-            $table->enum('gender', ['M', 'F', 'I', 'O']);
+            $table->enum('gender', [
+                'male',
+                'female',
+                'undefined',
+                'others'
+            ]);
             $table->string('marital_status');
             $table->string('profession');
-            //$table->string('counter_part');
             $table->text('note')->nullable();
             $table->string('uf', 2);
             $table->string('city');
