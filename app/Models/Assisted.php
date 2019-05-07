@@ -47,6 +47,17 @@ class Assisted extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
+    /**
      * Get all of the family members for the assisted.
      */
     public function familyMembers()
@@ -67,6 +78,26 @@ class Assisted extends Model
      */
     public function FamilyIncome()
     {
-        return $this->hasMany(Process::class);
+        return $this->hasOne(FamilyIncome::class);
+    }
+
+    public function SetFamilyIncome()
+    {
+        $familyIncome = $this->familyIncome;
+        $familyMembers = $this->familyMembers;
+        $income = 0;
+        foreach ($familyMembers as $familyMember) {
+            $income += $familyMember->income;
+        }
+        $familyIncome->family_income = $income;
+
+        $social_programs = $familyIncome->getAttribute('social_programs');
+        $social_security_contribution = $familyIncome->getAttribute('social_security_contribution');
+        $income_tax = $familyIncome->getAttribute('income_tax');
+        $alimony = $familyIncome->getAttribute('alimony');
+        $extraordinary_expenses = $familyIncome->getAttribute('extraordinary_expenses');
+
+        $familyIncome->net_family_income = $income - $social_programs - $social_security_contribution - $income_tax - $alimony - $extraordinary_expenses;
+        $familyIncome->save();
     }
 }
