@@ -55,6 +55,8 @@ class RouteServiceProvider extends ServiceProvider
       
         $this->mapFamilyMembersRoutes();
 
+        $this->mapMyFilesRoutes();
+      
         $this->mapWitnessesRoutes();
         
         $this->mapUtils();
@@ -161,6 +163,14 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\FamilyMember')
             ->group(base_path('routes/web/family_members.php'));
+    }
+
+    protected function mapMyFilesRoutes()
+    {
+        Route::prefix('my-files')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\MyFiles')
+            ->group(base_path('routes/web/my_files.php'));
     }
 
     protected function mapWitnessesRoutes()
