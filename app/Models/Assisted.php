@@ -78,12 +78,12 @@ class Assisted extends Model
     /**
      * Get the family income for the assisted.
      */
-    public function FamilyIncome()
+    public function familyIncome()
     {
         return $this->hasOne(FamilyIncome::class);
     }
 
-    public function SetFamilyIncome()
+    public function setFamilyIncome()
     {
         $familyIncome = $this->familyIncome;
         $familyMembers = $this->familyMembers;
