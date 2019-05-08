@@ -24,8 +24,9 @@ class MyFilesDownload extends Controller
                 return response()->download($file->getPath(), $file->file_name);
             } else {
                 $files = $request->user()->getMedia('myfiles')->find($fileIds);
+                $name = $request->user()->name . "_files-" . gettimeofday()["usec"];
 
-                return MediaStream::create('meus-arquivos.zip')->addMedia($files);
+                return MediaStream::create($name)->addMedia($files);
             }
         }
 
