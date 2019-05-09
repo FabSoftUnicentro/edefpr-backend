@@ -63,6 +63,11 @@ class CreateAssistedTable extends Migration
             $table->string('postcode');
             $table->string('complement')->nullable();
             $table->string('neighborhood')->nullable();
+            $table->decimal('social_programs', 10, 2)->nullable();
+            $table->decimal('social_security_contribution', 10, 2)->nullable();
+            $table->decimal('income_tax', 10, 2)->nullable();
+            $table->decimal('alimony', 10, 2)->nullable();
+            $table->decimal('extraordinary_expenses', 10, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
