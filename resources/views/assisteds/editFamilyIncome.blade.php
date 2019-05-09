@@ -2,16 +2,13 @@
 
 @section('title', 'Editar Renda Familiar')
 
-@section('css')
-@endsection
-
 @section('content_header')
     @include('helpers.flash-message')
     <h1>Editar renda familiar</h1>
 @stop
 
 @section('content')
-    @include('familyIncomes._form', [
+    @include('assisteds._formFamilyIncome', [
         'form' => $form
     ])
 @stop
@@ -23,7 +20,9 @@
         $(function() {
             $('.money').maskMoney({
                 thousands: '.',
-                decimal: ','
+                decimal: ',',
+                allowZero: true,
+                prefix: 'R$ '
             });
         })
     </script>
