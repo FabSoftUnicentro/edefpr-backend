@@ -29,5 +29,13 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(FakerGenerator::class, function () {
             return FakerFactory::create('pt_BR');
         });
+
+        \Sanitizer::extend('currencyFilter', function ($value, $options = []) {
+            $sanitizedValue = str_replace('R$', '', $value);
+            $sanitizedValue = str_replace('.', '', $sanitizedValue);
+            $sanitizedValue = str_replace(',', '.', $sanitizedValue);
+
+            return $sanitizedValue;
+        });
     }
 }
