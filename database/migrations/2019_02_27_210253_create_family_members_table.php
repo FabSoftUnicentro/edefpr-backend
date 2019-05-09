@@ -17,10 +17,35 @@ class CreateFamilyMembersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->date('birth_date');
-            $table->enum('legal_situation', ['general', 'elderly', 'child', 'disabled-person', 'ex-prisoner']);
+            $table->enum('legal_situation', [
+                'general',
+                'elderly',
+                'child',
+                'disabled-person',
+                'ex-prisoner'
+            ]);
             $table->enum('kinship', [
-                'daughter', 'son', 'cousin', 'sister', 'brother', 'mother', 'father', 'grandmother', 'grandfather', 'uncle', 'aunt',
-                'wife', 'husband', 'grandson', 'granddaughter', 'nephew', 'niece', 'stepfather', 'stepmother', 'stepbrother', 'stepsister'
+                'daughter',
+                'son',
+                'cousin',
+                'sister',
+                'brother',
+                'mother',
+                'father',
+                'grandmother',
+                'grandfather',
+                'uncle',
+                'aunt',
+                'wife',
+                'husband',
+                'grandson',
+                'granddaughter',
+                'nephew',
+                'niece',
+                'stepfather',
+                'stepmother',
+                'stepbrother',
+                'stepsister'
             ]);
             $table->string('work');
             $table->double('income');

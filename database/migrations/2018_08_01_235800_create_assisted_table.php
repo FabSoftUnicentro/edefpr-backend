@@ -27,7 +27,7 @@ class CreateAssistedTable extends Migration
                 'male',
                 'female',
                 'undefined',
-                'Others'
+                'others'
             ]);
             $table->enum('marital_status', [
                 'single',
