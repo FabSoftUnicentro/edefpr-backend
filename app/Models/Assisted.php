@@ -35,6 +35,11 @@ class Assisted extends Model
         'complement',
         'neighborhood',
         'profession',
+        'social_programs',
+        'social_security_contribution',
+        'income_tax',
+        'alimony',
+        'extraordinary_expenses'
     ];
 
     /**
@@ -75,31 +80,25 @@ class Assisted extends Model
         return $this->belongsTo(Process::class);
     }
 
-    /**
-     * Get the family income for the assisted.
-     */
-    public function familyIncome()
+    public function getNetFamilyIncome($round = true)
     {
-        return $this->hasOne(FamilyIncome::class);
+        $familyMembersIncome = $this->familyMembers->sum('income');
+
+        $social_programs = $this->social_programs;
+        $social_security_contribution = $this->social_security_contribution;
+        $income_tax = $this->income_tax;
+        $alimony = $this->alimony;
+        $extraordinary_expenses = $this->extraordinary_expenses;
+
+        $total = $familyMembersIncome - $social_programs - $social_security_contribution - $income_tax - $alimony - $extraordinary_expenses;
+
+        return $round ? round($total, 2) : $total;
     }
 
-    public function setFamilyIncome()
+    public function getFamilyIncome($round = true)
     {
-        $familyIncome = $this->familyIncome;
-        $familyMembers = $this->familyMembers;
-        $income = 0;
-        foreach ($familyMembers as $familyMember) {
-            $income += $familyMember->income;
-        }
-        $familyIncome->family_income = $income;
+        $total = $this->familyMembers->sum('income');
 
-        $social_programs = $familyIncome->getAttribute('social_programs');
-        $social_security_contribution = $familyIncome->getAttribute('social_security_contribution');
-        $income_tax = $familyIncome->getAttribute('income_tax');
-        $alimony = $familyIncome->getAttribute('alimony');
-        $extraordinary_expenses = $familyIncome->getAttribute('extraordinary_expenses');
-
-        $familyIncome->net_family_income = $income - $social_programs - $social_security_contribution - $income_tax - $alimony - $extraordinary_expenses;
-        $familyIncome->save();
+        return $round ? round($total, 2) : $total;
     }
 }
