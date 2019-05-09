@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Assisted;
+namespace App\Http\Requests\FamilyIncome;
 
 use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Filter\CurrencyFilter;
 
 class UpdateRequest extends BaseRequest
 {
@@ -24,14 +25,27 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'email' => 'email|unique:assisteds',
-            'cpf' => 'unique:assisteds',
-            'rg' => 'string',
-            'rg_issuer' => 'string',
-            'gender' => 'string',
-            'note' => 'string',
-            'profession' => 'string'
+            'social_programs' => 'string',
+            'social_security_contribution' => 'string',
+            'income_tax' => 'string',
+            'alimony' => 'string',
+            'extraordinary_expenses' => 'string',
+        ];
+    }
+
+    /**
+     * Filters to be applied to the input.
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [
+            'social_programs' => 'currencyFilter',
+            'social_security_contribution' => 'currencyFilter',
+            'income_tax' => 'currencyFilter',
+            'alimony' => 'currencyFilter',
+            'extraordinary_expenses' => 'currencyFilter',
         ];
     }
 }
