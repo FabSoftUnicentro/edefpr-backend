@@ -1,28 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\FamilyIncome;
+namespace App\Http\Controllers\Assisted;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FamilyIncome\UpdateRequest;
-use App\Models\FamilyIncome;
-use Illuminate\Http\Request;
+use App\Models\Assisted;
 
-class FamilyIncomeUpdate extends Controller
+class AssistedFamilyIncomeUpdate extends Controller
 {
     /**
-     * @param Request $request
-     * @param FamilyIncome $familyIncome
+     * @param UpdateRequest $request
+     * @param Assisted $assisted
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(UpdateRequest $request, FamilyIncome $familyIncome)
+    public function __invoke(UpdateRequest $request, Assisted $assisted)
     {
-        $familyIncome->update($request->all());
+        $assisted->social_programs = $request->social_programs == "" ? 0.00 : $request->social_programs;
+        $assisted->social_security_contribution = $request->social_security_contribution == "" ? 0.00 : $request->social_security_contribution;
+        $assisted->income_tax = $request->income_tax == "" ? 0.00 : $request->income_tax;
+        $assisted->alimony = $request->alimony == "" ? 0.00 : $request->alimony;
+        $assisted->extraordinary_expenses = $request->extraordinary_expenses == "" ? 0.00 : $request->extraordinary_expenses;
 
         try {
-            $familyIncome->save();
+            $assisted->save();
 
             return redirect()
-                ->route('familyIncomes.show', $familyIncome->id)
+                ->route('assisteds.show', $assisted->id)
                 ->with('alert-success', 'Renda familiar atualizada com sucesso!');
         } catch (\Exception $e) {
             return redirect()
