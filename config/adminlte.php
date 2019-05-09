@@ -214,6 +214,11 @@ return [
                     'active' => ['reports', 'reports/*']
                 ],
             ],
+        ],
+        [
+            'text' => 'Meus arquivos',
+            'route' => 'myFiles.index',
+            'active' => ['my-files', 'my-files/*']
         ]
     ],
 
