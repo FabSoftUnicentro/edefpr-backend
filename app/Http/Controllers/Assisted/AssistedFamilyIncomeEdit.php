@@ -35,7 +35,7 @@ class AssistedFamilyIncomeEdit extends Controller
      * @param $value
      * @return mixed|string
      */
-    public function mask($value)
+    private function mask($value)
     {
         $maskedValue = number_format($value, 2);
         $maskedValue = str_replace(',', '$', $maskedValue);
