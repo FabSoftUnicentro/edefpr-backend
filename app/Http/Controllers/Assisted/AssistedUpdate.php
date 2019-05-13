@@ -21,7 +21,7 @@ class AssistedUpdate extends Controller
             $assisted->save();
 
             return redirect()
-                ->route('assisteds.index')
+                ->route('assisteds.show', $assisted->id)
                 ->with('alert-success', 'Assistido atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
