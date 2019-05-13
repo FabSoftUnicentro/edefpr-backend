@@ -15,11 +15,7 @@ class AssistedFamilyIncomeUpdate extends Controller
      */
     public function __invoke(UpdateRequest $request, Assisted $assisted)
     {
-        $assisted->social_programs = $request->social_programs == "" ? 0.00 : $request->social_programs;
-        $assisted->social_security_contribution = $request->social_security_contribution == "" ? 0.00 : $request->social_security_contribution;
-        $assisted->income_tax = $request->income_tax == "" ? 0.00 : $request->income_tax;
-        $assisted->alimony = $request->alimony == "" ? 0.00 : $request->alimony;
-        $assisted->extraordinary_expenses = $request->extraordinary_expenses == "" ? 0.00 : $request->extraordinary_expenses;
+        $assisted->update($request->all());
 
         try {
             $assisted->save();
