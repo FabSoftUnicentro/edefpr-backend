@@ -26,9 +26,12 @@ class Assisted extends JsonResource
             'gender' => $this->gender,
             'marital_status' => $this->marital_status,
             'profession' => $this->profession,
-            //'counter_part' => $this->counter_part,
             'note' => $this->note,
-            'addresses' => json_decode($this->addresses, true)
+            'income_social_programs' => $this->social_programs,
+            'income_social_security_contribution' => $this->social_security_contribution,
+            'income_income_tax' => $this->income_tax,
+            'income_alimony' => $this->alimony,
+            'income_extraordinary_expenses' => $this->extraordinary_expenses,
         ];
     }
 

@@ -36,5 +36,10 @@ $factory->define(Assisted::class, function (Faker $faker) {
         'postcode' => '85015310',
         'complement' => '',
         'neighborhood' => 'Batel',
+        'social_programs' => $faker->randomFloat(2, 1, 10),
+        'social_security_contribution' => $faker->randomFloat(2, 1, 10),
+        'income_tax' => $faker->randomFloat(2, 1, 10),
+        'alimony' => $faker->randomFloat(2, 1, 10),
+        'extraordinary_expenses' => $faker->randomFloat(2, 1, 10)
     ];
 });

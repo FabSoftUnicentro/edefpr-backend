@@ -9,6 +9,9 @@ Route::group(['middleware' => ['permission:register-assisted']], function () {
 Route::group(['middleware' => ['permission:update-assisted']], function () {
     Route::get('/{assisted}/edit', 'AssistedEdit')->name('assisteds.edit');
     Route::put('/{assisted}', 'AssistedUpdate')->name('assisteds.update');
+
+    Route::get('/{assisted}/familyIncome', 'AssistedFamilyIncomeEdit')->name('assistedsFamilyIncomes.edit');
+    Route::put('/{assisted}/familyIncome', 'AssistedFamilyIncomeUpdate')->name('assistedsFamilyIncomes.update');
 });
 
 Route::group(['middleware' => ['permission:read-assisted']], function () {

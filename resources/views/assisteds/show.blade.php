@@ -6,6 +6,7 @@
 @endsection
 
 @section('content_header')
+    @include('helpers.flash-message')
     <h1>Assistido {{ $assisted->name }}</h1>
 @stop
 
@@ -14,6 +15,7 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <div class="pull-right">
+                    <a class="btn btn-xs btn-primary" href="{{ route('assistedsFamilyIncomes.edit', $assisted->id) }}">Editar Renda Familiar</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('assisteds.edit', $assisted->id) }}">Editar assistido</a>
                 </div>
             </div>
@@ -38,7 +40,17 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h2>Endereco</h2>
+                    <h2>Renda familiar</h2>
+
+                    <p> <b>Bolsa-Família + BPC + Estágio:</b> R$ {{ $assisted->social_programs }} </p>
+                    <p> <b>Contruição Previdenciária:</b> R$ {{ $assisted->social_security_contribution }}</p>
+                    <p> <b>Imposto de Renda:</b> R$ {{ $assisted->income_tax }} </p>
+                    <p> <b>Pensão Alimentícia:</b> R$ {{ $assisted->alimony }} </p>
+                    <p> <b>Gastos Extraordinários:</b> R$ {{ $assisted->extraordinary_expenses }} </p>
+                    <p> <b>Renda Familiar:</b> R$ {{ $assisted->getFamilyIncome() }} </p>
+                    <p> <b>Renda Familiar Liquida:</b> R$ {{ $assisted->getNetFamilyIncome() }} </p>
+
+                    <h2>Endereço</h2>
 
                     <p> <b>CEP:</b> {{ $assisted->postcode }} </p>
                     <p> <b>Rua:</b> {{ $assisted->street }} </p>

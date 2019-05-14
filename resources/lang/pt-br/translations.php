@@ -38,7 +38,7 @@ return [
         'undefined' => 'Indefinido'
     ],
     'schooling' => [
-        'not_literate' => 'Não alfabetizado',
+        'illiterate' => 'Não alfabetizado',
         'incomplete_primary_education' => 'Ensino fundamental incompleto',
         'complete_primary_education' => 'Ensino fundamental incompleto',
         'in_primary_school' => 'Cursando ensino fundamental',
