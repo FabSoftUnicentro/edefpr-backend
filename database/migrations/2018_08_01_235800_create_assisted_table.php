@@ -61,8 +61,8 @@ class CreateAssistedTable extends Migration
             $table->string('number');
             $table->string('street');
             $table->string('postcode');
-            $table->string('complement')->default(0.00);
-            $table->string('neighborhood')->default(0.00);
+            $table->string('complement')->nullable();
+            $table->string('neighborhood');
             $table->decimal('social_programs', 10, 2)->default(0.00);
             $table->decimal('social_security_contribution', 10, 2)->default(0.00);
             $table->decimal('income_tax', 10, 2)->default(0.00);
