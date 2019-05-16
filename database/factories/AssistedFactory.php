@@ -40,6 +40,9 @@ $factory->define(Assisted::class, function (Faker $faker) {
         'social_security_contribution' => $faker->randomFloat(2, 1, 10),
         'income_tax' => $faker->randomFloat(2, 1, 10),
         'alimony' => $faker->randomFloat(2, 1, 10),
-        'extraordinary_expenses' => $faker->randomFloat(2, 1, 10)
+        'extraordinary_expenses' => $faker->randomFloat(2, 1, 10),
+        'residence_kind' => 'house',
+        'residence_situation' => 'owned',
+        'rental_value' => $faker->randomFloat(2, 1, 10)
     ];
 });
