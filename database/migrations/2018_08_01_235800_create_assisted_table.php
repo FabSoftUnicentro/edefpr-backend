@@ -68,6 +68,30 @@ class CreateAssistedTable extends Migration
             $table->decimal('income_tax', 10, 2)->default(0.00);
             $table->decimal('alimony', 10, 2)->default(0.00);
             $table->decimal('extraordinary_expenses', 10, 2)->default(0.00);
+            $table->enum('residence_kind', [
+                'house',
+                'apartment',
+                'homeless',
+                'provisional_housing',
+                'collective_housing',
+                'institutional_hosting',
+                'others',
+                ''
+            ])->default('');
+            $table->enum('residence_situation', [
+                'owned',
+                'rented',
+                'ceded',
+                'funded',
+                'occupied',
+                'pawned',
+                'public',
+                'private',
+                'parastatal',
+                'others',
+                ''
+            ])->default('');
+            $table->decimal('rental_value', 10, 2)->default(0.00);
             $table->softDeletes();
             $table->timestamps();
         });
