@@ -15,8 +15,8 @@ class AssistedAssets extends Model
      * @var array
      */
     protected $fillable = [
-        'assets',
-        'assets_price',
+        'name',
+        'price',
         'status',
         'installment_price',
         'assisted_id'
