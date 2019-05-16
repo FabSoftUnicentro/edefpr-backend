@@ -1,7 +1,9 @@
 <?php
 
-use App\Models\Assisted;
+use App\Models\AssistedAssets;
+use Illuminate\Support\Facades\DB as DB;
 use Faker\Generator as Faker;
+use App\Models\Assisted;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,35 +16,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Assisted::class, function (Faker $faker) {
+$factory->define(AssistedAssets::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'social_name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'cpf' => $faker->numberBetween(999999999),
-        'birth_date' => $faker->date(),
-        'rg' => $faker->unique()->text(11),
-        'rg_issuer' => 'SSP',
-        'gender' => 'male',
-        'marital_status' => 'single',
-        'schooling' => 'illiterate',
-        'naturalness' => 'Brasileiro',
-        'profession' => 'Teste',
-        'note' => null,
-        'uf' => 'PR',
-        'city' => 'Guarapuava',
-        'number' => '123',
-        'street' => 'Teste',
-        'postcode' => '85015310',
-        'complement' => '',
-        'neighborhood' => 'Batel',
-        'social_programs' => $faker->randomFloat(2, 1, 10),
-        'social_security_contribution' => $faker->randomFloat(2, 1, 10),
-        'income_tax' => $faker->randomFloat(2, 1, 10),
-        'alimony' => $faker->randomFloat(2, 1, 10),
-        'extraordinary_expenses' => $faker->randomFloat(2, 1, 10),
-        'residence_kind' => 'house',
-        'residence_situation' => 'owned',
-        'rental_value' => $faker->randomFloat(2, 1, 10)
+        'assets' => 'house',
+        'assets_price' => $faker->randomFloat(2, 1, 10),
+        'status' => 'paid',
+        'instalment_price' => $faker->randomFloat(2, 1, 10),
+        'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
     ];
 });
