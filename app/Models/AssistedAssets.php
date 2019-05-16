@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Assisted extends Model
+class AssistedAssets extends Model
 {
     use SoftDeletes;
 
@@ -15,34 +15,11 @@ class Assisted extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'social_name',
-        'email',
-        'cpf',
-        'birth_date',
-        'rg',
-        'rg_issuer',
-        'gender',
-        'naturalness',
-        'schooling',
-        'marital_status',
-        'note',
-        'uf',
-        'city',
-        'number',
-        'street',
-        'postcode',
-        'complement',
-        'neighborhood',
-        'profession',
-        'social_programs',
-        'social_security_contribution',
-        'income_tax',
-        'alimony',
-        'extraordinary_expenses',
-        'residence_kind',
-        'residence_situation',
-        'rental_value'
+        'assets',
+        'assets_price',
+        'status',
+        'instalment_price',
+        'assisted_id'
     ];
 
     /**
@@ -68,40 +45,10 @@ class Assisted extends Model
     ];
 
     /**
-     * Get all of the family members for the assisted.
-     */
-    public function familyMembers()
-    {
-        return $this->hasMany(FamilyMember::class);
-    }
-
-    /**
      * Get all of the processes for the assisted.
      */
-    public function process()
+    public function assisted()
     {
-        return $this->belongsTo(Process::class);
-    }
-
-    public function getNetFamilyIncome($round = true)
-    {
-        $familyMembersIncome = $this->familyMembers->sum('income');
-
-        $social_programs = $this->social_programs;
-        $social_security_contribution = $this->social_security_contribution;
-        $income_tax = $this->income_tax;
-        $alimony = $this->alimony;
-        $extraordinary_expenses = $this->extraordinary_expenses;
-
-        $total = $familyMembersIncome - $social_programs - $social_security_contribution - $income_tax - $alimony - $extraordinary_expenses;
-
-        return $round ? round($total, 2) : $total;
-    }
-
-    public function getFamilyIncome($round = true)
-    {
-        $total = $this->familyMembers->sum('income');
-
-        return $round ? round($total, 2) : $total;
+        return $this->belongsTo(Assisted::class);
     }
 }
