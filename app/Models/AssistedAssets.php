@@ -18,7 +18,7 @@ class AssistedAssets extends Model
         'assets',
         'assets_price',
         'status',
-        'instalment_price',
+        'installment_price',
         'assisted_id'
     ];
 

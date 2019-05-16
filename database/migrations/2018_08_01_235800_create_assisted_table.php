@@ -75,9 +75,8 @@ class CreateAssistedTable extends Migration
                 'provisional_housing',
                 'collective_housing',
                 'institutional_hosting',
-                'others',
-                ''
-            ])->default('');
+                'others'
+            ])->nullable();
             $table->enum('residence_situation', [
                 'owned',
                 'rented',
@@ -88,9 +87,8 @@ class CreateAssistedTable extends Migration
                 'public',
                 'private',
                 'parastatal',
-                'others',
-                ''
-            ])->default('');
+                'others'
+            ])->nullable();
             $table->decimal('rental_value', 10, 2)->default(0.00);
             $table->softDeletes();
             $table->timestamps();

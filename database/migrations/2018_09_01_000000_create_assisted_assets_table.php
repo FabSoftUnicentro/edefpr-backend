@@ -15,7 +15,7 @@ class CreateAssistedAssetsTable extends Migration
     {
         Schema::create('assisted_assets', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('assets', [
+            $table->enum('name', [
                 'house',
                 'apartment',
                 'vacant_ground',
@@ -24,12 +24,12 @@ class CreateAssistedAssetsTable extends Migration
                 'motorcycle',
                 'others'
             ]);
-            $table->decimal('assets_price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->enum('status', [
                 'paid',
                 'unpaid'
             ]);
-            $table->decimal('instalment_price', 10, 2)->default(0.00);
+            $table->decimal('installment_price', 10, 2)->default(0.00);
             $table->integer('assisted_id')->unsigned();
             $table->foreign('assisted_id')->references('id')->on('assisteds');
             $table->softDeletes();

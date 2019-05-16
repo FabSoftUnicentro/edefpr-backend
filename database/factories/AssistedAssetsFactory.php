@@ -18,10 +18,10 @@ use App\Models\Assisted;
 
 $factory->define(AssistedAssets::class, function (Faker $faker) {
     return [
-        'assets' => 'house',
-        'assets_price' => $faker->randomFloat(2, 1, 10),
+        'name' => 'house',
+        'price' => $faker->randomFloat(2, 1, 10),
         'status' => 'paid',
-        'instalment_price' => $faker->randomFloat(2, 1, 10),
+        'installment_price' => $faker->randomFloat(2, 1, 10),
         'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
     ];
 });
