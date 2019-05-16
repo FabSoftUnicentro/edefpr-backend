@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateAssistedAssetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,26 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('assisted_assets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('cpf', 11)->unique();
-            $table->date('birth_date');
-            $table->string('rg');
-            $table->string('rg_issuer');
-            $table->enum('gender', ['M', 'F', 'I', 'O']);
-            $table->string('marital_status');
-            $table->string('uf', 2);
-            $table->string('city');
-            $table->string('number');
-            $table->string('street');
-            $table->string('postcode');
-            $table->string('complement')->nullable();
-            $table->string('neighborhood')->nullable();
-            $table->text('note')->nullable();
-            $table->boolean('must_change_password')->default(true);
-            $table->rememberToken();
+            $table->enum('assets', [
+                'house',
+                'apartment',
+                'vacant_ground',
+                'farmstead',
+                'car',
+                'motorcycle',
+                'others'
+            ]);
+            $table->decimal('assets_price', 10, 2);
+            $table->enum('status', [
+                'paid',
+                'unpaid'
+            ]);
+            $table->decimal('instalment_price', 10, 2)->default(0.00);
+            $table->integer('assisted_id')->unsigned();
+            $table->foreign('assisted_id')->references('id')->on('assisteds');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -45,6 +44,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('assisted_assets');
     }
 }
