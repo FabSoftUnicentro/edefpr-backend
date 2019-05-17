@@ -39,7 +39,10 @@ class Assisted extends Model
         'social_security_contribution',
         'income_tax',
         'alimony',
-        'extraordinary_expenses'
+        'extraordinary_expenses',
+        'residence_kind',
+        'residence_situation',
+        'rental_value'
     ];
 
     /**
@@ -80,6 +83,18 @@ class Assisted extends Model
         return $this->belongsTo(Process::class);
     }
 
+    /**
+     * Get all of the assets for the assisted.
+     */
+    public function assistedAssets()
+    {
+        return $this->hasMany(AssistedAssets::class);
+    }
+
+    /**
+     * @param bool $round
+     * @return float|mixed
+     */
     public function getNetFamilyIncome($round = true)
     {
         $familyMembersIncome = $this->familyMembers->sum('income');
@@ -95,6 +110,10 @@ class Assisted extends Model
         return $round ? round($total, 2) : $total;
     }
 
+    /**
+     * @param bool $round
+     * @return float
+     */
     public function getFamilyIncome($round = true)
     {
         $total = $this->familyMembers->sum('income');
