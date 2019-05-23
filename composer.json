@@ -42,7 +42,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "App/Utils/MoneyMask.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
