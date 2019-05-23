@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Assisted;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FamilyIncome\UpdateRequest;
+use App\Http\Requests\FamilyMember\UpdateRequest;
 use App\Models\Assisted;
 
 class AssistedFamilyIncomeUpdate extends Controller

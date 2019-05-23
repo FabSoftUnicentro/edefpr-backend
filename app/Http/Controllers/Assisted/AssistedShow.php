@@ -13,6 +13,8 @@ class AssistedShow extends Controller
      */
     public function __invoke(Assisted $assisted)
     {
+        $assisted->rental_value = money($assisted->rental_value);
+
         return view('assisteds.show', [
             'assisted' => $assisted
         ]);
