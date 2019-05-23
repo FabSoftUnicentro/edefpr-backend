@@ -14,7 +14,7 @@
     <div class="box box-primary ">
         <div class="box-header with-border ">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create') }}">Cadastrar membro familiar</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create', $assisted->id) }}">Cadastrar membro familiar</a>
             </div>
         </div>
         <!-- /.box-header -->

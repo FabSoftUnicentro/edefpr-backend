@@ -39,11 +39,6 @@
                     {!! form_label($form->income) !!}
                     {!! form_widget($form->income) !!}
                 </div>
-
-                <div class="form-group">
-                    {!! form_label($form->assisted_id) !!}
-                    {!! form_widget($form->assisted_id) !!}
-                </div>
             </div>
         </div>
 
