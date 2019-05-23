@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\FamilyMember;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FamilyMember\UpdateRequest;
 use App\Models\FamilyMember;
-use Illuminate\Http\Request;
 
 class FamilyMemberUpdate extends Controller
 {
     /**
-     * @param Request $request
+     * @param UpdateRequest $request
      * @param FamilyMember $familyMember
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(Request $request, FamilyMember $familyMember)
+    public function __invoke(UpdateRequest $request, FamilyMember $familyMember)
     {
         $familyMember->update($request->all());
 
@@ -21,7 +21,7 @@ class FamilyMemberUpdate extends Controller
             $familyMember->save();
 
             return redirect()
-                ->route('familyMembers.index')
+                ->route('familyMembers.show', $familyMember->id)
                 ->with('alert-success', 'Membro familiar atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()

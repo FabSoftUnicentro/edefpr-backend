@@ -13,6 +13,8 @@ class FamilyMemberShow extends Controller
      */
     public function __invoke(FamilyMember $familyMember)
     {
+        $familyMember->income = money($familyMember->income);
+
         return view('familyMembers.show', [
             'familyMember' => $familyMember
         ]);
