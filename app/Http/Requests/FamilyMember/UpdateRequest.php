@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Assisted;
+namespace App\Http\Requests\FamilyMember;
 
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Filter\CurrencyFilter;
@@ -25,7 +25,7 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'rental_value' => 'string'
+            'income' => 'string'
         ];
     }
 
@@ -37,7 +37,7 @@ class UpdateRequest extends BaseRequest
     public function filters()
     {
         return [
-            'rental_value' => 'currencyFilter'
+            'income' => 'currencyFilter'
         ];
     }
 }

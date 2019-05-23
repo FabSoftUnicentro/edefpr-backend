@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Assisted;
+namespace App\Http\Requests\AssistedAsset;
 
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Filter\CurrencyFilter;
 
-class UpdateRequest extends BaseRequest
+class StoreRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,8 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'rental_value' => 'string'
+            'price' => 'string',
+            'installment_price' => 'string'
         ];
     }
 
@@ -37,7 +38,8 @@ class UpdateRequest extends BaseRequest
     public function filters()
     {
         return [
-            'rental_value' => 'currencyFilter'
+            'price' => 'currencyFilter',
+            'installment_price' => 'currencyFilter'
         ];
     }
 }

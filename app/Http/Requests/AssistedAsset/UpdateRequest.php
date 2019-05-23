@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\FamilyIncome;
+namespace App\Http\Requests\AssistedAsset;
 
 use App\Http\Requests\BaseRequest;
 use App\Http\Requests\Filter\CurrencyFilter;
@@ -25,11 +25,9 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'social_programs' => 'string',
-            'social_security_contribution' => 'string',
-            'income_tax' => 'string',
-            'alimony' => 'string',
-            'extraordinary_expenses' => 'string',
+            'price' => 'string',
+            'installment_price' => 'string',
+            'rental_value' => 'string'
         ];
     }
 
@@ -41,11 +39,9 @@ class UpdateRequest extends BaseRequest
     public function filters()
     {
         return [
-            'social_programs' => 'currencyFilter',
-            'social_security_contribution' => 'currencyFilter',
-            'income_tax' => 'currencyFilter',
-            'alimony' => 'currencyFilter',
-            'extraordinary_expenses' => 'currencyFilter',
+            'price' => 'currencyFilter',
+            'installment_price' => 'currencyFilter',
+            'rental_value' => 'currencyFilter'
         ];
     }
 }
