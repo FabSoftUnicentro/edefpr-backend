@@ -2,8 +2,8 @@
 
 // Family Composition routes
 Route::group(['middleware' => ['permission:register-assisted']], function () {
-    Route::get('/create', 'FamilyMemberCreate')->name('familyMembers.create');
-    Route::post('/', 'FamilyMemberStore')->name('familyMembers.store');
+    Route::get('/{assisted}/create', 'FamilyMemberCreate')->name('familyMembers.create');
+    Route::post('/{assisted}/', 'FamilyMemberStore')->name('familyMembers.store');
 });
 
 Route::group(['middleware' => ['permission:update-assisted']], function () {
@@ -12,7 +12,7 @@ Route::group(['middleware' => ['permission:update-assisted']], function () {
 });
 
 Route::group(['middleware' => ['permission:read-assisted']], function () {
-    Route::get('/list', 'FamilyMemberIndex')->name('familyMembers.index');
+    Route::get('/{assisted}/list', 'FamilyMemberIndex')->name('familyMembers.index');
     Route::get('/{familyMember}', 'FamilyMemberShow')->name('familyMembers.show');
 });
 
