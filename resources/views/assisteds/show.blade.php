@@ -15,6 +15,9 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <div class="pull-right">
+                    <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.index', $assisted->id) }}">Editar Composição Familiar</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('assistedAssets.index', $assisted->id) }}">Editar bens materiais</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('assistedsHousingSituation.edit', $assisted->id) }}">Editar Situação Habitacional</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('assistedsFamilyIncomes.edit', $assisted->id) }}">Editar Renda Familiar</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('assisteds.edit', $assisted->id) }}">Editar assistido</a>
                 </div>
@@ -37,6 +40,12 @@
                     <p> <b>Genero:</b> {{ __('translations.gender.'.$assisted->gender) }} </p>
                     <p> <b>Estado Civil:</b> {{ __('translations.marital_status.'.$assisted->marital_status) }} </p>
                     <p> <b>Observacoes:</b> {{ $assisted->note }} </p>
+
+                    <h2>Situação Habitacional</h2>
+
+                    <p> <b>Tipo de Residência:</b> {{ __('translations.residence_kind.'.$assisted->residence_kind) }} </p>
+                    <p> <b>Situação da Residência:</b> {{ __('translations.residence_situation.'.$assisted->residence_situation) }} </p>
+                    <p> <b>Valor do Aluguel:</b> R$ {{ $assisted->rental_value }} </p>
                 </div>
 
                 <div class="col-md-6">

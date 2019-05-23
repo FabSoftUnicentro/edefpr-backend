@@ -48,7 +48,7 @@ class CreateFamilyMembersTable extends Migration
                 'stepsister'
             ]);
             $table->string('work');
-            $table->double('income');
+            $table->decimal('income', 10, 2);
             $table->integer('assisted_id')->unsigned();
             $table->foreign('assisted_id')->references('id')->on('assisteds');
             $table->softDeletes();
