@@ -17,10 +17,7 @@ class AssistedAssetStore extends Controller
     public function __invoke(StoreRequest $request, Assisted $assisted)
     {
         $assistedAsset = new AssistedAsset($request->all());
-        $assistedAsset->assisted_id = $assisted->id;
-        if ($assistedAsset->installment_price === "") {
-            $assistedAsset->installment_price = 0.00;
-        }
+        $assistedAsset->assisted()->associate($assisted);
 
         try {
             $assistedAsset->save();

@@ -13,8 +13,8 @@ Route::group(['middleware' => ['permission:update-assisted']], function () {
     Route::get('/{assisted}/familyIncome', 'AssistedFamilyIncomeEdit')->name('assistedsFamilyIncomes.edit');
     Route::put('/{assisted}/familyIncome', 'AssistedFamilyIncomeUpdate')->name('assistedsFamilyIncomes.update');
 
-    Route::get('/{assisted}/houseSituation', 'AssistedHousingSituationEdit')->name('assistedsHousingSituation.edit');
-    Route::put('/{assisted}/houseSituation', 'AssistedHousingSituationUpdate')->name('assistedsHousingSituation.update');
+    Route::get('/{assisted}/housingSituation', 'AssistedHousingSituationEdit')->name('assistedsHousingSituation.edit');
+    Route::put('/{assisted}/housingSituation', 'AssistedHousingSituationUpdate')->name('assistedsHousingSituation.update');
 });
 
 Route::group(['middleware' => ['permission:read-assisted']], function () {

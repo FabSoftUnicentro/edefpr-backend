@@ -44,7 +44,8 @@ class AssistedAssetForm extends Form
                 'label' => 'Preço da Prestação',
                 'attr' => [
                     'class' => 'money form-control'
-                ]
+                ],
+                'rules' => 'required'
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
                 'label' => 'Salvar'

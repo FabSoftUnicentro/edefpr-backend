@@ -17,10 +17,7 @@ class FamilyMemberStore extends Controller
     public function __invoke(StoreRequest $request, Assisted $assisted)
     {
         $familyMember = new FamilyMember($request->all());
-        $familyMember->assisted_id = $assisted->id;
-        if ($familyMember->income === "") {
-            $familyMember->income = 0.00;
-        }
+        $familyMember->assisted()->associate($assisted);
 
         try {
             $familyMember->save();
