@@ -3,7 +3,6 @@
 namespace App\Http\Requests\FamilyMember;
 
 use App\Http\Requests\BaseRequest;
-use App\Http\Requests\Filter\CurrencyFilter;
 
 class StoreRequest extends BaseRequest
 {

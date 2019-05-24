@@ -3,7 +3,6 @@
 namespace App\Forms\FamilyMember;
 
 use App\Forms\Field;
-use App\Models\Assisted;
 use Kris\LaravelFormBuilder\Form;
 
 class FamilyMemberForm extends Form
