@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\AssistedAsset;
-use Illuminate\Support\Facades\DB as DB;
-use Faker\Generator as Faker;
 use App\Models\Assisted;
+use App\Models\AssistedAsset;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\DB as DB;
 
 /*
 |--------------------------------------------------------------------------

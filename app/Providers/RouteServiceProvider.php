@@ -206,5 +206,4 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace . '\AssistedAsset')
             ->group(base_path('routes/web/assisted_asset.php'));
     }
-
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Assisted;
 
 use App\Http\Requests\BaseRequest;
-use App\Http\Requests\Filter\CurrencyFilter;
 
 class UpdateRequest extends BaseRequest
 {
