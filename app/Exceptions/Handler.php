@@ -27,20 +27,6 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * @param Exception $exception
-     * @return mixed|void
-     * @throws Exception
-     */
-    public function report(Exception $exception)
-    {
-        if (app()->bound('sentry') && $this->shouldReport($exception) && env('APP_ENV') === 'prod') {
-            app('sentry')->captureException($exception);
-        }
-
-        parent::report($exception);
-    }
-
-    /**
      * @param \Illuminate\Http\Request $request
      * @param Exception $exception
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
@@ -55,11 +41,8 @@ class Handler extends ExceptionHandler
                 case 403:
                     return redirect()->route('404');
                     break;
-                case 500:
-                    return redirect()->route('500');
-                    break;
                 default:
-                    return $this->renderHttpException($exception);
+                    return redirect()->route('500');
                     break;
             }
         }

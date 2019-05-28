@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    @include('MyFiles._form', [
+    @include('myFiles._form', [
         'form' => $form
     ])
 
