@@ -217,4 +217,6 @@ return [
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class
     ],
 
+    'deploy_secret' => env('APP_DEPLOY_SECRET'),
+
 ];
