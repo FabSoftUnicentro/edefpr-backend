@@ -11,6 +11,6 @@ class InternalServerError extends Controller
      */
     public function __invoke()
     {
-        return view('error.404');
+        return view('error.500');
     }
 }
