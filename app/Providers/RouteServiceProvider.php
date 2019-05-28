@@ -184,7 +184,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapUtils()
     {
         Route::prefix('utils')
-            ->middleware(['web', 'auth'])
+            ->middleware(['web'])
             ->namespace($this->namespace . '\Utils')
             ->group(base_path('routes/web/utils.php'));
     }
