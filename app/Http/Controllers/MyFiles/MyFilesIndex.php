@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\MyFiles;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 use App\Forms\MyFiles\MyFilesForm;
-use Spatie\MediaLibrary\Models\Media;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class MyFilesIndex extends Controller
 {
