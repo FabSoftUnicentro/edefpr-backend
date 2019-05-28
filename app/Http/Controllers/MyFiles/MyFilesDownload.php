@@ -27,9 +27,9 @@ class MyFilesDownload extends Controller
      */
     private function buildResponse(array $fileIds, $user)
     {
-    	$fileIdsTotal = count($fileIds);
+        $fileIdsTotal = count($fileIds);
 
-    	if ($fileIdsTotal >= 1) {
+        if ($fileIdsTotal >= 1) {
             if ($fileIdsTotal === 1) {
                 $file = $user->getMedia('myfiles')->find($fileIds)->first();
 
@@ -51,15 +51,15 @@ class MyFilesDownload extends Controller
      * @param $user
      * @return string
      */
-	private function buildFilename($user)
-	{
-		$extension = "zip";
-		$suffix = gettimeofday()["usec"];
-		$prefix = $user->name;
+    private function buildFilename($user)
+    {
+        $extension = "zip";
+        $suffix = gettimeofday()["usec"];
+        $prefix = $user->name;
 
-		$filename = "${prefix}-files-${suffix}.${extension}";
+        $filename = "${prefix}-files-${suffix}.${extension}";
         $zipFilename = str_replace(" ", "-", $filename);
 
         return $zipFilename;
-	}
+    }
 }
