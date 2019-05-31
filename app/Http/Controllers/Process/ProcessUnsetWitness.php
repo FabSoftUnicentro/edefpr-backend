@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
-use App\Models\Process;
 use App\Http\Resources\Process as ProcessResource;
+use App\Models\Process;
 use App\Models\Witness;
 
 class ProcessUnsetWitness extends Controller
