@@ -4,7 +4,7 @@ namespace App\Http\Requests\Assisted;
 
 use App\Http\Requests\BaseRequest;
 
-class UpdateRequest extends BaseRequest
+class UpdateHousingSituationRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
