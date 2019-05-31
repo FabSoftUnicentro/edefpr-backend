@@ -22,7 +22,7 @@ class AssistedAssetUpdate extends Controller
             $assistedAsset->save();
 
             return redirect()
-                ->route('assistedAssets.show', $assistedAsset->id)
+                ->route('assistedAssets.index', $assistedAsset->assisted->id)
                 ->with('alert-success', 'Bem material do assistido atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()

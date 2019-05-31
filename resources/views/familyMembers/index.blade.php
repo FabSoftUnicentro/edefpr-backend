@@ -7,7 +7,7 @@
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Composição Familiar</h1>
+    <h1>Familia do Assistido {{ $assisted->name }}</h1>
 @stop
 
 @section('content')
@@ -24,8 +24,9 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Nome</th>
-                        <th class="text-center">Assistido</th>
+                        <th class="text-center">Grau de Parentesco</th>
                         <th class="text-center">Situação Legal</th>
+                        <th class="text-center">Renda</th>
                         <th class="text-center">Ação</th>
                     </tr>
                 </thead>
@@ -34,8 +35,9 @@
                         <tr class="text-center">
                             <td>{{ $familyMember->id }}</td>
                             <td>{{ $familyMember->name }}</td>
-                            <td>{{ $familyMember->assisted->name }}</td>
+                            <td>{{ __('translations.kinship.'.$familyMember->kinship) }}</td>
                             <td>{{ __('translations.legal_situation.'.$familyMember->legal_situation) }}</td>
+                            <td>{{ money($familyMember->income) }}</td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.show', $familyMember->id) }}">
                                     Visualizar

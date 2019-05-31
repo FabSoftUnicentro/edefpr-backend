@@ -14,6 +14,9 @@ class AssistedAssetEdit extends Controller
      */
     public function __invoke(AssistedAsset $assistedAsset)
     {
+        $assistedAsset->price = money($assistedAsset->price);
+        $assistedAsset->installment_price = money($assistedAsset->installment_price);
+
         $form = $this->formBuilder->create(AssistedAssetForm::class, [
             'url' => route('assistedAssets.update', $assistedAsset->id),
             'method' => 'PUT',
