@@ -24,7 +24,7 @@ class CreateAssistedAssetsTable extends Migration
                 'motorcycle',
                 'others'
             ]);
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->default(0.00);
             $table->enum('status', [
                 'paid',
                 'unpaid'

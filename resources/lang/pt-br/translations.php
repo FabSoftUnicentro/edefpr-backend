@@ -61,5 +61,39 @@ return [
         'widow' => 'Viúvo',
         'stable_union' => 'União estável',
         'others' => 'Outros'
+    ],
+    'name' => [
+        'house' => 'Casa',
+        'apartment' => 'Apartamento',
+        'vacant_ground' => 'Terreno vago',
+        'farmstead' => 'Chácara',
+        'car' => 'Carro',
+        'motorcycle' => 'Moto',
+        'others' => 'Outros'
+    ],
+    'status' => [
+        'paid' => 'Pago',
+        'unpaid' => 'Não pago'
+    ],
+    'residence_kind' => [
+        'house' => 'Casa',
+        'apartment' => 'Apartamento',
+        'homeless' => 'Pessoa em situação de rua',
+        'provisional_housing' => 'Moradia provisória',
+        'collective_housing' => 'Moradia coletiva',
+        'institutional_hosting' => 'Acolhimento Institucional',
+        'others' => 'Outros'
+    ],
+    'residence_situation' => [
+        'owned' => 'Próprio',
+        'rented' => 'Alugado',
+        'ceded' => 'Cedido',
+        'funded' => 'Financiado',
+        'occupied' => 'Ocupado',
+        'pawned' => 'Penhorado',
+        'public' => 'Público',
+        'private' => 'Privado',
+        'parastatal' => 'Paraestatal',
+        'others' => 'Outros'
     ]
 ];

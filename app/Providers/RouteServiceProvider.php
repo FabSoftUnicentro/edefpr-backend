@@ -62,6 +62,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapUtils();
 
         $this->mapProcessesRoutes();
+
+        $this->mapAssistedAssetsRoutes();
     }
 
     /**
@@ -195,5 +197,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Process')
             ->group(base_path('routes/web/process.php'));
+    }
+
+    protected function mapAssistedAssetsRoutes()
+    {
+        Route::prefix('assisted-assets')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\AssistedAsset')
+            ->group(base_path('routes/web/assisted_asset.php'));
     }
 }

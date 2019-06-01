@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\FamilyIncome;
+namespace App\Http\Requests\Assisted;
 
 use App\Http\Requests\BaseRequest;
 
-class UpdateRequest extends BaseRequest
+class UpdateFamilyIncomeRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class UpdateRequest extends BaseRequest
             'social_security_contribution' => 'string',
             'income_tax' => 'string',
             'alimony' => 'string',
-            'extraordinary_expenses' => 'string',
+            'extraordinary_expenses' => 'string'
         ];
     }
 
@@ -44,7 +44,7 @@ class UpdateRequest extends BaseRequest
             'social_security_contribution' => 'currencyFilter',
             'income_tax' => 'currencyFilter',
             'alimony' => 'currencyFilter',
-            'extraordinary_expenses' => 'currencyFilter',
+            'extraordinary_expenses' => 'currencyFilter'
         ];
     }
 }

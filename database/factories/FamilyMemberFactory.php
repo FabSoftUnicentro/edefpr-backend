@@ -23,7 +23,7 @@ $factory->define(FamilyMember::class, function (Faker $faker) {
         'legal_situation' => 'general',
         'kinship' => 'grandmother',
         'work' => 'test',
-        'income' => $faker->randomFloat(),
+        'income' => $faker->randomFloat(2, 1, 10),
         'assisted_id' => DB::table('assisteds')->exists() ? DB::table('assisteds')->inRandomOrder()->first()->id : factory(Assisted::class)->create()
     ];
 });

@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Membro Familiar')
+@section('title', 'Editar Assistido')
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Cadastrar novo membro familiar</h1>
+    <h1>Editar Situação Habitacional</h1>
 @stop
 
 @section('content')
-    @include('familyMembers._form', [
+    @include('assisteds._formHousingSituation', [
         'form' => $form
     ])
 @stop

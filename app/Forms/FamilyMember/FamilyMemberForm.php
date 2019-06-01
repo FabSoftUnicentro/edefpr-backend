@@ -3,7 +3,6 @@
 namespace App\Forms\FamilyMember;
 
 use App\Forms\Field;
-use App\Models\Assisted;
 use Kris\LaravelFormBuilder\Form;
 
 class FamilyMemberForm extends Form
@@ -25,7 +24,10 @@ class FamilyMemberForm extends Form
             ])
             ->add('income', Field::TEXT, [
                 'label' => 'Renda',
-                'rules' => 'required|double'
+                'rules' => 'required',
+                'attr' => [
+                    'class' => 'money form-control'
+                ]
             ])
             ->add('legal_situation', Field::SELECT, [
                 'label' => 'Situação Legal',
@@ -66,14 +68,6 @@ class FamilyMemberForm extends Form
                 ],
                 'empty_value' => 'Selecione um grau de parentesco',
                 'rules' => 'required'
-            ])
-            ->add('assisted_id', 'entity', [
-                'label' => 'Assistido',
-                'class' => Assisted::class,
-                'property' => 'name',
-                'rules' => 'required',
-                'empty_value' => 'Selecione um assistido',
-                'empty_data' => null
             ])
             ->add('submit', Field::BUTTON_SUBMIT, [
                 'label' => 'Salvar'

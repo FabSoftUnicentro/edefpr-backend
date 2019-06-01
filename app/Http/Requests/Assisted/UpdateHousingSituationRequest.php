@@ -4,7 +4,7 @@ namespace App\Http\Requests\Assisted;
 
 use App\Http\Requests\BaseRequest;
 
-class UpdateRequest extends BaseRequest
+class UpdateHousingSituationRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,19 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'email' => 'email|unique:assisteds',
-            'cpf' => 'unique:assisteds',
-            'rg' => 'string',
-            'rg_issuer' => 'string',
-            'gender' => 'string',
-            'note' => 'string',
-            'profession' => 'string'
+            'rental_value' => 'string'
+        ];
+    }
+
+    /**
+     * Filters to be applied to the input.
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [
+            'rental_value' => 'currencyFilter'
         ];
     }
 }

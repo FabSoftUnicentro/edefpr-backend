@@ -14,6 +14,8 @@ class FamilyMemberEdit extends Controller
      */
     public function __invoke(FamilyMember $familyMember)
     {
+        $familyMember->income = money($familyMember->income);
+
         $form = $this->formBuilder->create(FamilyMemberForm::class, [
             'url' => route('familyMembers.update', $familyMember->id),
             'method' => 'PUT',

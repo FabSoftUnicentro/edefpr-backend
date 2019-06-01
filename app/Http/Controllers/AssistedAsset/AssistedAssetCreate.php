@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\FamilyMember;
+namespace App\Http\Controllers\AssistedAsset;
 
-use App\Forms\FamilyMember\FamilyMemberForm;
+use App\Forms\AssistedAsset\AssistedAssetForm;
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
 
-class FamilyMemberCreate extends Controller
+class AssistedAssetCreate extends Controller
 {
     /**
      * @param Assisted $assisted
@@ -14,12 +14,12 @@ class FamilyMemberCreate extends Controller
      */
     public function __invoke(Assisted $assisted)
     {
-        $form = $this->formBuilder->create(FamilyMemberForm::class, [
-            'url' => route('familyMembers.store', $assisted->id),
+        $form = $this->formBuilder->create(AssistedAssetForm::class, [
+            'url' => route('assistedAssets.store', $assisted->id),
             'method' => 'POST'
         ]);
 
-        return view('familyMembers.create', [
+        return view('assistedAssets.create', [
             'form' => $form
         ]);
     }

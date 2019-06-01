@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Assisted;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Assisted\UpdateFamilyIncomeRequest;
+use App\Http\Requests\Assisted\UpdateHousingSituationRequest;
 use App\Models\Assisted;
 
-class AssistedFamilyIncomeUpdate extends Controller
+class AssistedHousingSituationUpdate extends Controller
 {
     /**
-     * @param UpdateFamilyIncomeRequest $request
+     * @param UpdateHousingSituationRequest $request
      * @param Assisted $assisted
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(UpdateFamilyIncomeRequest $request, Assisted $assisted)
+    public function __invoke(UpdateHousingSituationRequest $request, Assisted $assisted)
     {
         $assisted->update($request->all());
 

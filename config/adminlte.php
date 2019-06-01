@@ -140,18 +140,7 @@ return [
             'text' => 'Assistidos',
             'icon' => 'users',
             'can' => 'read-assisted',
-            'submenu' => [
-                [
-                    'text' => 'Assistidos',
-                    'route'  => 'assisteds.index',
-                    'active' => ['assisteds','assisteds/*'],
-                ],
-                [
-                    'text' => 'Composição Familiar',
-                    'route'  => 'familyMembers.index',
-                    'active' => ['familyMembers','familyMembers/*']
-                ]
-            ]
+            'route'  => 'assisteds.index'
         ],
         [
             'text' => 'Atendimento',

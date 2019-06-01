@@ -1,20 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Composição familiar')
-
-@section('css')
-@endsection
+@section('title', 'Assistidos')
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Familia do Assistido {{ $assisted->name }}</h1>
+    <h1>Bens materiais do assistido <b>{{ $assisted->name }}</b></h1>
 @stop
 
 @section('content')
-    <div class="box box-primary ">
-        <div class="box-header with-border ">
+    <div class="box box-primary">
+        <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.create', $assisted->id) }}">Cadastrar membro familiar</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('assistedAssets.create', $assisted->id) }}">Cadastrar bem material do assistido</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -24,28 +21,26 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Nome</th>
-                        <th class="text-center">Grau de Parentesco</th>
-                        <th class="text-center">Situação Legal</th>
-                        <th class="text-center">Renda</th>
+                        <th class="text-center">Condição</th>
+                        <th class="text-center">Preço</th>
+                        <th class="text-center">Valor da Prestação</th>
                         <th class="text-center">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($familyMembers as $familyMember)
+                    @foreach ($assistedAssets as $assistedAsset)
                         <tr class="text-center">
-                            <td>{{ $familyMember->id }}</td>
-                            <td>{{ $familyMember->name }}</td>
-                            <td>{{ __('translations.kinship.'.$familyMember->kinship) }}</td>
-                            <td>{{ __('translations.legal_situation.'.$familyMember->legal_situation) }}</td>
-                            <td>{{ money($familyMember->income) }}</td>
+                            <td>{{ $assistedAsset->id }}</td>
+                            <td>{{ __('translations.name.'.$assistedAsset->name) }}</td>
+                            <td>{{ __('translations.status.'.$assistedAsset->status) }}</td>
+                            <td>R$ {{ money($assistedAsset->price) }}</td>
+                            <td>R$ {{ money($assistedAsset->installment_price) }}</td>
+
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.show', $familyMember->id) }}">
-                                    Visualizar
-                                </a>
-                                <a class="btn btn-xs btn-warning" href="{{ route('familyMembers.edit', $familyMember->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('assistedAssets.edit', $assistedAsset->id) }}">
                                     Editar
                                 </a>
-                                <a class="btn btn-xs btn-danger familyComposition-destroy" data-id="{{ $familyMember->id }}">
+                                <a class="btn btn-xs btn-danger assistedAsset-destroy" data-id="{{ $assistedAsset->id }}">
                                     Excluir
                                 </a>
                             </td>
@@ -56,7 +51,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix text-center">
-            {{ $familyMembers->links() }}
+            {{ $assistedAssets->links() }}
         </div>
     </div>
 @stop
@@ -64,10 +59,10 @@
 @section('js')
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        $('.familyComposition-destroy').on('click', function () {
-            var familyMemberId = $(this).data('id');
+        $('.assistedAsset-destroy').on('click', function () {
+            var assistedAssetId = $(this).data('id');
 
-            swal("Confirma a exclusão da composição familiar?", {
+            swal("Confirma a exclusão do bem material do assistido?", {
                 buttons: {
                     cancel: "Cancelar",
                     catch: {
@@ -80,14 +75,14 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('familyMembers.destroy', '_familyMember') }}'.replace('_familyMember', familyMemberId ),
+                            url: '{{ route('assistedAssets.destroy', '_assistedAsset') }}'.replace('_assistedAsset', assistedAssetId),
                             method: 'DELETE',
                             success: function (xhr) {
-                                swal("Sucesso!", "Composição familiar deletada", "success");
+                                swal("Sucesso!", "Bem material deletado", "success");
                                 window.location.reload();
                             },
                             error: function (xhr) {
-                                swal("Falha!", "Composição familiar não pôde ser excluída", "error");
+                                swal("Falha!", "Bem material não pôde ser excluído", "error");
                             }
                         });
                         break;

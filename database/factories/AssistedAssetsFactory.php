@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Assisted;
-use App\Models\AssistedAssets;
+use App\Models\AssistedAsset;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB as DB;
 
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB as DB;
 |
 */
 
-$factory->define(AssistedAssets::class, function (Faker $faker) {
+$factory->define(AssistedAsset::class, function (Faker $faker) {
     return [
         'name' => 'house',
         'price' => $faker->randomFloat(2, 1, 10),
