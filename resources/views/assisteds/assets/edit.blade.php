@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    @include('assistedAssets._form', [
+    @include('assisteds.assets._form', [
         'form' => $form
     ])
 @stop

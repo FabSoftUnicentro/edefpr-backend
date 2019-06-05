@@ -37,7 +37,7 @@
                             <td>R$ {{ money($assistedAsset->installment_price) }}</td>
 
                             <td>
-                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.asset.edit', $assistedAsset->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.asset.edit', [$assisted->id, $assistedAsset->id]) }}">
                                     Editar
                                 </a>
                                 <a class="btn btn-xs btn-danger assistedAsset-destroy" data-asset-id="{{ $assistedAsset->id }}" data-assisted-id="{{ $assisted->id }}">
