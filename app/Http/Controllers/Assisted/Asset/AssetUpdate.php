@@ -1,28 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\AssistedAsset;
+namespace App\Http\Controllers\Assisted\Asset;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AssistedAsset\UpdateRequest;
-use App\Models\AssistedAsset;
-use Illuminate\Http\Request;
+use App\Models\Asset;
+use App\Models\Assisted;
 
-class AssistedAssetUpdate extends Controller
+class AssetUpdate extends Controller
 {
     /**
      * @param UpdateRequest $request
-     * @param AssistedAsset $assistedAsset
+     * @param Assisted $assisted
+     * @param Asset $asset
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(UpdateRequest $request, AssistedAsset $assistedAsset)
+    public function __invoke(UpdateRequest $request, Assisted $assisted, Asset $asset)
     {
-        $assistedAsset->update($request->all());
+        $asset->update($request->all());
 
         try {
-            $assistedAsset->save();
+            $asset->save();
 
             return redirect()
-                ->route('assistedAssets.index', $assistedAsset->assisted->id)
+                ->route('assisteds.asset.index', $asset->assisted->id)
                 ->with('alert-success', 'Bem material do assistido atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()

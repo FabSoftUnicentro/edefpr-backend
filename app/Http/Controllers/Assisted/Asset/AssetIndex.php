@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\AssistedAsset;
+namespace App\Http\Controllers\Assisted\Asset;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
 use Illuminate\Http\Request;
 
-class AssistedAssetIndex extends Controller
+class AssetIndex extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -19,9 +19,9 @@ class AssistedAssetIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assistedAssets = $assisted->assistedAssets()->paginate($perPage);
+        $assistedAssets = $assisted->Assets()->paginate($perPage);
 
-        return view('assistedAssets.index', [
+        return view('assisteds.assets.index', [
             'assistedAssets' => $assistedAssets,
             'assisted' => $assisted
         ]);
