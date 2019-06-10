@@ -86,9 +86,9 @@ class Assisted extends Model
     /**
      * Get all of the assets for the assisted.
      */
-    public function assistedAssets()
+    public function Assets()
     {
-        return $this->hasMany(AssistedAsset::class);
+        return $this->hasMany(Asset::class);
     }
 
     /**
