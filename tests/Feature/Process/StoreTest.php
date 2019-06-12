@@ -32,7 +32,7 @@ class StoreTest extends TestCase
             'assisted_id' => $assisted->id
         ];
 
-        $response = $this->post(route('processes.store', $process));
+        $this->post(route('processes.store', $process));
 
         $this->assertDatabaseHas('processes', [
             'title' => 'Test process title',
