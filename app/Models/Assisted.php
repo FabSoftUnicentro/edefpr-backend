@@ -80,7 +80,7 @@ class Assisted extends Model
      */
     public function process()
     {
-        return $this->belongsTo(Process::class);
+        return $this->hasOne(Process::class);
     }
 
     /**
