@@ -19,7 +19,7 @@ class AssetIndex extends Controller
     {
         $perPage = $request->query->get('perPage', $this->itemsPerPage);
 
-        $assistedAssets = $assisted->Assets()->paginate($perPage);
+        $assistedAssets = $assisted->assets()->paginate($perPage);
 
         return view('assisteds.assets.index', [
             'assistedAssets' => $assistedAssets,

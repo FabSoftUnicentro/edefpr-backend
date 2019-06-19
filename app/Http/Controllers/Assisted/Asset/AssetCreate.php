@@ -15,7 +15,7 @@ class AssetCreate extends Controller
     public function __invoke(Assisted $assisted)
     {
         $form = $this->formBuilder->create(AssistedAssetForm::class, [
-            'url' => route('assisteds.asset.store', $assisted->id),
+            'url' => route('assisteds.assets.store', $assisted->id),
             'method' => 'POST'
         ]);
 

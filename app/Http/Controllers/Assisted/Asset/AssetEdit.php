@@ -20,7 +20,7 @@ class AssetEdit extends Controller
         $asset->installment_price = money($asset->installment_price);
 
         $form = $this->formBuilder->create(AssistedAssetForm::class, [
-            'url' => route('assisteds.asset.update', [$assisted->id, $asset->id]),
+            'url' => route('assisteds.assets.update', [$assisted->id, $asset->id]),
             'method' => 'PUT',
             'model' => $asset
         ]);

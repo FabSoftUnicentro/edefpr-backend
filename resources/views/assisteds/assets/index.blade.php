@@ -11,7 +11,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.asset.create', $assisted->id) }}">Cadastrar bem material do assistido</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.asset.create', $assisted->id) }}">Cadastrar Bem Material</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -37,7 +37,7 @@
                             <td>R$ {{ money($assistedAsset->installment_price) }}</td>
 
                             <td>
-                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.asset.edit', [$assisted->id, $assistedAsset->id]) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.assets.edit', [$assisted->id, $assistedAsset->id]) }}">
                                     Editar
                                 </a>
                                 <a class="btn btn-xs btn-danger assistedAsset-destroy" data-asset-id="{{ $assistedAsset->id }}" data-assisted-id="{{ $assisted->id }}">
@@ -76,7 +76,7 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('assisteds.asset.destroy', ['_assistedId', '_assetId']) }}'.replace('_assistedId', assistedId).replace('_assetId', assetId),
+                            url: '{{ route('assisteds.assets.destroy', ['_assistedId', '_assetId']) }}'.replace('_assistedId', assistedId).replace('_assetId', assetId),
                             method: 'DELETE',
                             success: function (xhr) {
                                 console.log(xhr);

@@ -23,7 +23,7 @@ class AssetStore extends Controller
             $assistedAsset->save();
 
             return redirect()
-                ->route('assisteds.asset.index', $assisted->id)
+                ->route('assisteds.assets.index', $assisted->id)
                 ->with('alert-success', 'Bem material do assistido cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
