@@ -13,7 +13,7 @@ class CreateAssetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assets', function (Blueprint $table) {
+        Schema::create('assisted_assets', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('name', [
                 'house',
@@ -44,6 +44,6 @@ class CreateAssetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets');
+        Schema::dropIfExists('assisted_assets');
     }
 }

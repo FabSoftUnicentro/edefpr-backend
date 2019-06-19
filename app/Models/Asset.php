@@ -10,6 +10,13 @@ class Asset extends Model
     use SoftDeletes;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'assisted_assets';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

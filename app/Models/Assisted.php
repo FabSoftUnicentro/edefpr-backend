@@ -80,13 +80,13 @@ class Assisted extends Model
      */
     public function process()
     {
-        return $this->belongsTo(Process::class);
+        return $this->hasOne(Process::class);
     }
 
     /**
      * Get all of the assets for the assisted.
      */
-    public function Assets()
+    public function assets()
     {
         return $this->hasMany(Asset::class);
     }
