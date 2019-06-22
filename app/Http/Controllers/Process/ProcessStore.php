@@ -17,7 +17,6 @@ class ProcessStore extends Controller
     {
         $process = new Process($request->all());
         $process->user()->associate(Auth::user());
-//        $process->with('counterPart')->doesntExist()
 
         try {
             $process->save();
