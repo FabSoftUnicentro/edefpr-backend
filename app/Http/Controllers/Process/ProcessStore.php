@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\Models\Process;
+use http\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,9 @@ class ProcessStore extends Controller
         $process->user()->associate(Auth::user());
 
         try {
+            if ($process->assisted->getAssetsPrice() > 150000) {
+                throw new \InvalidArgumentException('A soma dos bens do assistido excede 1500 UFP/PR');
+            }
             $process->save();
 
             return redirect()
@@ -27,7 +31,8 @@ class ProcessStore extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro do processo!' . $e->getMessage());
+                ->withInput($request->all())
+                ->with('alert-danger', 'Falha no cadastro do processo! ' . $e->getMessage());
         }
     }
 }

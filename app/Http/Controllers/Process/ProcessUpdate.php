@@ -18,6 +18,9 @@ class ProcessUpdate extends Controller
         $process->update($request->all());
 
         try {
+            if ($process->assisted->getAssetsPrice() > 150000) {
+                throw new \InvalidArgumentException('A soma dos bens do assistido excede 1500 UFP/PR');
+            }
             $process->save();
 
             return redirect()
@@ -26,7 +29,8 @@ class ProcessUpdate extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha na atualização do processo!');
+                ->withInput($request->all())
+                ->with('alert-danger', 'Falha na atualização do processo! ' . $e->getMessage());
         }
     }
 }
