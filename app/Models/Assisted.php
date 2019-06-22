@@ -97,7 +97,7 @@ class Assisted extends Model
      */
     public function getNetFamilyIncome($round = true)
     {
-        $familyMembersIncome = $this->familyMembers->sum('income');
+        $familyMembersIncome = $this->familyMembers->where('legal_situation', '==', 'general')->sum('income');
 
         $social_programs = $this->social_programs;
         $social_security_contribution = $this->social_security_contribution;
