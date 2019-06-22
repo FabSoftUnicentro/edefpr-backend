@@ -14,7 +14,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('witnesses.create') }}">Cadastrar testemunha</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('witnesses.create') }}">Cadastrar Testemunha</a>
             </div>
         </div>
         <!-- /.box-header -->
