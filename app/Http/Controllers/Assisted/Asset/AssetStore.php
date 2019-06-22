@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Assisted\Asset;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AssistedAsset\StoreRequest;
-use App\Models\Assisted;
 use App\Models\Asset;
+use App\Models\Assisted;
 
 class AssetStore extends Controller
 {
