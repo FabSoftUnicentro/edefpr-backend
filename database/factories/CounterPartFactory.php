@@ -18,10 +18,11 @@ $factory->define(CounterPart::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'rg' => $faker->text(11),
-        'rg_issuer' => 'SSP', // Pode ser removido no futuro
+        'rg_issuer' => 'SSP',
         'profession' => 'Teste',
         'note' => null,
         'remuneration' => 0.00,
+        'document_type' => 'CPF',
         'phone_number' => $faker->numberBetween(99999999999),
         'document_number' => $faker->numberBetween(999999999),
         'uf' => 'PR',
