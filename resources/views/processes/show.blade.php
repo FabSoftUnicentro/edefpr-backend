@@ -24,7 +24,7 @@
                     <p> <b>Titulo:</b> {{ $process->title }} </p>
                     <p> <b>Descrição:</b> {{ $process->description }} </p>
                     <p> <b>Assistido:</b> {{ $process->assisted->name }} </p>
-                    <p> <b>Parte Contrária:</b> {{ $process->counterPart()->exists() ? $process->counterPart->name : '' }} </p>
+                    <p> <b>Parte Contrária:</b> {{ optional($process->counterPart)->name }} </p>
                     <p> <b>Funcionário:</b> {{ $process->user->name }} </p>
                 </div>
 
