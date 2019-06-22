@@ -8,7 +8,7 @@ use App\Models\Process;
 class ProcessShow extends Controller
 {
     /**
-     * @param Assisted $assisted
+     * @param Process $process
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function __invoke(Process $process)
