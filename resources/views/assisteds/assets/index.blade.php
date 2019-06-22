@@ -11,7 +11,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('assistedAssets.create', $assisted->id) }}">Cadastrar bem material do assistido</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('assisteds.asset.create', $assisted->id) }}">Cadastrar Bem Material</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -37,10 +37,10 @@
                             <td>R$ {{ money($assistedAsset->installment_price) }}</td>
 
                             <td>
-                                <a class="btn btn-xs btn-warning" href="{{ route('assistedAssets.edit', $assistedAsset->id) }}">
+                                <a class="btn btn-xs btn-warning" href="{{ route('assisteds.assets.edit', [$assisted->id, $assistedAsset->id]) }}">
                                     Editar
                                 </a>
-                                <a class="btn btn-xs btn-danger assistedAsset-destroy" data-id="{{ $assistedAsset->id }}">
+                                <a class="btn btn-xs btn-danger assistedAsset-destroy" data-asset-id="{{ $assistedAsset->id }}" data-assisted-id="{{ $assisted->id }}">
                                     Excluir
                                 </a>
                             </td>
@@ -60,7 +60,8 @@
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $('.assistedAsset-destroy').on('click', function () {
-            var assistedAssetId = $(this).data('id');
+            var assetId = $(this).data('asset-id');
+            var assistedId = $(this).data('assisted-id');
 
             swal("Confirma a exclusão do bem material do assistido?", {
                 buttons: {
@@ -75,9 +76,10 @@
                 switch (value) {
                     case "confirm":
                         $.ajax({
-                            url: '{{ route('assistedAssets.destroy', '_assistedAsset') }}'.replace('_assistedAsset', assistedAssetId),
+                            url: '{{ route('assisteds.assets.destroy', ['_assistedId', '_assetId']) }}'.replace('_assistedId', assistedId).replace('_assetId', assetId),
                             method: 'DELETE',
                             success: function (xhr) {
+                                console.log(xhr);
                                 swal("Sucesso!", "Bem material deletado", "success");
                                 window.location.reload();
                             },

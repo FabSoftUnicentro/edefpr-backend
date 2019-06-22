@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\AssistedAsset;
+use App\Models\Asset;
 use Illuminate\Database\Seeder;
 
 class AssistedAssetsTableSeeder extends Seeder
@@ -12,6 +12,6 @@ class AssistedAssetsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(AssistedAsset::class, 10)->create();
+        factory(Asset::class, 10)->create();
     }
 }

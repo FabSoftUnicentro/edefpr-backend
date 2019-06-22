@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar bem material do assistido')
+@section('title', 'Cadastrar novo bem material do assistido')
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Editar bem material do assistido</h1>
+    <h1>Cadastrar novo bem material do assistido</h1>
 @stop
 
 @section('content')
-    @include('assistedAssets._form', [
+    @include('assisteds.assets._form', [
         'form' => $form
     ])
 @stop

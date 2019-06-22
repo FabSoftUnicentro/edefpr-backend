@@ -7,7 +7,7 @@
 
 @section('content_header')
     @include('helpers.flash-message')
-    <h1>Assistido {{ $assisted->name }}</h1>
+    <h1 class="">Assistido <b>{{ $assisted->name }}</b></h1>
 @stop
 
 @section('content')
@@ -16,10 +16,10 @@
             <div class="box-header with-border">
                 <div class="pull-right">
                     <a class="btn btn-xs btn-primary" href="{{ route('familyMembers.index', $assisted->id) }}">Editar Composição Familiar</a>
-                    <a class="btn btn-xs btn-primary" href="{{ route('assistedAssets.index', $assisted->id) }}">Editar bens materiais</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('assisteds.assets.index', $assisted->id) }}">Editar Bens Materiais</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('assistedsHousingSituation.edit', $assisted->id) }}">Editar Situação Habitacional</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('assistedsFamilyIncomes.edit', $assisted->id) }}">Editar Renda Familiar</a>
-                    <a class="btn btn-xs btn-primary" href="{{ route('assisteds.edit', $assisted->id) }}">Editar assistido</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('assisteds.edit', $assisted->id) }}">Editar Assistido</a>
                 </div>
             </div>
             <!-- /.box-header -->
