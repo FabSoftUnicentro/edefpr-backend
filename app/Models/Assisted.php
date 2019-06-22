@@ -121,6 +121,9 @@ class Assisted extends Model
         return $round ? round($total, 2) : $total;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAssetsPrice()
     {
         return $this->assets->sum('price');
