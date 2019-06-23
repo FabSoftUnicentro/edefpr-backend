@@ -16,10 +16,15 @@ class ProcessUpdate extends Controller
     public function __invoke(Request $request, Process $process)
     {
         $process->update($request->all());
+        $wage = Process::BRAZILIAN_MINIMUM_WAGE * 3;
+        $sfup = 1500;
 
         try {
-            if ($process->assisted->getAssetsPrice() > 150000) {
-                throw new \InvalidArgumentException('A soma dos bens do assistido excede 1500 UFP/PR');
+            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $sfup) {
+                throw new \Exception("A soma dos bens do assistido excede $sfup UFP/PR");
+            } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
+                $wage = money($wage);
+                throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
             }
             $process->save();
 
