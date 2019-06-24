@@ -17,7 +17,7 @@ class ProcessStore extends Controller
     {
         $process = new Process($request->all());
         $process->user()->associate(Auth::user());
-        $wage = Process::BRAZILIAN_MINIMUM_WAGE * 3;
+        $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
         $sfup = 1500;
 
         try {

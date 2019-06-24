@@ -16,7 +16,7 @@ class ProcessUpdate extends Controller
     public function __invoke(Request $request, Process $process)
     {
         $process->update($request->all());
-        $wage = Process::BRAZILIAN_MINIMUM_WAGE * 3;
+        $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
         $sfup = 1500;
 
         try {
