@@ -16,8 +16,16 @@ class ProcessUpdate extends Controller
     public function __invoke(Request $request, Process $process)
     {
         $process->update($request->all());
+        $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
+        $sfup = 1500;
 
         try {
+            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $sfup) {
+                throw new \Exception("A soma dos bens do assistido excede $sfup UFP/PR");
+            } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
+                $wage = money($wage);
+                throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
+            }
             $process->save();
 
             return redirect()
@@ -26,7 +34,8 @@ class ProcessUpdate extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha na atualização do processo!');
+                ->withInput($request->all())
+                ->with('alert-danger', 'Falha na atualização do processo! ' . $e->getMessage());
         }
     }
 }

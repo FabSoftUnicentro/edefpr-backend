@@ -17,8 +17,16 @@ class ProcessStore extends Controller
     {
         $process = new Process($request->all());
         $process->user()->associate(Auth::user());
+        $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
+        $sfup = 1500;
 
         try {
+            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $sfup) {
+                throw new \Exception("A soma dos bens do assistido excede $sfup UFP/PR");
+            } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
+                $wage = money($wage);
+                throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
+            }
             $process->save();
 
             return redirect()
@@ -27,7 +35,8 @@ class ProcessStore extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro do processo!' . $e->getMessage());
+                ->withInput($request->all())
+                ->with('alert-danger', 'Falha no cadastro do processo! ' . $e->getMessage());
         }
     }
 }

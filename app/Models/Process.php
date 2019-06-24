@@ -10,6 +10,8 @@ class Process extends Model
     use SoftDeletes;
 
     const MAX_WITNESSES = 3;
+    const BRAZIL_MINIMUM_WAGE = 998.00;
+    const STANDARD_FISCAL_UNIT_OF_PARANA = 98.33;
 
     /**
      * The attributes that are mass assignable.
