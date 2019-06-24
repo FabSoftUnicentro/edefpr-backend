@@ -6,7 +6,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Testemunha {{ $witness->name }}</h1>
+    <h1>Testemunha <b>{{ $witness->name }}</b></h1>
 @stop
 
 @section('content')
@@ -14,7 +14,7 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <div class="pull-right">
-                    <a class="btn btn-xs btn-primary" href="{{ route('witnesses.edit', $witness->id) }}">Editar testemunha</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('witnesses.edit', $witness->id) }}">Editar Testemunha</a>
                 </div>
             </div>
             <!-- /.box-header -->

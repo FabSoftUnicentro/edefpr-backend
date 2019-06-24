@@ -13,7 +13,7 @@
             <div class="box-header with-border">
                 <div class="pull-right">
                     <a class="btn btn-xs btn-primary" href="{{ route('processes.getWitness', $process->id) }}">Adicionar Testemunhas</a>
-                    <a class="btn btn-xs btn-primary" href="{{ route('processes.edit', $process->id) }}">Editar processo</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('processes.edit', $process->id) }}">Editar Processo</a>
                 </div>
             </div>
             <!-- /.box-header -->
