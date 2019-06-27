@@ -22,6 +22,7 @@ class CreateAssetsTable extends Migration
                 'farmstead',
                 'car',
                 'motorcycle',
+                'financial_investments',
                 'others'
             ]);
             $table->decimal('price', 10, 2)->default(0.00);
