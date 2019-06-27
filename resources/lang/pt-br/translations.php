@@ -69,6 +69,7 @@ return [
         'farmstead' => 'Chácara',
         'car' => 'Carro',
         'motorcycle' => 'Moto',
+        'financial_investments' => 'Aplicações Financeiras',
         'others' => 'Outros'
     ],
     'status' => [
