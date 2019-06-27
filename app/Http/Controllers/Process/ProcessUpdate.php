@@ -17,14 +17,17 @@ class ProcessUpdate extends Controller
     {
         $process->update($request->all());
         $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
-        $sfup = 1500;
+        $standardFiscalUnitOfParana = 1500;
+        $amountFamilyMinimumWage = Process::AMOUNT_FAMILY_MINIMUM_WAGE;
 
         try {
-            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $sfup) {
-                throw new \Exception("A soma dos bens do assistido excede $sfup UFP/PR");
+            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $standardFiscalUnitOfParana) {
+                throw new \Exception("A soma dos bens do assistido excede $standardFiscalUnitOfParana UFP/PR");
             } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
                 $wage = money($wage);
                 throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
+            } elseif ($process->assisted->assets->where('name', 'financial_investments')->sum('price') > $amountFamilyMinimumWage * Process::BRAZIL_MINIMUM_WAGE) {
+                throw new \Exception("A soma das aplicações do assistido excede $amountFamilyMinimumWage SMF");
             }
             $process->save();
 
