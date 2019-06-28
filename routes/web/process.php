@@ -16,6 +16,9 @@ Route::group(['middleware' => ['permission:update-process']], function () {
 });
 
 Route::group(['middleware' => ['permission:read-process']], function () {
+    Route::get('/archived/{process}', 'DeletedProcessShow')->name('processes.deleted.show');
+    Route::get('/archived-list', 'DeletedProcessIndex')->name('processes.deleted.index');
+
     Route::get('/list', 'ProcessIndex')->name('processes.index');
     Route::get('/{process}', 'ProcessShow')->name('processes.show');
 });

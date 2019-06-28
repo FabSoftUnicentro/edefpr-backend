@@ -133,6 +133,11 @@ return [
                     'text' => 'Testemunhas',
                     'route'  => 'witnesses.index',
                     'active' => ['witnesses','witnesses/*']
+                ],
+                [
+                    'text' => 'Arquivados',
+                    'route'  => 'processes.deleted.index',
+                    'active' => ['process','process/*']
                 ]
             ]
         ],
