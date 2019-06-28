@@ -26,7 +26,7 @@ class ProcessUpdate extends Controller
             } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
                 $wage = money($wage);
                 throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
-            } elseif ($process->assisted->assets->where('name', 'financial_investments')->sum('price') > $amountFamilyMinimumWage * Process::BRAZIL_MINIMUM_WAGE) {
+            } elseif ($process->assisted->getFinancialInvestmentsTotal() > $amountFamilyMinimumWage * Process::BRAZIL_MINIMUM_WAGE) {
                 throw new \Exception("A soma das aplicações do assistido excede $amountFamilyMinimumWage SMF");
             }
             $process->save();
