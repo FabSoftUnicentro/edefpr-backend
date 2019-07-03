@@ -64,6 +64,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapProcessesRoutes();
 
         $this->mapAssistedAssetsRoutes();
+
+        $this->mapLogActivityRoutes();
+
+        $this->mapMyActivitiesRoutes();
     }
 
     /**
@@ -205,5 +209,21 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\AssistedAsset')
             ->group(base_path('routes/web/assisted_asset.php'));
+    }
+
+    protected function mapLogActivityRoutes()
+    {
+        Route::prefix('log-activity')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\LogActivity')
+            ->group(base_path('routes/web/logActivity.php'));
+    }
+
+    protected function mapMyActivitiesRoutes()
+    {
+        Route::prefix('my-activities')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\MyActivities')
+            ->group(base_path('routes/web/myActivities.php'));
     }
 }
