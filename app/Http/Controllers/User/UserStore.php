@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class UserStore extends Controller
@@ -19,6 +20,7 @@ class UserStore extends Controller
 
         try {
             $user->save();
+            LogActivityUtil::register($request->user(), "Usuário $user->name registrado");
 
             return redirect()
                 ->route('users.index')

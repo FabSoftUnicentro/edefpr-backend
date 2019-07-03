@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\MyFiles;
 
 use App\Http\Controllers\Controller;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaStream;
 
 class MyFilesDownload extends Controller
@@ -33,10 +35,14 @@ class MyFilesDownload extends Controller
             if ($fileIdsTotal === 1) {
                 $file = $user->getMedia('myfiles')->find($fileIds)->first();
 
+                LogActivityUtil::register(Auth::user(), "Fez o download de um arquivo");
+
                 return response()->download($file->getPath(), $file->file_name);
             } else {
                 $files = $user->getMedia('myfiles')->find($fileIds);
                 $zipFilename = $this->buildFilename($user);
+
+                LogActivityUtil::register(Auth::user(), "Fez o download de multiplos arquivos");
 
                 return MediaStream::create($zipFilename)->addMedia($files);
             }

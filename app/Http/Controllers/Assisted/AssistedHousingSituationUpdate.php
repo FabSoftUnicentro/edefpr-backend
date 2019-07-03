@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Assisted;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Assisted\UpdateHousingSituationRequest;
 use App\Models\Assisted;
+use App\Utils\LogActivity\LogActivityUtil;
 
 class AssistedHousingSituationUpdate extends Controller
 {
@@ -19,6 +20,7 @@ class AssistedHousingSituationUpdate extends Controller
 
         try {
             $assisted->save();
+            LogActivityUtil::register($request->user(), "Situação habitacional do(a) assistido $assisted->name atualizado");
 
             return redirect()
                 ->route('assisteds.show', $assisted->id)

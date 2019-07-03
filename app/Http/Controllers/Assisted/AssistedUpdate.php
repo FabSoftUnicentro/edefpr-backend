@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Assisted;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class AssistedUpdate extends Controller
@@ -19,6 +20,7 @@ class AssistedUpdate extends Controller
 
         try {
             $assisted->save();
+            LogActivityUtil::register($request->user(), "Dados do assistido $assisted->name atualizados");
 
             return redirect()
                 ->route('assisteds.show', $assisted->id)

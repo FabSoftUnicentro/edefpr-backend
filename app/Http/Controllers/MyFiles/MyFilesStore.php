@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MyFiles;
 
 use App\Http\Controllers\Controller;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,8 @@ class MyFilesStore extends Controller
                 ->addMedia(storage_path($this->path . $name))
                 ->toMediaCollection('myfiles');
         }
+
+        LogActivityUtil::register($request->user(), "Realizou o upload de um ou mais arquivos");
 
         try {
             return redirect()

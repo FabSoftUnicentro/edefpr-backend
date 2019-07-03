@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\Models\Process;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class ProcessStore extends Controller
@@ -19,6 +20,7 @@ class ProcessStore extends Controller
 
         try {
             $process->save();
+            LogActivityUtil::register($request->user(), "Processo $process->title aberto");
 
             return redirect()
                 ->route('processes.index')

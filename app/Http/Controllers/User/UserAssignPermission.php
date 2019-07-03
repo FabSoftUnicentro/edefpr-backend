@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User as UserResource;
 use App\Models\Permission;
 use App\Models\User;
+use App\Utils\LogActivity\LogActivityUtil;
+use Illuminate\Support\Facades\Auth;
 
 class UserAssignPermission extends Controller
 {
@@ -18,6 +20,8 @@ class UserAssignPermission extends Controller
     {
         /** User $user */
         $user->givePermissionTo($permission);
+
+        LogActivityUtil::register(Auth::user(), "Permissões de $user->name atualizado");
 
         return new UserResource($user);
     }

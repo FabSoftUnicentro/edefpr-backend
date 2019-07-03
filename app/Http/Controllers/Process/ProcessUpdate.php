@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\Models\Process;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class ProcessUpdate extends Controller
@@ -19,6 +20,8 @@ class ProcessUpdate extends Controller
 
         try {
             $process->save();
+
+            LogActivityUtil::register($request->user(), "Dados do processo $process->title atualizados");
 
             return redirect()
                 ->route('processes.index')

@@ -10,6 +10,7 @@ namespace App\Http\Controllers\CounterPart;
 
 use App\Http\Controllers\Controller;
 use App\Models\CounterPart;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class CounterPartUpdate extends Controller
@@ -25,6 +26,7 @@ class CounterPartUpdate extends Controller
 
         try {
             $counterPart->save();
+            LogActivityUtil::register($request->user(), "Dados da parte contrária $counterPart->name atualizados");
 
             return redirect()
                 ->route('counterParts.index')
