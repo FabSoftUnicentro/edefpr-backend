@@ -199,15 +199,22 @@ return [
                 ],
                 [
                     'text' => 'Relatórios',
-                    'url'  => '*',
-                    'active' => ['reports', 'reports/*']
+                    'route'  => 'logActivity.index',
+                    'active' => ['log-activity', 'log-activity/*']
                 ],
             ],
         ],
         [
             'text' => 'Meus arquivos',
             'route' => 'myFiles.index',
+
             'active' => ['my-files', 'my-files/*']
+        ],
+        [
+            'text' => 'Minhas atividades',
+            'route' => 'myActivities.index',
+            'icon' => ' fa-check-square-o',
+            'active' => ['my-activities', 'my-activities*']
         ]
     ],
 
