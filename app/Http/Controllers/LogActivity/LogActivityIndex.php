@@ -4,8 +4,8 @@ namespace App\Http\Controllers\LogActivity;
 
 use App\Forms\LogActivity\LogActivityForm;
 use App\Http\Controllers\Controller;
-use Spatie\Activitylog\Models\Activity;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class LogActivityIndex extends Controller
 {

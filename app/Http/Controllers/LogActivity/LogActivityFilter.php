@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\LogActivity;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Utils\LogActivity\LogActivityUtil;
 use App\Forms\LogActivity\LogActivityForm;
+use App\Http\Controllers\Controller;
+use App\Utils\LogActivity\LogActivityUtil;
+use Illuminate\Http\Request;
 
 class LogActivityFilter extends Controller
 {

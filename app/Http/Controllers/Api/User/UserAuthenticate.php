@@ -7,7 +7,6 @@ use App\Http\Requests\User\AuthenticateRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserAuthenticate extends Controller
