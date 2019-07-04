@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Assisted;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class AssistedStore extends Controller
@@ -18,6 +19,7 @@ class AssistedStore extends Controller
 
         try {
             $assisted->save();
+            LogActivityUtil::register($request->user(), "Assistido $assisted->name registrado(a)");
 
             return redirect()
                 ->route('assisteds.index')

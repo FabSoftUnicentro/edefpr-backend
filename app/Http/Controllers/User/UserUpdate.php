@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class UserUpdate extends Controller
@@ -21,6 +22,8 @@ class UserUpdate extends Controller
 
         try {
             $user->save();
+
+            LogActivityUtil::register($request->user(), "Dados do usuário $user->name atualizados");
 
             return redirect()
                 ->route('users.index')

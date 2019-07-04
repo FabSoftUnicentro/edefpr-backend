@@ -12,6 +12,7 @@
         <div class="box box-primary">
             <div class="box-header with-border">
                 <div class="pull-right">
+                    <a class="btn btn-xs btn-primary" href="{{ route('processes.petition', $process->id) }}">Petições</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('processes.getWitness', $process->id) }}">Adicionar Testemunhas</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('processes.edit', $process->id) }}">Editar Processo</a>
                 </div>

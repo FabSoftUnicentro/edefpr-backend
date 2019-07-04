@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Process;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 use App\Models\Witness;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class ProcessSetWitness extends Controller
@@ -27,6 +28,8 @@ class ProcessSetWitness extends Controller
                     $process->witnesses()->attach($witness);
                 }
             }
+
+            LogActivityUtil::register($request->user(), "Testemunhas do processo $process->title atualizadas");
 
             return redirect()
                 ->route('processes.show', $process->id)

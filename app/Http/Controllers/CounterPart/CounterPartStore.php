@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CounterPart;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CounterPart as CounterPartResource;
 use App\Models\CounterPart;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 
 class CounterPartStore extends Controller
@@ -20,6 +21,7 @@ class CounterPartStore extends Controller
 
         try {
             $counterPart->save();
+            LogActivityUtil::register($request->user(), "Parte contrária $counterPart->name registrado(a)");
 
             return redirect()
                 ->route('counterParts.index')

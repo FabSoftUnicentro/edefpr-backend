@@ -62,6 +62,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapUtils();
 
         $this->mapProcessesRoutes();
+
+        $this->mapLogActivityRoutes();
+
+        $this->mapMyActivitiesRoutes();
     }
 
     /**
@@ -74,8 +78,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/web.php'));
     }
 
     /**
@@ -195,5 +199,21 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Process')
             ->group(base_path('routes/web/process.php'));
+    }
+
+    protected function mapLogActivityRoutes()
+    {
+        Route::prefix('log-activity')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\LogActivity')
+            ->group(base_path('routes/web/logActivity.php'));
+    }
+
+    protected function mapMyActivitiesRoutes()
+    {
+        Route::prefix('my-activities')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\MyActivities')
+            ->group(base_path('routes/web/myActivities.php'));
     }
 }

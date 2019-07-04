@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\MyFiles;
+namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
+use App\Models\Process;
 use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class MyFilesStore extends Controller
+class ProcessSetPetition extends Controller
 {
     private $path = 'files/myfiles/';
 
     /**
      * @param Request $request
+     * @param Process $process
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, Process $process)
     {
         $path = storage_path($this->path);
-        $user = Auth::user();
 
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
@@ -30,16 +30,16 @@ class MyFilesStore extends Controller
             $name = str_replace(" ", "_", $file->getClientOriginalName());
             $file->move($path, $name);
 
-            $user
+            $process
                 ->addMedia(storage_path($this->path . $name))
-                ->toMediaCollection('myfiles');
+                ->toMediaCollection('petition');
         }
 
-        LogActivityUtil::register($request->user(), "Realizou o upload de um ou mais arquivos");
+        LogActivityUtil::register($request->user(), "Realizou o upload de uma petição ao processo $process->title");
 
         try {
             return redirect()
-                ->route('myFiles.index')
+                ->route('processes.petition', $process->id)
                 ->with('alert-success', 'Arquivo salvo com sucesso!');
         } catch (\Exception $e) {
             return redirect()

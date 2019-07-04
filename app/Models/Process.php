@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Process extends Model
+class Process extends Model implements HasMedia
 {
-    use SoftDeletes;
+    use HasMediaTrait, SoftDeletes;
 
     const MAX_WITNESSES = 3;
     const BRAZIL_MINIMUM_WAGE = 998.00;

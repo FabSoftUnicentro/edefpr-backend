@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\Models\Process;
+use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +32,7 @@ class ProcessStore extends Controller
                 throw new \Exception("A soma das aplicações do assistido excede $amountFamilyMinimumWage SMF");
             }
             $process->save();
+            LogActivityUtil::register($request->user(), "Processo $process->title aberto");
 
             return redirect()
                 ->route('processes.index')
