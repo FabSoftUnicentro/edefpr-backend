@@ -19,6 +19,7 @@ class AssistedAssetForm extends Form
                     'farmstead' => 'Chácara',
                     'car' => 'Carro',
                     'motorcycle' => 'Moto',
+                    'financial_investments' => 'Aplicações Financeiras',
                     'others' => 'Outros'
                 ],
                 'empty_value' => 'Selecione um bem',

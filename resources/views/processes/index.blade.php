@@ -43,6 +43,9 @@
                                 <a class="btn btn-xs btn-warning" href="{{ route('processes.edit', $process->id) }}">
                                     Editar
                                 </a>
+                                <a class="btn btn-xs btn-danger process-destroy" data-id="{{ $process->id }}">
+                                    Arquivar
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -55,3 +58,41 @@
         </div>
     </div>
 @stop
+
+@section('js')
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('.process-destroy').on('click', function () {
+            var processId = $(this).data('id');
+
+            swal("Confirma o arquivamento do processo?", {
+                buttons: {
+                    cancel: "Cancelar",
+                    catch: {
+                        text: "Confirmar",
+                        value: "confirm",
+                    },
+                },
+            })
+                .then((value) => {
+                    switch (value) {
+                        case "confirm":
+                            $.ajax({
+                                url: '{{ route('processes.destroy', '_process') }}'.replace('_process', processId),
+                                method: 'DELETE',
+                                success: function (xhr) {
+                                    swal("Sucesso!", "Processo arquivado", "success");
+                                    window.location.reload();
+                                },
+                                error: function (xhr) {
+                                    swal("Falha!", "Processo não pôde ser arquivado", "error");
+                                }
+                            });
+                            break;
+                        default:
+                            swal("Operação cancelada!");
+                    }
+                });
+        })
+    </script>
+@endsection

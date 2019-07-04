@@ -126,6 +126,11 @@ class Assisted extends Model
      */
     public function getAssetsPrice()
     {
-        return $this->assets->sum('price');
+        return $this->assets->where('name', '!=', 'financial_investments')->sum('price');
+    }
+
+    public function getFinancialInvestmentsTotal()
+    {
+        return $this->assets->where('name', 'financial_investments')->sum('price');
     }
 }
