@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\MyActivities;
 
-use App\Forms\LogActivity\LogActivityForm;
 use App\Http\Controllers\Controller;
 use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;

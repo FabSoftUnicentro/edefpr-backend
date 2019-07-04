@@ -2,9 +2,9 @@
 
 namespace App\Utils\LogActivity;
 
+use App\Models\Activity as ActivityMode;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Activity as ActivityMode;
 use Spatie\Activitylog\Models\Activity;
 
 class LogActivityUtil
