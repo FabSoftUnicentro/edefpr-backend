@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Process;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 
-class DeletedProcessShow extends Controller
+class DeletedProcessesShow extends Controller
 {
     /**
      * @param Process $process
@@ -15,7 +15,7 @@ class DeletedProcessShow extends Controller
     {
         $process = Process::withTrashed()->find($process);
 
-        return view('processes.deletedShow', [
+        return view('processes.deleted.show', [
             'process' => $process
         ]);
     }

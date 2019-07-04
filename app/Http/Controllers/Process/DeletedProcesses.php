@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Process;
 use Illuminate\Http\Request;
 
-class DeletedProcessIndex extends Controller
+class DeletedProcesses extends Controller
 {
     private $itemsPerPage = 10;
 
@@ -24,7 +24,7 @@ class DeletedProcessIndex extends Controller
             'counterPart'
         ])->onlyTrashed()->paginate($perPage);
 
-        return view('processes.deletedIndex', [
+        return view('processes.deleted.index', [
             'processes' => $processes
         ]);
     }
