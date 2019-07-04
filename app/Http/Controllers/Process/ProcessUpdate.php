@@ -18,7 +18,7 @@ class ProcessUpdate extends Controller
         $process->update($request->all());
         $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
         $standardFiscalUnitOfParana = 1500;
-        $amountFamilyMinimumWage = Process::AMOUNT_FAMILY_MINIMUM_WAGE;
+        $amountFamilyMinimumWage = Process::FAMILY_MINIMUM_WAGE_AMOUNT;
 
         try {
             if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $standardFiscalUnitOfParana) {

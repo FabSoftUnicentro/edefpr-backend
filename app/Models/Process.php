@@ -12,7 +12,7 @@ class Process extends Model
     const MAX_WITNESSES = 3;
     const BRAZIL_MINIMUM_WAGE = 998.00;
     const STANDARD_FISCAL_UNIT_OF_PARANA = 98.33;
-    const AMOUNT_FAMILY_MINIMUM_WAGE = 12;
+    const FAMILY_MINIMUM_WAGE_AMOUNT = 12;
 
     /**
      * The attributes that are mass assignable.
