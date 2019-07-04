@@ -35,7 +35,7 @@
                             <td>{{ $process->id }}</td>
                             <td>{{ $process->title }}</td>
                             <td>{{ $process->assisted->name }}</td>
-                            <td>{{ $process->counterPart->name }}</td>
+                            <td>{{ optional($process->counterPart)->name }}</td>
                             <td>
                                 <a class="btn btn-xs btn-primary" href="{{ route('processes.show', $process->id) }}">
                                     Visualizar

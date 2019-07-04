@@ -80,15 +80,15 @@ class Assisted extends Model
      */
     public function process()
     {
-        return $this->belongsTo(Process::class);
+        return $this->hasOne(Process::class);
     }
 
     /**
      * Get all of the assets for the assisted.
      */
-    public function assistedAssets()
+    public function assets()
     {
-        return $this->hasMany(AssistedAsset::class);
+        return $this->hasMany(Asset::class);
     }
 
     /**
@@ -97,7 +97,7 @@ class Assisted extends Model
      */
     public function getNetFamilyIncome($round = true)
     {
-        $familyMembersIncome = $this->familyMembers->sum('income');
+        $familyMembersIncome = $this->familyMembers->where('legal_situation', '==', 'general')->sum('income');
 
         $social_programs = $this->social_programs;
         $social_security_contribution = $this->social_security_contribution;
@@ -119,5 +119,13 @@ class Assisted extends Model
         $total = $this->familyMembers->sum('income');
 
         return $round ? round($total, 2) : $total;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAssetsPrice()
+    {
+        return $this->assets->sum('price');
     }
 }

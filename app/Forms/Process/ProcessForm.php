@@ -25,7 +25,8 @@ class ProcessForm extends Form
                 'class' => Assisted::class,
                 'property' => 'name',
                 'empty_value' => 'Selecione um assistido',
-                'empty_data' => null
+                'empty_data' => null,
+                'rules' => 'required'
             ])
             ->add('counter_part_id', 'entity', [
                 'label' => 'Parte contária',

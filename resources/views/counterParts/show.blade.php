@@ -6,33 +6,42 @@
 @endsection
 
 @section('content_header')
-    <h1>Visualizar parte contrária: {{ $counterPart->name }}</h1>
+    <h1>Parte Contrária <b>{{ $counterPart->name }}</b></h1>
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-body">
-            <div class="col-md-6">
-                <h2>Informações Pessoais</h2>
-                <p>Nome : {{ $counterPart->name }}</p>
-                <p>RG : {{ $counterPart->rg }}</p>
-                <p>Emissor do RG : {{ $counterPart->rg_issuer }}</p>
-                <p>CPF/CNPF : {{ $counterPart->document_number }}</p>
-                <p>Número de telefone : {{ $counterPart->phone_number }}</p>
-                <p>Remuneração : R$ {{ $counterPart->remuneration }}</p>
-                <p>Prefissão : {{ $counterPart->profession }}</p>
-                <p>Dados do trabalho : {{ $counterPart->note }}</p>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <div class="pull-right">
+                    <a class="btn btn-xs btn-primary" href="{{ route('counterParts.edit', $counterPart->id) }}">Editar Parte Contrária</a>
+                </div>
             </div>
+            <div class="box-body">
+                <div class="col-md-6">
+                    <h2>Informações Pessoais</h2>
 
-            <div class="col-md-6">
-                <h2>Endereço</h2>
-                <p>UF : {{ $counterPart->uf }}</p>
-                <p>Cidade : {{ $counterPart->city }}</p>
-                <p>Rua : {{ $counterPart->street }}</p>
-                <p>Número : {{ $counterPart->number }}</p>
-                <p>CEP : {{ $counterPart->postcode }}</p>
-                <p>Complemento : {{ $counterPart->complement }}</p>
-                <p>Bairro : {{ $counterPart->neighborhood }}</p>
+                    <p> <b>Nome:</b> {{ $counterPart->name }}</p>
+                    <p> <b>RG:</b> {{ $counterPart->rg }}</p>
+                    <p> <b>Emissor do RG:</b> {{ $counterPart->rg_issuer }}</p>
+                    <p> <b>CPF/CNPF:</b> {{ $counterPart->document_number }}</p>
+                    <p> <b>Número de telefone:</b> {{ $counterPart->phone_number }}</p>
+                    <p> <b>Remuneração:</b> R$ {{ $counterPart->remuneration }}</p>
+                    <p> <b>Prefissão:</b> {{ $counterPart->profession }}</p>
+                    <p> <b>Observações:</b> {{ $counterPart->note }}</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Endereço</h2>
+
+                    <p> <b>UF:</b> {{ $counterPart->uf }}</p>
+                    <p> <b>Cidade:</b> {{ $counterPart->city }}</p>
+                    <p> <b>Rua:</b> {{ $counterPart->street }}</p>
+                    <p> <b>Número:</b> {{ $counterPart->number }}</p>
+                    <p> <b>CEP:</b> {{ $counterPart->postcode }}</p>
+                    <p> <b>Complemento:</b> {{ $counterPart->complement }}</p>
+                    <p> <b>Bairro:</b> {{ $counterPart->neighborhood }}</p>
+                </div>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@
                 <div class="pull-right">
                     <a class="btn btn-xs btn-primary" href="{{ route('processes.petition', $process->id) }}">Petições</a>
                     <a class="btn btn-xs btn-primary" href="{{ route('processes.getWitness', $process->id) }}">Adicionar Testemunhas</a>
-                    <a class="btn btn-xs btn-primary" href="{{ route('processes.edit', $process->id) }}">Editar processo</a>
+                    <a class="btn btn-xs btn-primary" href="{{ route('processes.edit', $process->id) }}">Editar Processo</a>
                 </div>
             </div>
             <!-- /.box-header -->
@@ -25,7 +25,7 @@
                     <p> <b>Titulo:</b> {{ $process->title }} </p>
                     <p> <b>Descrição:</b> {{ $process->description }} </p>
                     <p> <b>Assistido:</b> {{ $process->assisted->name }} </p>
-                    <p> <b>Parte Contrária:</b> {{ $process->counterPart->name }} </p>
+                    <p> <b>Parte Contrária:</b> {{ optional($process->counterPart)->name }} </p>
                     <p> <b>Funcionário:</b> {{ $process->user->name }} </p>
                 </div>
 

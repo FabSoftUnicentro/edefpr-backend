@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\City;
 use App\Models\User;
 use Faker\Generator as Faker;
 
@@ -22,7 +21,6 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'cpf' => (string) $faker->numberBetween(999999999),
         'birth_date' => $faker->date(),
-        'birthplace' => DB::table('cities')->exists() ? DB::table('cities')->inRandomOrder()->first()->id : factory(City::class)->create(),
         'rg' => $faker->unique()->text(11),
         'rg_issuer' => 'SSP',
         'gender' => 'M',

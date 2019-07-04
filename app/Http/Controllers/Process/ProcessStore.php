@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Process;
 use App\Utils\LogActivity\LogActivityUtil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcessStore extends Controller
 {
@@ -16,9 +17,17 @@ class ProcessStore extends Controller
     public function __invoke(Request $request)
     {
         $process = new Process($request->all());
-        $process->user_id = $request->user()->getAuthIdentifier();
+        $process->user()->associate(Auth::user());
+        $wage = Process::BRAZIL_MINIMUM_WAGE * 3;
+        $sfup = 1500;
 
         try {
+            if ($process->assisted->getAssetsPrice() > Process::STANDARD_FISCAL_UNIT_OF_PARANA * $sfup) {
+                throw new \Exception("A soma dos bens do assistido excede $sfup UFP/PR");
+            } elseif ($process->assisted->getNetFamilyIncome() > $wage) {
+                $wage = money($wage);
+                throw new \Exception("A soma da renda familiar do assistido excede R$ $wage");
+            }
             $process->save();
             LogActivityUtil::register($request->user(), "Processo $process->title aberto");
 
@@ -28,7 +37,8 @@ class ProcessStore extends Controller
         } catch (\Exception $e) {
             return redirect()
                 ->back()
-                ->with('alert-danger', 'Falha no cadastro do processo!' . $e->getMessage());
+                ->withInput($request->all())
+                ->with('alert-danger', 'Falha no cadastro do processo! ' . $e->getMessage());
         }
     }
 }

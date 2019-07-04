@@ -11,40 +11,40 @@
 @stop
 
 @section('content')
-    <div class="box">
+    <div class="box box-primary">
         <div class="box-header with-border">
             <div class="pull-right">
-                <a class="btn btn-xs btn-primary" href="{{ route('counterParts.create') }}">Cadastrar parte contrária</a>
+                <a class="btn btn-xs btn-primary" href="{{ route('counterParts.create') }}">Cadastrar Parte Contrária</a>
             </div>
         </div>
 
         <div class="box-body">
             <table class="table table-bordered table-condensed">
                 <thead>
-                <tr>
-                    <th class="text-center">#</th>
-                    <th class="text-center">Parte contrária</th>
-                    <th class="text-center">Ações</th>
-                </tr>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Parte contrária</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach ($counterParts as $counterPart)
-                    <tr class="text-center">
-                        <td>{{ $counterPart->id }}</td>
-                        <td>{{ $counterPart->name }}</td>
-                        <td>
-                            <a class="btn btn-xs btn-primary" href="{{ route('counterParts.show', $counterPart->id) }}">
-                                Visualizar
-                            </a>
-                            <a class="btn btn-xs btn-warning" href="{{ route('counterParts.edit', $counterPart->id) }}">
-                                Editar
-                            </a>
-                            <a class="btn btn-xs btn-danger counter-part-destroy" data-id="{{ $counterPart->id }}">
-                                Excluir
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($counterParts as $counterPart)
+                        <tr class="text-center">
+                            <td>{{ $counterPart->id }}</td>
+                            <td>{{ $counterPart->name }}</td>
+                            <td>
+                                <a class="btn btn-xs btn-primary" href="{{ route('counterParts.show', $counterPart->id) }}">
+                                    Visualizar
+                                </a>
+                                <a class="btn btn-xs btn-warning" href="{{ route('counterParts.edit', $counterPart->id) }}">
+                                    Editar
+                                </a>
+                                <a class="btn btn-xs btn-danger counter-part-destroy" data-id="{{ $counterPart->id }}">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

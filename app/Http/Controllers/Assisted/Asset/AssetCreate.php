@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\AssistedAsset;
+namespace App\Http\Controllers\Assisted\Asset;
 
 use App\Forms\AssistedAsset\AssistedAssetForm;
 use App\Http\Controllers\Controller;
 use App\Models\Assisted;
 
-class AssistedAssetCreate extends Controller
+class AssetCreate extends Controller
 {
     /**
      * @param Assisted $assisted
@@ -15,11 +15,11 @@ class AssistedAssetCreate extends Controller
     public function __invoke(Assisted $assisted)
     {
         $form = $this->formBuilder->create(AssistedAssetForm::class, [
-            'url' => route('assistedAssets.store', $assisted->id),
+            'url' => route('assisteds.assets.store', $assisted->id),
             'method' => 'POST'
         ]);
 
-        return view('assistedAssets.create', [
+        return view('assisteds.assets.create', [
             'form' => $form
         ]);
     }

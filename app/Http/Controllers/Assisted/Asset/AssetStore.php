@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\AssistedAsset;
+namespace App\Http\Controllers\Assisted\Asset;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AssistedAsset\StoreRequest;
+use App\Models\Asset;
 use App\Models\Assisted;
-use App\Models\AssistedAsset;
 
-class AssistedAssetStore extends Controller
+class AssetStore extends Controller
 {
     /**
      * @param StoreRequest $request
@@ -16,14 +16,14 @@ class AssistedAssetStore extends Controller
      */
     public function __invoke(StoreRequest $request, Assisted $assisted)
     {
-        $assistedAsset = new AssistedAsset($request->all());
+        $assistedAsset = new Asset($request->all());
         $assistedAsset->assisted()->associate($assisted);
 
         try {
             $assistedAsset->save();
 
             return redirect()
-                ->route('assistedAssets.index', $assisted->id)
+                ->route('assisteds.assets.index', $assisted->id)
                 ->with('alert-success', 'Bem material do assistido cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()
