@@ -1,4 +1,5 @@
 # e-DefPR
+
 Software para Controle de Processos - Defensoria Pública do Paraná
 
 ## Patrocinador
@@ -9,85 +10,106 @@ Software para Controle de Processos - Defensoria Pública do Paraná
 
 ## Sumário
 
-  1. [Guia Geral](#guia-geral)
-  1. [Workflow](#workflow)
-  1. [Instalação da Aplicação](#instalações-da-aplicação)
-  1. [Execução e Gerenciamento de Tarefas](#execução-e-gerenciamento-de-tarefas)
-  1. [Estrutura](#estrutura)
-  1. [Sobre](#sobre)
+1. [Guia Geral](#guia-geral)
+1. [Workflow](#workflow)
+1. [Instalação da Aplicação](#instalações-da-aplicação)
+1. [Execução e Gerenciamento de Tarefas](#execução-e-gerenciamento-de-tarefas)
+1. [Estrutura](#estrutura)
+1. [Sobre](#sobre)
 
-  ## Guia Geral
+## Guia Geral
 
 Esclarecimentos gerais relacionados a documentação:
 
-  <a name="guia--nomenclaturas"></a><a name="1.1"></a>
-  - [1.1](#guia--nomenclaturas) **Nomenclaturas**:
+<a name="guia--nomenclaturas"></a><a name="1.1"></a>
 
-    - Issues: tarefas
+- [1.1](#guia--nomenclaturas) **Nomenclaturas**:
 
-  <a name="guia--siglas"></a><a name="1.2"></a>
-  - [1.2](#guia--siglas) **Siglas**:
+  - Issues: tarefas
 
-    - PR: Pull Request
+<a name="guia--siglas"></a><a name="1.2"></a>
 
-  <a name="guia--notas"></a><a name="1.3"></a>
-  - [1.3](#guia--notas) **Notas Gerais**:
+- [1.2](#guia--siglas) **Siglas**:
 
-    - Em comandos, os colchetes `[]` delimitam que alguns conteúdos devem ser preenchidos em seu lugar;
-    - A distro Ubuntu 16.04 foi utilizada como base de referência para a elaboração desta documentação, em outras distribuições podem ocorrer pequenas variações.
+  - PR: Pull Request
+
+<a name="guia--notas"></a><a name="1.3"></a>
+
+- [1.3](#guia--notas) **Notas Gerais**:
+
+  - Em comandos, os colchetes `[]` delimitam que alguns conteúdos devem ser
+    preenchidos em seu lugar;
+  - A distro Ubuntu 16.04 foi utilizada como base de referência para a
+    elaboração desta documentação, em outras distribuições podem ocorrer
+    pequenas variações.
 
 ## Workflow
 
-  <a name="workflow--ferramentas"></a><a name="2.1"></a>
-  - [2.1](#workflow--ferramentas) **Ferramentas**:
+<a name="workflow--ferramentas"></a><a name="2.1"></a>
 
-    - [Github Issues](https://github.com/C3DSU/edefpr-backend/issues): Gerenciamento de tarefas (issues)
-    - [Github](https://github.com/C3DSU/edefpr-backend): Versionamento
-    - [Slack](https://c3dsu-edefpr.slack.com/messages): Chat e bots
+- [2.1](#workflow--ferramentas) **Ferramentas**:
 
-  <a name="workflow--fluxo"></a><a name="2.2"></a>
-  - [2.2](#workflow--fluxo) **Levantamento e distribuição de tarefas**:
+  - [Github Issues](https://github.com/C3DSU/edefpr-backend/issues):
+    Gerenciamento de tarefas (issues)
+  - [Github](https://github.com/C3DSU/edefpr-backend): Versionamento
+  - [Slack](https://c3dsu-edefpr.slack.com/messages): Chat e bots
 
-    - 2.2.1. Draft (Github):
+<a name="workflow--fluxo"></a><a name="2.2"></a>
 
-      Consiste no levantamento de demanda semanal em reunião de equipe técnica com equipe de produto, onde são debatidas e anotadas todas as solicitações para serem convertidas em tasks posteriormente.
+- [2.2](#workflow--fluxo) **Levantamento e distribuição de tarefas**:
 
-    - 2.2.2. Tasks (Github Issues):
+  - 2.2.1. Draft (Github):
 
-     São as menores fragmentações do processo, são as tarefas técnicas executadas para que uma determinada funcionalidade seja implementada, sendo que essas nem sempre são independentes, e são necessárias diversas tarefas técnicas para completar um item de checklist do roadmap.
+    Consiste no levantamento de demanda semanal em reunião de equipe técnica com
+    equipe de produto, onde são debatidas e anotadas todas as solicitações para
+    serem convertidas em tasks posteriormente.
+
+  - 2.2.2. Tasks (Github Issues):
+
+  São as menores fragmentações do processo, são as tarefas técnicas executadas
+  para que uma determinada funcionalidade seja implementada, sendo que essas nem
+  sempre são independentes, e são necessárias diversas tarefas técnicas para
+  completar um item de checklist do roadmap.
 
 <a name="workflow--tarefas"></a><a name="2.3"></a>
-  - [2.3](#workflow--tarefas) **Ciclo de vida de Tarefas**:
 
-    - Para cada tarefa há um prazo máximo de execução de 5 dias;
-    - Caso a execução de uma tarefa ultrapasse 5 dias a mesma deve ser reavaliada;
-    - Tarefas devem ser quebradas em caso de:
-      - Tarefas muito grandes;
-      - Tarefas que modifiquem diversas áreas distintas do projeto;
-      - Tarefas em que a execução ultrapasse os 5 dias.
+- [2.3](#workflow--tarefas) **Ciclo de vida de Tarefas**:
 
-      ##### Execução de tarefas em fluxo normal:
+  - Para cada tarefa há um prazo máximo de execução de 5 dias;
+  - Caso a execução de uma tarefa ultrapasse 5 dias a mesma deve ser reavaliada;
+  - Tarefas devem ser quebradas em caso de:
 
-        ```
-        1. Iniciada em colunas To do: (Random, Backend, Frontend)
-        2. Executada pelo Desenvolvedor (in progress)
-        3. Enviada para Revisão de código pela equipe (review)
-        4. Marcada como concluída (done)
-        ```
+    - Tarefas muito grandes;
+    - Tarefas que modifiquem diversas áreas distintas do projeto;
+    - Tarefas em que a execução ultrapasse os 5 dias.
 
-  <a name="workflow--review"></a><a name="2.4"></a>
-  - [2.4](#workflow--review) **Revisão de Pull Request**:
+    ##### Execução de tarefas em fluxo normal:
 
-    - As revisões de Pull Request devem ser feitas exclusivamente através do Github;
-    - Comentários devem ser feitos na Pull Request e avisados via Slack;
-    - É proibido realizar merge de Pull Request sem responder aos comentários;
+    ```
+    1. Iniciada em colunas To do: (Random, Backend, Frontend)
+    2. Executada pelo Desenvolvedor (in progress)
+    3. Enviada para Revisão de código pela equipe (review)
+    4. Marcada como concluída (done)
+    ```
 
-  <a name="workflow--flags"></a><a name="2.5"></a>
-  - [2.5](#workflow--flags) **Solicitações no Slack**: utilizamos por padrão flags de classificações no início de cada solicitação.
+<a name="workflow--review"></a><a name="2.4"></a>
 
-    - **REVIEW**: a notificação de REVIEW, é direcionada para o channel correto, de acordo com a categoria.
+- [2.4](#workflow--review) **Revisão de Pull Request**:
 
-    `Ex.: @here: gianlucabine needs a *REVIEW*: https://github.com/sices/C3DSU/edefpr-backend/pull/1/files`
+  - As revisões de Pull Request devem ser feitas exclusivamente através do
+    Github;
+  - Comentários devem ser feitos na Pull Request e avisados via Slack;
+  - É proibido realizar merge de Pull Request sem responder aos comentários;
+
+<a name="workflow--flags"></a><a name="2.5"></a>
+
+- [2.5](#workflow--flags) **Solicitações no Slack**: utilizamos por padrão flags
+  de classificações no início de cada solicitação.
+
+  - **REVIEW**: a notificação de REVIEW, é direcionada para o channel correto,
+    de acordo com a categoria.
+
+  `Ex.: @here: gianlucabine needs a *REVIEW*: https://github.com/sices/C3DSU/edefpr-backend/pull/1/files`
 
 
     Para responder uma solicitação utilizamos por padrão o nome de usuário junto a resposta.
@@ -96,67 +118,82 @@ Esclarecimentos gerais relacionados a documentação:
 
     > **Nota**: Para respostas curtas de confirmação pode ser utilizado apenas `:+1:`
 
- ## Instalação da Aplicação
+## Instalação da Aplicação
 
-  <a name="aplicacao--git"></a><a name="3.1"></a>
-  - [3.1](#aplicacao--git) **Git e Github**:
+<a name="aplicacao--git"></a><a name="3.1"></a>
 
-    - ##### 3.1.1. *Instalando o Git*
-    ```
-    $ sudo apt install git
-    ```
+- [3.1](#aplicacao--git) **Git e Github**:
 
-    - ##### 3.1.2. *Configurando informações do Git*
-    ```
-    $ git config --global user.email "mail@mail.com"
-    $ git config --global user.name "Full Name"
-    ```
+  - ##### 3.1.1. _Instalando o Git_
 
-    - ##### 3.1.3. *Criando chave para acesso SSH*
-    ```
-    $ ssh-keygen -t rsa -b 4096 -C "mail@mail.com"
-    $ cat ~/.ssh/id_rsa.pub
-    ```
+  ```
+  $ sudo apt install git
+  ```
 
-    - ##### 3.1.4. *Inserindo chave SSH no Github*
+  - ##### 3.1.2. _Configurando informações do Git_
 
-      → [Tutorial Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account)
+  ```
+  $ git config --global user.email "mail@mail.com"
+  $ git config --global user.name "Full Name"
+  ```
 
-    - ##### 3.1.5. *Clonando o repositório do Github*
-    ```
-    $ git clone git@github.com:C3DSU/edefpr-backend.git
-    ```
+  - ##### 3.1.3. _Criando chave para acesso SSH_
+
+  ```
+  $ ssh-keygen -t rsa -b 4096 -C "mail@mail.com"
+  $ cat ~/.ssh/id_rsa.pub
+  ```
+
+  - ##### 3.1.4. _Inserindo chave SSH no Github_
+
+    →
+    [Tutorial Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account)
+
+  - ##### 3.1.5. _Clonando o repositório do Github_
+
+  ```
+  $ git clone git@github.com:C3DSU/edefpr-backend.git
+  ```
+
   <a name="aplicacao--bash"></a><a name="3.2"></a>
-   - [3.2](#aplicacao--bash) **Bash Profile**:
-  
-      - ##### 3.2.1. *Abra o Arquivo `.profile` com seu editor (Vim, Nano ou outro)*
-      ```
-      $ sudo vim ~/.profile
-      ```
-  
-      - ##### 3.2.2. *Adicione ao final do arquivo as linhas*
-      ```
-      export EDEF_PATH=[PROJECT_PATH]
-      source $EDEF_PATH/devops/config/variables             
-      export PATH=$PATH:$EDEF_PATH/devops
-      ```
-      > **Nota**: lembre-se de substitir `[PROJECT_PATH]` pelo caminho do projeto.
-      
-      - ##### 3.2.3. *Carregue as alterações do arquivo bash*
-      ```
-      $ source ~/.profile
-      ```
-  
-      - ##### 3.2.4. *Na variável `PATH` agora devem aparecer alguns caminhos relacionados a pasta do projeto*
-      ```
-      $ echo $PATH | grep edef
-      ```
-      > **Nota**: caso o comando acima não possua retorno revise os passos de instalação e reinicie o sistema operacional.  
 
+- [3.2](#aplicacao--bash) **Bash Profile**:
+
+  - ##### 3.2.1. _Abra o Arquivo `.profile` com seu editor (Vim, Nano ou outro)_
+
+  ```
+  $ sudo vim ~/.profile
+  ```
+
+  - ##### 3.2.2. _Adicione ao final do arquivo as linhas_
+
+  ```
+  export EDEF_PATH=[PROJECT_PATH]
+  source $EDEF_PATH/devops/config/variables
+  export PATH=$PATH:$EDEF_PATH/devops
+  ```
+
+  > **Nota**: lembre-se de substitir `[PROJECT_PATH]` pelo caminho do projeto.
+
+  - ##### 3.2.3. _Carregue as alterações do arquivo bash_
+
+  ```
+  $ source ~/.profile
+  ```
+
+  - ##### 3.2.4. _Na variável `PATH` agora devem aparecer alguns caminhos relacionados a pasta do projeto_
+
+  ```
+  $ echo $PATH | grep edef
+  ```
+
+  > **Nota**: caso o comando acima não possua retorno revise os passos de
+  > instalação e reinicie o sistema operacional.
 
 ## Execução e Gerenciamento de Tarefas
 
 Processo automatizado:
+
 ```
 1. Executar: edef-issue-start xxx, onde xxx se refere ao número da tarefa no Github Issues.
 2. Efetuar as modificações no código-fonte.
@@ -173,6 +210,7 @@ Processo automatizado:
 ```
 
 Processo manual:
+
 ```
 1. Comunicar no channel apropriado (backend, frontend, random) o início da tarefa
 2. Executar: git pull origin master
@@ -198,119 +236,139 @@ Processo manual:
 
 ## Inicialização
 
-  Frontend:
-  ```
-  Dentro da pasta Frontend
-  1. yarn install
-  2. yarn start
-  ```
+Frontend:
 
-  Backend:
-  ```
-  Dentro da pasta Backend
-  1. composer install
-  2. php artisan migrate:refresh
-  3. php artisan migrate
-  4. php artisan passport:install
-  5. php artisan db:seed
-  6. php artisan serve
-  ```
+```
+Dentro da pasta Frontend
+1. yarn install
+2. yarn start
+```
+
+Backend:
+
+```
+Dentro da pasta Backend
+1. composer install
+2. php artisan migrate:refresh
+3. php artisan migrate
+4. php artisan passport:install
+5. php artisan db:seed
+6. php artisan serve
+```
 
 ## Estrutura
 
-  <a name="estrutura--ambience"></a><a name="9.1"></a>
-  - [6.1](#estrutura--ambience) **Ambientes**:
+<a name="estrutura--ambience"></a><a name="9.1"></a>
 
-    - `local`: servidor local de desenvolvimento, configurado na máquina de cada desenvolvedor
-    - `production`: servidor remoto de produção, base final de uso de deploy manual
+- [6.1](#estrutura--ambience) **Ambientes**:
 
-  <a name="estrutura--raiz"></a><a name="5.2"></a>
-  - [6.2](#estrutura--raiz) **Pastas raiz**:
+  - `local`: servidor local de desenvolvimento, configurado na máquina de cada
+    desenvolvedor
+  - `production`: servidor remoto de produção, base final de uso de deploy
+    manual
 
-    - `backend`: pasta backend do projeto, contendo arquivos de models e controllers
-    - `frontend`: pasta frontend do projeto, contendo arquivos de views
-    - `devops`: pasta de uso geral de devops, como operações de ecossistema, processos, etc
-    - `docs`: além do `README.md`, utilizamos essa pasta para documentações de arquivos e UML
+<a name="estrutura--raiz"></a><a name="5.2"></a>
+
+- [6.2](#estrutura--raiz) **Pastas raiz**:
+
+  - `backend`: pasta backend do projeto, contendo arquivos de models e
+    controllers
+  - `frontend`: pasta frontend do projeto, contendo arquivos de views
+  - `devops`: pasta de uso geral de devops, como operações de ecossistema,
+    processos, etc
+  - `docs`: além do `README.md`, utilizamos essa pasta para documentações de
+    arquivos e UML
 
 ## Sobre
 
-  <a name="sobre--equipe"></a><a name="6.1"></a>
-  - [7.1](#sobre--equipe) **A equipe**:
+<a name="sobre--equipe"></a><a name="6.1"></a>
 
-    - #### Gianluca Bine
-    ```
-    Backend developer
-    Slack: @gianlucabine
-    Github: @Pr3d4dor
-    E-mail: gian_bine@hotmail.com
-    ```
+- [7.1](#sobre--equipe) **A equipe**:
 
-    - #### Jean Pierri
-    ```
-    Backend developer
-    Slack: @envikeyy
-    Github: @EnViKeyy
-    E-mail: pierre.jp@outlook.com
-    ```
+  - #### Gianluca Bine
 
-    - #### Higor Gardin
-    ```
-    Frontend developer
-    Slack: @HGardin
-    Github: @HigorG
-    E-mail: higorgardin@hotmail.com
-    ```
+  ```
+  Backend developer
+  Slack: @gianlucabine
+  Github: @Pr3d4dor
+  E-mail: gian_bine@hotmail.com
+  ```
 
-    - #### Prof. Mauro Miazaki
-    ```
-    Professor
-    Slack: @mmiazaki
-    Github: @hmmiazaki
-    E-mail: maurom@unicentro.br
-    ```
+  - #### Jean Pierri
 
-    - #### Prof. Marcos Antônio Quináia
-    ```
-    Professor
-    Slack: @marcosquinaia
-    E-mail: quiana@unicentro.br
-    ```
+  ```
+  Backend developer
+  Slack: @envikeyy
+  Github: @EnViKeyy
+  E-mail: pierre.jp@outlook.com
+  ```
 
-    - #### Davi Bastos
-    ```
-    Backend developer
-    Slack: @Davi Bastos
-    Github: @dav3sk
-    E-mail: davibastos.v@gmail.com
-    ```
+  - #### Higor Gardin
 
-    - #### Enrique Augusto da Roza
-    ```
-    Backend developer
-    Slack: @Enrique Augusto da Roza
-    Github: @hdoidao
-    E-mail: enriqueaugroza@gmail.com
-    ```
+  ```
+  Frontend developer
+  Slack: @HGardin
+  Github: @HigorG
+  E-mail: higorgardin@hotmail.com
+  ```
 
-    - #### Luiz Eduardo Chicouski da Cruz
-    ```
-    Slack: @Luiz Eduardo Chicouski da Cruz
-    Github: @SUdoWinchester
-    E-mail: luizeduardo2607@gmail.com
-    ```
+  - #### Prof. Mauro Miazaki
 
-    - #### Paulo Henrique Pieczarka da Silva
-    ```
-    Fullstack developer
-    Slack: @paulopieczarka
-    Github: @paulopieczarka
-    E-mail: paulopieczarka@gmail.com
-    ```
+  ```
+  Professor
+  Slack: @mmiazaki
+  Github: @hmmiazaki
+  E-mail: maurom@unicentro.br
+  ```
 
-    - #### Alexandre Gueths
-    ```
-    Frontend developer
-    Slack: @agueths
-    Github: @agueths
-    E-mail: agueths@gmail.com
-    ```
+  - #### Prof. Marcos Antônio Quináia
+
+  ```
+  Professor
+  Slack: @marcosquinaia
+  E-mail: quiana@unicentro.br
+  ```
+
+  - #### Davi Bastos
+
+  ```
+  Backend developer
+  Slack: @Davi Bastos
+  Github: @dav3sk
+  E-mail: davibastos.v@gmail.com
+  ```
+
+  - #### Enrique Augusto da Roza
+
+  ```
+  Backend developer
+  Slack: @Enrique Augusto da Roza
+  Github: @hdoidao
+  E-mail: enriqueaugroza@gmail.com
+  ```
+
+  - #### Luiz Eduardo Chicouski da Cruz
+
+  ```
+  Slack: @Luiz Eduardo Chicouski da Cruz
+  Github: @SUdoWinchester
+  E-mail: luizeduardo2607@gmail.com
+  ```
+
+  - #### Paulo Henrique Pieczarka da Silva
+
+  ```
+  Fullstack developer
+  Slack: @paulopieczarka
+  Github: @paulopieczarka
+  E-mail: paulopieczarka@gmail.com
+  ```
+
+  - #### Alexandre Gueths
+
+  ```
+  Frontend developer
+  Slack: @agueths
+  Github: @agueths
+  E-mail: agueths@gmail.com
+  ```
