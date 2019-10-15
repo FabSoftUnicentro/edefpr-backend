@@ -35,10 +35,7 @@ class Handler extends ExceptionHandler
     {
         if ($this->isHttpException($exception)) {
             switch ($exception->getStatusCode()) {
-                case 404:
-                    return redirect()->route('404');
-                    break;
-                case 403:
+                case 404 || 403:
                     return redirect()->route('404');
                     break;
                 default:
@@ -48,5 +45,17 @@ class Handler extends ExceptionHandler
         }
 
         return parent::render($request, $exception);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|mixed|\Whoops\Handler\Handler
+     */
+    protected function whoopsHandler()
+    {
+        try {
+            return app(\Whoops\Handler\HandlerInterface::class);
+        } catch (\Illuminate\Contracts\Container\BindingResolutionException $e) {
+            return parent::whoopsHandler();
+        }
     }
 }
