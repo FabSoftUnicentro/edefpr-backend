@@ -41,8 +41,8 @@ Esclarecimentos gerais relacionados a documentação:
   <a name="workflow--ferramentas"></a><a name="2.1"></a>
   - [2.1](#workflow--ferramentas) **Ferramentas**:
 
-    - [Waffle](https://waffle.io/C3DSU/e-DefPR/join): Gerenciamento de tarefas (issues)
-    - [Github](https://github.com/C3DSU/e-DefPR): Versionamento
+    - [Github Issues](https://github.com/C3DSU/edefpr-backend/issues): Gerenciamento de tarefas (issues)
+    - [Github](https://github.com/C3DSU/edefpr-backend): Versionamento
     - [Slack](https://c3dsu-edefpr.slack.com/messages): Chat e bots
 
   <a name="workflow--fluxo"></a><a name="2.2"></a>
@@ -52,7 +52,7 @@ Esclarecimentos gerais relacionados a documentação:
 
       Consiste no levantamento de demanda semanal em reunião de equipe técnica com equipe de produto, onde são debatidas e anotadas todas as solicitações para serem convertidas em tasks posteriormente.
 
-    - 2.2.2. Tasks (Waffle):
+    - 2.2.2. Tasks (Github Issues):
 
      São as menores fragmentações do processo, são as tarefas técnicas executadas para que uma determinada funcionalidade seja implementada, sendo que essas nem sempre são independentes, e são necessárias diversas tarefas técnicas para completar um item de checklist do roadmap.
 
@@ -87,7 +87,7 @@ Esclarecimentos gerais relacionados a documentação:
 
     - **REVIEW**: a notificação de REVIEW, é direcionada para o channel correto, de acordo com a categoria.
 
-    `Ex.: @here: gianlucabine needs a *REVIEW*: https://github.com/sices/C3DSU/e-DefPR/pull/1/files`
+    `Ex.: @here: gianlucabine needs a *REVIEW*: https://github.com/sices/C3DSU/edefpr-backend/pull/1/files`
 
 
     Para responder uma solicitação utilizamos por padrão o nome de usuário junto a resposta.
@@ -124,7 +124,7 @@ Esclarecimentos gerais relacionados a documentação:
 
     - ##### 3.1.5. *Clonando o repositório do Github*
     ```
-    $ git clone git@github.com:C3DSU/e-DefPR.git
+    $ git clone git@github.com:C3DSU/edefpr-backend.git
     ```
   <a name="aplicacao--bash"></a><a name="3.2"></a>
    - [3.2](#aplicacao--bash) **Bash Profile**:
@@ -158,13 +158,13 @@ Esclarecimentos gerais relacionados a documentação:
 
 Processo automatizado:
 ```
-1. Executar: edef-issue-start xxx, onde xxx se refere ao número da tarefa no Waffle.
+1. Executar: edef-issue-start xxx, onde xxx se refere ao número da tarefa no Github Issues.
 2. Efetuar as modificações no código-fonte.
 3. Executar: git add [ARQUIVO INDIVIDUAL ou LISTA DE ARQUIVOS].
     - IMPORTANTE: Não recomendo o uso de: 'git add .'
 4. Executar: git commit -m "MENSAGEM EXPLICATIVA" após cada 'git add [ARQUIVO INDIVIDUAL ou LISTA DE ARQUIVOS]' do passo 6.
     - IMPORTANTE: Na "MENSAGEM EXPLICATIVA" explicar de forma resumida o que foi modificado nos arquivos que que foram adicionados no 'git add'.
-5. Executar: git push origin issue#xxx, onde xxx se refere ao número da tarefa no Waffle.
+5. Executar: git push origin issue#xxx, onde xxx se refere ao número da tarefa no Github Issues.
 6. Executar: edef-issue-request-review auto ou edef-issue-request-review manual (auto cria a PR automaticamente e o manual redirecionada para a página do GitHub)
 7. Comunicar no channel o link da PR pedindo review de código.
 8. Esperar pelo menos 1 ou 2 Approves e após isso realizar o merge no site do GitHub.
@@ -176,17 +176,17 @@ Processo manual:
 ```
 1. Comunicar no channel apropriado (backend, frontend, random) o início da tarefa
 2. Executar: git pull origin master
-3. Executar: git checkout -b issue#xxx, onde XXX é o numero da issue no Waffle.
-4. Executar: git push --set-upstream origin issue#xxx, onde XXX é o numero da issue no Waffle.
-5. Mover a tarefa para a coluna In-progress no Waffle caso não for movida automaticamente.
+3. Executar: git checkout -b issue#xxx, onde XXX é o numero da issue no Github Issues.
+4. Executar: git push --set-upstream origin issue#xxx, onde XXX é o numero da issue no Github Issues.
+5. Mover a tarefa para a coluna In-progress no Github Issues caso não for movida automaticamente.
 6. Efetuar as modificações do código fonte.
 7. Executar: git add [ARQUIVO INDIVIDUAL ou LISTA DE ARQUIVOS].
     - IMPORTANTE: Não recomendo o uso de: 'git add .'
 8. Executar: git commit -m "MENSAGEM EXPLICATIVA" após cada 'git add [ARQUIVO INDIVIDUAL ou LISTA DE ARQUIVOS]' do passo 6.
     - IMPORTANTE: Na "MENSAGEM EXPLICATIVA" explicar de forma resumida o que foi modificado nos arquivos que que foram adicionados no 'git add'.
-9. Executar: git push origin issue#xxx, onde xxx se refere ao número da tarefa no Waffle..
+9. Executar: git push origin issue#xxx, onde xxx se refere ao número da tarefa no Github Issues..
 10. Ir na página do repositório no GitHub na parte de branches e criar a PR (Pull Request).
-    - IMPORTANTE: Na descrição da PR colocar: fixed #XXX, onde XXX é o numero da issue no Waffle.
+    - IMPORTANTE: Na descrição da PR colocar: fixed #XXX, onde XXX é o numero da issue no Github Issues.
 12. Comunicar no channel o link da PR pedindo review de código.
 13. Esperar pelo menos 1 ou 2 Approves e após isso realizar o merge no site do GitHub.
     - IMPORTANTE: Caso as modificações foram complexas e/ou muito imporantes requisitar mais Approves do que somente 2.
@@ -252,7 +252,7 @@ Processo manual:
     Github: @EnViKeyy
     E-mail: pierre.jp@outlook.com
     ```
-    
+
     - #### Higor Gardin
     ```
     Frontend developer
@@ -260,7 +260,7 @@ Processo manual:
     Github: @HigorG
     E-mail: higorgardin@hotmail.com
     ```
-    
+
     - #### Prof. Mauro Miazaki
     ```
     Professor
@@ -283,7 +283,7 @@ Processo manual:
     Github: @dav3sk
     E-mail: davibastos.v@gmail.com
     ```
-    
+
     - #### Enrique Augusto da Roza
     ```
     Backend developer
@@ -291,7 +291,7 @@ Processo manual:
     Github: @hdoidao
     E-mail: enriqueaugroza@gmail.com
     ```
-    
+
     - #### Luiz Eduardo Chicouski da Cruz
     ```
     Slack: @Luiz Eduardo Chicouski da Cruz
@@ -314,12 +314,3 @@ Processo manual:
     Github: @agueths
     E-mail: agueths@gmail.com
     ```
-        
-    - #### Gabriel Pimenta
-    ```
-    Backend developer
-    Slack: @Pimenta
-    Github: @Pimenta1
-    E-mail: pimenta@programmer.net
-    ```
-    
