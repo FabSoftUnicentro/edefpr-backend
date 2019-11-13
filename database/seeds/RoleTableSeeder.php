@@ -93,7 +93,11 @@ class RoleTableSeeder extends Seeder
             'list-counterPart',
             'register-relative',
             'update-relative',
-            'delete-relative'
+            'delete-relative',
+            'read-contact',
+            'register-contact',
+            'update-contact',
+            'delete-contact',
         ];
         $descriptions = [
             'Registrar Atividades',
@@ -176,8 +180,12 @@ class RoleTableSeeder extends Seeder
             'Visualizar parte contrária',
             'Registrar Parente',
             'Atualizar Parente',
-            'Excluir Parente'
-            ];
+            'Excluir Parente',
+            'Visualizar Contato',
+            'Atualizar Contato',
+            'Criar Contato',
+            'Excluir Contato',
+        ];
         foreach (array_combine($permissions, $descriptions) as $permission => $description) {
             Permission::create([
                 'name' => $permission,
