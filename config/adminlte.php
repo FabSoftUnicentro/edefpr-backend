@@ -142,6 +142,12 @@ return [
             ]
         ],
         [
+            'text' => 'Contatos',
+            'icon' => 'address-card',
+            'can' => 'read-contact',
+            'route'  => 'contacts.index'
+        ],
+        [
             'text' => 'Assistidos',
             'icon' => 'users',
             'can' => 'read-assisted',
