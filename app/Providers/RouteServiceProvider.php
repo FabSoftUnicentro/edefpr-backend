@@ -66,6 +66,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapLogActivityRoutes();
 
         $this->mapMyActivitiesRoutes();
+
+        $this->mapContactRoutes();
     }
 
     /**
@@ -103,6 +105,14 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware(['web', 'auth'])
             ->namespace($this->namespace . '\Assisted')
             ->group(base_path('routes/web/assisted.php'));
+    }
+
+    protected function mapContactRoutes()
+    {
+        Route::prefix('contacts')
+            ->middleware(['web', 'auth'])
+            ->namespace($this->namespace . '\Contact')
+            ->group(base_path('routes/web/contact.php'));
     }
 
     protected function mapAttendmentRoutes()
