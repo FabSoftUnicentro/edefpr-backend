@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Assisted;
 
-use App\Http\Resources\Assisted as AssistedResource;
 use App\Models\Assisted;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,8 +28,8 @@ class ShowTest extends TestCase
 
         $assisted = factory(Assisted::class)->create();
 
-        $response =  $this->actingAs($admin)->get('/assisted/' . $assisted->id);
+        $response =  $this->actingAs($admin)->get(route('assisteds.show', $assisted->getKey()));
 
-        $response->assertResource(AssistedResource::make($assisted));
+        $response->assertSuccessful();
     }
 }

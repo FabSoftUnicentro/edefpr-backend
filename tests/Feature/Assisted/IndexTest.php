@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Assisted;
 
-use App\Http\Resources\Assisted as AssistedResource;
 use App\Models\Assisted;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,10 +28,8 @@ class IndexTest extends TestCase
 
         factory(Assisted::class, 5)->create();
 
-        $response =  $this->actingAs($admin)->get('/assisted');
+        $response =  $this->actingAs($admin)->get(route('assisteds.index'));
 
-        $assisteds = Assisted::paginate(10);
-
-        $response->assertResource(AssistedResource::collection($assisteds));
+        $response->assertSuccessful();
     }
 }
