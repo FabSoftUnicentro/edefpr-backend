@@ -26,26 +26,12 @@ class UpdateTest extends TestCase
 
         $admin->assignRole('master');
 
-        $assisted = factory(Assisted::class)->create([
-            'name' => 'Test 1'
-        ]);
+        $assisted = factory(Assisted::class)->create();
 
-        $response1 = $this->actingAs($admin)->get('/assisted/' . $assisted->id);
+        $data = factory(Assisted::class)->make()->toArray();
 
-        $response1->assertSuccessful();
+        $response = $this->actingAs($admin)->put(route('assisteds.update', $assisted->getKey()), $data);
 
-        $this->assertEquals('Test 1', $response1->json()['data']['name']);
-
-        $response2 = $this->actingAs($admin)->put('/assisted/' . $assisted->id, [
-            'name' => 'Test 2'
-        ]);
-
-        $response2->assertSuccessful();
-
-        $response3 = $this->actingAs($admin)->get('/assisted/' . $assisted->id);
-
-        $response3->assertSuccessful();
-
-        $this->assertEquals('Test 2', $response3->json()['data']['name']);
+        $response->assertRedirect(route('assisteds.show', $assisted->getKey()));
     }
 }

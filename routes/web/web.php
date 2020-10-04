@@ -13,4 +13,9 @@
 
 Route::get('/', 'Dashboard\DashboardIndex')->name('dashboard');
 
-Auth::routes();
+Auth::routes([
+    'register' => false,
+    'verify' => false,
+    'reset' => true,
+    'confirm' => false,
+]);

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Assisted;
 
+use App\Models\Assisted;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -26,30 +27,10 @@ class StoreTest extends TestCase
 
         $admin->assignRole('master');
 
-        $assisted = [
-            "name"=> "Cadastro Teste",
-            "email"=> "teste3@edefpr.com",
-            "cpf"=> "08846355973",
-            "birth_date"=> "26/08/1996",
-            "rg"=> "Quaerat.",
-            "rg_issuer"=> "SSP",
-            "gender"=> "M",
-            "marital_status"=> "Solteiro",
-            "profession"=> "Teste",
-            "birthplace"=> 1,
-            "addresses"=> [
-                "uf"=> "PR",
-                "city"=> "Guarapuava",
-                "number"=> 1,
-                "street"=> "Teste",
-                "postcode"=> "85015310",
-                "complement"=> "",
-                "neighborhood"=> "Batel"
-            ]
-        ];
+        $data = factory(Assisted::class)->make()->toArray();
 
-        $response = $this->actingAs($admin)->post('/assisted/', $assisted);
+        $response = $this->actingAs($admin)->post(route('assisteds.store'), $data);
 
-        $response->assertSuccessful();
+        $response->assertRedirect(route('assisteds.index'));
     }
 }

@@ -30,15 +30,15 @@ class DestroyTest extends TestCase
             'name' => 'Test 1'
         ]);
 
-        $response = $this->actingAs($admin)->get('/assisted/' . $assisted->id);
+        $response = $this->actingAs($admin)->get(route('assisteds.show', $assisted->getKey()));
 
         $response->assertSuccessful();
 
-        $response = $this->actingAs($admin)->delete('/assisted/' . $assisted->id);
+        $response = $this->actingAs($admin)->delete(route('assisteds.destroy', $assisted->getKey()));
 
         $response->assertSuccessful();
 
-        $response = $this->actingAs($admin)->get('/assisted/' . $assisted->id);
+        $response = $this->actingAs($admin)->get(route('assisteds.show', $assisted->getKey()));
 
         $response->assertNotFound();
     }
