@@ -11,7 +11,7 @@ class FindByState extends TestCase
 {
     use RefreshDatabase;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->artisan('db:seed', ['--class' => 'RoleTableSeeder']);
